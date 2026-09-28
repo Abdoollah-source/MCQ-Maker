@@ -58,7 +58,12 @@ def apply_theme(app, dark=False):
     QPushButton[nav="true"] { text-align: left; background: transparent; border: 1px solid transparent; border-left: 3px solid transparent; min-height: 38px; padding: 0 9px; }
     QPushButton[nav="true"]:hover { background: %(hover)s; }
     QPushButton[nav="true"]:checked { background: %(selected)s; color: %(selected_text)s; border-left-color: %(primary)s; }
-    QPushButton[nav="true"]:focus { border-top-color: %(focus)s; border-right-color: %(focus)s; border-bottom-color: %(focus)s; }
+    QPushButton[nav="true"]:focus { border: 1px solid transparent; border-left: 3px solid transparent; }
+    QPushButton[nav="true"]:focus:unchecked { border-top-color: %(focus)s; border-right-color: %(focus)s; border-bottom-color: %(focus)s; }
+    QPushButton[nav="true"]:checked:focus { background: %(selected)s; color: %(selected_text)s; border: 1px solid transparent; border-left: 3px solid %(primary)s; }
+    QPushButton#watcherStatus { text-align: left; min-height: 34px; padding: 0 10px; }
+    QPushButton#watcherStatus[watcherState="on"] { background: %(success_bg)s; color: %(success)s; border-color: %(success)s; }
+    QPushButton#watcherStatus[watcherState="paused"] { background: %(warning_bg)s; color: %(warning)s; border-color: %(warning)s; }
     QPlainTextEdit { background: %(surface)s; border: 1px solid %(border)s; border-radius: 8px; padding: 16px; font-family: Consolas; font-size: 14px; selection-background-color: %(selection)s; selection-color: %(selection_text)s; }
     QPlainTextEdit:hover { border-color: %(border_hover)s; }
     QPlainTextEdit:focus { border: 2px solid %(focus)s; background: %(focus_surface)s; padding: 15px; }
@@ -69,8 +74,13 @@ def apply_theme(app, dark=False):
     QComboBox QAbstractItemView { background: %(surface)s; color: %(text)s; border: 2px solid %(focus)s;
         outline: none; padding: 4px; selection-background-color: %(selected)s; selection-color: %(selected_text)s; }
     QComboBox QAbstractItemView::item { min-height: 36px; padding: 0 10px; }
-    QCheckBox, QRadioButton { spacing: 10px; min-height: 32px; background: transparent; }
+    QCheckBox, QRadioButton { spacing: 10px; min-height: 32px; background: transparent; padding: 2px 4px; }
     QCheckBox::indicator, QRadioButton::indicator { width: 18px; height: 18px; }
+    QCheckBox::indicator { background: %(surface)s; border: 2px solid %(border)s; border-radius: 3px; }
+    QCheckBox::indicator:hover { border-color: %(border_hover)s; background: %(hover)s; }
+    QCheckBox::indicator:checked { background: %(primary)s; border-color: %(primary)s; }
+    QCheckBox::indicator:checked:hover { background: %(primary_hover)s; border-color: %(primary_hover)s; }
+    QCheckBox::indicator:disabled { background: %(disabled)s; border-color: %(line)s; }
     QCheckBox:focus, QRadioButton:focus { background: %(focus_surface)s; border: 1px solid %(focus)s; border-radius: 4px; }
     QScrollArea { background: transparent; border: none; }
     QScrollArea > QWidget > QWidget { background: %(bg)s; }

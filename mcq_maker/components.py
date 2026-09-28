@@ -1,7 +1,7 @@
 """Shared visual and interactive primitives for every MCQ Maker window."""
 from PySide6.QtCore import (QEasingCurve, QPropertyAnimation, QPoint, QSize,
                             QTimer, Qt)
-from PySide6.QtWidgets import (QComboBox, QFrame, QLabel, QPushButton,
+from PySide6.QtWidgets import (QAbstractScrollArea, QComboBox, QFrame, QLabel, QPushButton,
                                QApplication, QProgressBar, QSizePolicy,
                                QStyledItemDelegate, QVBoxLayout)
 
@@ -40,6 +40,21 @@ class Dropdown(QComboBox):
             y = max(available.top(), top_left.y() - popup.height())
         popup.resize(popup_width, popup.height())
         popup.move(x, y)
+
+    def wheelEvent(self, event):
+        """Let a surrounding scroll form handle wheel input until the menu is open."""
+        if self.view().window().isVisible() or not self._has_scrollable_ancestor():
+            super().wheelEvent(event)
+            return
+        event.ignore()
+
+    def _has_scrollable_ancestor(self):
+        parent = self.parentWidget()
+        while parent is not None:
+            if isinstance(parent, QAbstractScrollArea):
+                return True
+            parent = parent.parentWidget()
+        return False
 
 
 class AppButton(QPushButton):

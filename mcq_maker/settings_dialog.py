@@ -1,7 +1,7 @@
 """A responsive, immediately-applied settings window."""
 from pathlib import Path
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import QSignalBlocker, Qt, Signal
 from PySide6.QtWidgets import (QButtonGroup, QCheckBox, QDialog,
                                QFileDialog, QFrame, QHBoxLayout,
                                QLayout, QLineEdit, QRadioButton, QScrollArea,
@@ -230,6 +230,11 @@ class SettingsDialog(QDialog):
         self.status.setText('All settings are up to date.')
         self.status.setProperty('feedback', 'info')
         self._refresh_status_style()
+
+    def set_clipboard_watcher_enabled(self, enabled):
+        """Reflect the sidebar's persisted watcher control without re-saving it."""
+        with QSignalBlocker(self.clipboard_watcher):
+            self.clipboard_watcher.setChecked(bool(enabled))
 
     def mark_error(self, message):
         self.status.setText(message)

@@ -3,7 +3,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from PySide6.QtCore import QPoint
+from PySide6.QtCore import QPoint, QPointF, Qt
+from PySide6.QtGui import QWheelEvent
 from PySide6.QtWidgets import QApplication
 
 from mcq_maker.settings import SettingsStore
@@ -189,6 +190,70 @@ class SettingsDialogTests(unittest.TestCase):
                 self.app.processEvents()
             saved = store.load()
             self.assertEqual(saved['window']['width'], window.frameGeometry().width())
+
+    def test_main_window_restores_page_and_recovers_offscreen_geometry(self):
+        with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
+            repository = TemplateRepository(Path(root)/'library')
+            repository.initialize()
+            store = SettingsStore(repository.root)
+            settings = store.defaults()
+            settings['window'] = {
+                'x': -20000, 'y': -20000, 'width': 900, 'height': 650,
+                'maximized': False, 'page': 4,
+            }
+            store.save(settings)
+            window = MainWindow(repository=repository, settings=store.load(), settings_store=store)
+            try:
+                window.show()
+                QTest.qWait(100)
+                self.app.processEvents()
+                self.assertEqual(window.pages.currentIndex(), 4)
+                self.assertTrue(any(
+                    window.frameGeometry().intersects(screen.availableGeometry())
+                    for screen in self.app.screens()
+                ))
+                window.navigate(1)
+                window.persist_window()
+                persisted = store.load()['window']
+                self.assertEqual(persisted['page'], 1)
+                self.assertIn('maximized', persisted)
+            finally:
+                window.close()
+
+    def test_settings_dropdown_ignores_wheel_when_its_menu_is_closed(self):
+        with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
+            repository = TemplateRepository(Path(root)/'library')
+            repository.initialize()
+            dialog = SettingsDialog(SettingsStore(repository.root).defaults(), repository.list_templates()['templates'])
+            try:
+                dialog.show()
+                QTest.qWait(50)
+                combo = dialog.conflicts
+                combo.setCurrentIndex(0)
+                point = combo.rect().center()
+                event = QWheelEvent(QPointF(point), QPointF(combo.mapToGlobal(point)), QPoint(), QPoint(0, -120),
+                                    Qt.NoButton, Qt.NoModifier, Qt.ScrollUpdate, False)
+                QApplication.sendEvent(combo, event)
+                self.assertEqual(combo.currentIndex(), 0)
+            finally:
+                dialog.close()
+
+    def test_settings_checkboxes_have_shared_visible_states(self):
+        apply_theme(self.app, False)
+        stylesheet = self.app.styleSheet()
+        self.assertIn('QCheckBox::indicator { background:', stylesheet)
+        self.assertIn('QCheckBox::indicator:checked { background:', stylesheet)
+        with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
+            repository = TemplateRepository(Path(root)/'library')
+            repository.initialize()
+            dialog = SettingsDialog(SettingsStore(repository.root).defaults(), repository.list_templates()['templates'])
+            try:
+                for checkbox in (dialog.open_after, dialog.include_subfolders, dialog.clipboard_watcher):
+                    self.assertGreaterEqual(checkbox.minimumHeight(), 32)
+                    checkbox.setChecked(True)
+                    self.assertTrue(checkbox.isChecked())
+            finally:
+                dialog.close()
 
 
 if __name__ == '__main__':

@@ -210,7 +210,7 @@ class ClipboardWindowTests(unittest.TestCase):
                 window.toggle_clipboard_watcher()
                 self.assertEqual(watcher.state, 'on')
                 self.assertTrue(store.load()['clipboard_watcher'])
-                self.assertEqual(window.watcher_status.text(), 'On')
+                self.assertEqual(window.watcher_status.text(), 'Watching')
                 tray.watcher_toggle_requested.emit()
                 self.assertEqual(watcher.state, 'paused')
                 self.assertEqual(tray.watcher_action.text(), 'Resume Clipboard Watcher')
@@ -227,6 +227,44 @@ class ClipboardWindowTests(unittest.TestCase):
                 window.force_quit = True
                 window.close()
                 tray.deleteLater()
+                window.deleteLater()
+                self.app.processEvents()
+
+    def test_sidebar_watcher_toggle_persists_and_syncs_settings_dialog(self):
+        with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
+            root = Path(temporary)
+            repository = TemplateRepository(root / 'library')
+            repository.initialize()
+            store = SettingsStore(repository.root)
+            settings = store.defaults()
+            clipboard = FakeClipboard()
+            window = MainWindow(repository=repository, settings=settings, settings_store=store)
+            watcher = ClipboardWatcher(clipboard, repository, settings, parent=window)
+            try:
+                window.set_clipboard_watcher(watcher)
+                window.open_settings()
+                dialog = window.settings_dialog
+
+                window.watcher_status.click()
+                self.assertEqual(watcher.state, 'on')
+                self.assertTrue(store.load()['clipboard_watcher'])
+                self.assertTrue(dialog.clipboard_watcher.isChecked())
+                self.assertEqual(window.watcher_status.text(), 'Watching')
+
+                window.watcher_status.click()
+                self.assertEqual(watcher.state, 'off')
+                self.assertFalse(store.load()['clipboard_watcher'])
+                self.assertFalse(dialog.clipboard_watcher.isChecked())
+                self.assertEqual(window.watcher_status.text(), 'Off')
+            finally:
+                if window.settings_dialog is not None:
+                    window.settings_dialog.close()
+                watcher.shutdown()
+                watcher.pool.waitForDone(2000)
+                self.app.processEvents()
+                window.template_page.pool.waitForDone(2000)
+                window.force_quit = True
+                window.close()
                 window.deleteLater()
                 self.app.processEvents()
 

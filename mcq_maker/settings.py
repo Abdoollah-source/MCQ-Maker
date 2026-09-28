@@ -92,8 +92,14 @@ class SettingsStore:
             if type(settings[key]) is not bool:
                 raise SettingsError(f'{key} must be on or off.')
         window = settings['window']
-        if window is not None and (not isinstance(window, dict) or not all(type(window.get(key)) is int for key in ('x', 'y', 'width', 'height'))):
-            raise SettingsError('Saved window position is invalid.')
+        if window is not None:
+            if (not isinstance(window, dict)
+                    or not all(type(window.get(key)) is int for key in ('x', 'y', 'width', 'height'))):
+                raise SettingsError('Saved window position is invalid.')
+            if 'maximized' in window and type(window['maximized']) is not bool:
+                raise SettingsError('Saved window state is invalid.')
+            if 'page' in window and (type(window['page']) is not int or not 0 <= window['page'] <= 5):
+                raise SettingsError('Saved navigation page is invalid.')
         return settings
 
     def load(self):

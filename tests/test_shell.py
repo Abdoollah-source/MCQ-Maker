@@ -72,6 +72,18 @@ class ShellTests(unittest.TestCase):
         QTest.keyClick(back, Qt.Key_Return)
         self.assertEqual(self.window.pages.currentIndex(), 0)
 
+    def test_sidebar_focus_does_not_compete_with_selected_page(self):
+        selected = self.window.nav_buttons[0]
+        focused = self.window.nav_buttons[1]
+        focused.setFocus()
+        self.app.processEvents()
+        self.assertTrue(selected.isChecked())
+        self.assertFalse(focused.isChecked())
+        self.assertTrue(focused.hasFocus())
+        stylesheet = self.app.styleSheet()
+        self.assertIn('QPushButton[nav="true"]:focus:unchecked', stylesheet)
+        self.assertIn('QPushButton[nav="true"]:checked:focus', stylesheet)
+
     def test_global_keyboard_shortcuts_reach_their_destinations(self):
         self.window.history_page.search.setEnabled(True)
         self.window.history_shortcut.trigger()

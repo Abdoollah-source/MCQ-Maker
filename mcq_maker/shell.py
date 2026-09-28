@@ -2,7 +2,8 @@
 from pathlib import Path
 from PySide6.QtCore import Qt, QTimer, QSize, QByteArray, QStandardPaths, QUrl, Signal
 from PySide6.QtSvg import QSvgRenderer
-from PySide6.QtGui import QAction, QIcon, QPainter, QPen, QColor, QPixmap, QTextCursor, QDesktopServices
+from PySide6.QtGui import (QAction, QGuiApplication, QIcon, QPainter, QPen, QColor,
+                           QPixmap, QTextCursor, QDesktopServices)
 from PySide6.QtWidgets import (QMainWindow, QWidget, QFrame, QVBoxLayout,
     QHBoxLayout, QBoxLayout, QStackedWidget, QScrollArea, QPlainTextEdit,
     QMenu, QApplication, QFileDialog, QMessageBox)
@@ -498,7 +499,10 @@ class MainWindow(QMainWindow):
             self.nav_buttons.append(b)
         nav.addStretch()
         nav.addWidget(label('Clipboard watcher', 'muted'))
-        self.watcher_status = label('Off', 'field')
+        self.watcher_status = button('Off', True)
+        self.watcher_status.setObjectName('watcherStatus')
+        self.watcher_status.setToolTip('Turn clipboard watching on or off.')
+        self.watcher_status.clicked.connect(self.toggle_sidebar_clipboard_watcher)
         nav.addWidget(self.watcher_status)
         nav.addSpacing(12)
         self.settings_button = button('Settings', settings is not None)
@@ -587,8 +591,11 @@ class MainWindow(QMainWindow):
             self.resize(width, height)
             candidate = self.frameGeometry()
             candidate.moveTo(saved['x'], saved['y'])
-            if candidate.intersects(available):
+            if self._saved_geometry_is_visible(candidate):
                 self.move(candidate.topLeft())
+                self._restore_navigation_page(saved)
+                if saved.get('maximized', False):
+                    self.showMaximized()
                 return
         frame = self.frameGeometry()
         dw, dh = frame.width()-self.width(), frame.height()-self.height()
@@ -596,6 +603,24 @@ class MainWindow(QMainWindow):
         frame = self.frameGeometry()
         frame.moveCenter(available.center())
         self.move(frame.topLeft())
+        if saved:
+            self._restore_navigation_page(saved)
+            if saved.get('maximized', False):
+                self.showMaximized()
+
+    @staticmethod
+    def _saved_geometry_is_visible(candidate):
+        """Accept a saved position if a meaningful part remains on any screen."""
+        for screen in QGuiApplication.screens():
+            visible = candidate.intersected(screen.availableGeometry())
+            if visible.width() >= 64 and visible.height() >= 64:
+                return True
+        return False
+
+    def _restore_navigation_page(self, saved):
+        page = saved.get('page', 0)
+        if isinstance(page, int) and 0 <= page < self.pages.count():
+            self.navigate(page)
 
     def open_settings(self):
         if self.settings is None or self.settings_store is None or self.repository is None:
@@ -733,8 +758,15 @@ class MainWindow(QMainWindow):
                 self.history_page.table.setCurrentItem(self.history_page.table.topLevelItem(0))
 
     def update_watcher_state(self, state):
-        display = {'off': 'Off', 'on': 'On', 'paused': 'Paused'}[state]
+        display = {'off': 'Off', 'on': 'Watching', 'paused': 'Paused'}[state]
         self.watcher_status.setText(display)
+        self.watcher_status.setProperty('watcherState', state)
+        self.watcher_status.setToolTip(
+            'Turn clipboard watching on or off.' if state != 'on'
+            else 'Clipboard watching is on. Click to turn it off.'
+        )
+        self.watcher_status.style().unpolish(self.watcher_status)
+        self.watcher_status.style().polish(self.watcher_status)
         self.compact_watcher_status.setText(f'Clipboard watcher: {display}')
         if self.tray_controller is not None:
             self.tray_controller.set_watcher_state(state)
@@ -765,6 +797,27 @@ class MainWindow(QMainWindow):
         if self.tray_controller is not None:
             self.tray_controller.sync(self.settings)
         self.watcher_activity('Clipboard watcher is on. Valid quiz text will be saved automatically. Use Pause in the tray menu to stop watching temporarily.')
+
+    def toggle_sidebar_clipboard_watcher(self):
+        """Persist an explicit on/off choice from the main sidebar control."""
+        if self.clipboard_watcher is None or self.settings is None or self.settings_store is None:
+            return
+        self._set_clipboard_watcher_enabled(self.clipboard_watcher.state != 'on')
+
+    def _set_clipboard_watcher_enabled(self, enabled):
+        updated = dict(self.settings)
+        updated['clipboard_watcher'] = bool(enabled)
+        try:
+            self.settings = self.settings_store.save(updated)
+        except Exception:
+            self.watcher_activity('Clipboard watching could not be changed because Settings could not be saved.', True)
+            return False
+        self.clipboard_watcher.apply_settings(self.settings)
+        if self.settings_dialog is not None:
+            self.settings_dialog.set_clipboard_watcher_enabled(enabled)
+        if self.tray_controller is not None:
+            self.tray_controller.sync(self.settings)
+        return True
 
     def process_clipboard_now(self):
         text = QApplication.clipboard().text()
@@ -800,8 +853,11 @@ class MainWindow(QMainWindow):
     def persist_window(self):
         if self.settings is None or self.settings_store is None:
             return
-        frame = self.frameGeometry()
-        self.settings['window'] = {'x': frame.x(), 'y': frame.y(), 'width': frame.width(), 'height': frame.height()}
+        frame = self.normalGeometry() if self.isMaximized() else self.frameGeometry()
+        self.settings['window'] = {
+            'x': frame.x(), 'y': frame.y(), 'width': frame.width(), 'height': frame.height(),
+            'maximized': self.isMaximized(), 'page': self.pages.currentIndex(),
+        }
         try:
             self.settings = self.settings_store.save(self.settings)
         except Exception:
