@@ -487,7 +487,7 @@ class MainWindow(QMainWindow):
         self.nav_buttons = []
         self.nav_titles = (
             'Create exam', 'Folder scan', 'History', 'Templates', 'AI generation',
-            'AI Studio semi-automation',
+            'AI Studio Automation',
         )
         for i, title in enumerate(self.nav_titles):
             b = button(title, True)

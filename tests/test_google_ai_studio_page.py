@@ -6,7 +6,7 @@ import asyncio
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from PySide6.QtWidgets import QApplication, QMessageBox
+from PySide6.QtWidgets import QApplication, QLabel, QMessageBox
 from PySide6.QtCore import Qt, QRunnable
 
 from mcq_maker.google_ai_studio_page import (GoogleAIStudioSemiAutomationPage,
@@ -61,8 +61,15 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             self.assertEqual(page.parallel_tabs.itemData(1), 2)
             self.assertTrue(page.scroll.widgetResizable())
             self.assertEqual(page.scroll.horizontalScrollBarPolicy(), Qt.ScrollBarAlwaysOff)
-            self.assertGreaterEqual(page.prompt_path.parentWidget().minimumHeight(), 38)
-            self.assertEqual(page.run_button.text(), 'Start semi-automation')
+            self.assertGreaterEqual(page.prompt_path.minimumHeight(), 52)
+            self.assertEqual(page.run_button.text(), 'Start batch')
+            self.assertEqual(page.batch_state.text(), 'No saved batch')
+            self.assertEqual(page.prompt_path.name_label.text(), 'PROMPT(MCQ-MAKER).txt')
+            self.assertEqual(page.prompt_path.toolTip(), page.prompt_path.text())
+            self.assertTrue(page.prompt_path.copy_button.isEnabled())
+            visible_labels = [item.text() for item in page.findChildren(QLabel)]
+            self.assertIn('AI Studio Automation', visible_labels)
+            self.assertFalse(any('Semi-Automation' in text for text in visible_labels))
             self.assertEqual(page.job_table.columnCount(), 4)
             self.assertEqual(page._friendly_event('[sending_calibration]'), 'Sending calibration…')
             self.assertIn('manual Rerun', page._friendly_event(
@@ -204,7 +211,8 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             store.save(manifest)
             settings = SettingsStore(repository.root).defaults()
             page = GoogleAIStudioSemiAutomationPage(repository, settings, batch_store=store)
-            self.assertEqual(page.run_button.text(), 'Continue saved batch')
+            self.assertEqual(page.run_button.text(), 'Continue batch')
+            self.assertEqual(page.batch_state.text(), 'Saved batch ready')
             self.assertEqual(page.lecture_path.text(), str(lecture_folder))
             self.assertEqual(page.job_table.topLevelItemCount(), 1)
             self.assertEqual(page.job_table.topLevelItem(0).text(1), 'Waiting to retry')
@@ -236,6 +244,7 @@ class GoogleAIStudioPageTests(unittest.TestCase):
                 repository, SettingsStore(repository.root).defaults(), batch_store=store,
             )
             self.assertEqual(page.run_button.text(), 'Resume saved batch')
+            self.assertEqual(page.batch_state.text(), 'Batch paused')
             self.assertFalse(page.pause_button.isEnabled())
             self.assertFalse(page.discard_button.isHidden())
             with patch('mcq_maker.google_ai_studio_page.QMessageBox.question', return_value=QMessageBox.Yes) as confirm:
@@ -244,7 +253,7 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             self.assertIn('Generated HTML exams', confirm.call_args.args[2])
             self.assertFalse(store.path_for(manifest.batch_id).exists())
             self.assertTrue(output.is_file())
-            self.assertEqual(page.run_button.text(), 'Start semi-automation')
+            self.assertEqual(page.run_button.text(), 'Start batch')
             page.close()
 
     def test_active_buttons_reflect_safe_pause_and_stop_actions(self):
@@ -258,8 +267,11 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             page._set_busy(True)
             self.assertTrue(page.pause_button.isEnabled())
             self.assertFalse(page.discard_button.isEnabled())
+            self.assertEqual(page.run_button.text(), 'Stop safely')
+            self.assertEqual(page.pause_button.text(), 'Pause after current')
+            self.assertEqual(page.batch_state.text(), 'Batch running')
             page.toggle_pause()
-            self.assertEqual(page.pause_button.text(), 'Resume now')
+            self.assertEqual(page.pause_button.text(), 'Resume batch')
             self.assertIn('Pausing after current', page.status.text())
             page.stop_run()
             self.assertEqual(page.run_button.text(), 'Stopping safely…')
@@ -277,7 +289,28 @@ class GoogleAIStudioPageTests(unittest.TestCase):
         self.assertEqual(GoogleAIStudioSemiAutomationPage._saved_batch_action(manifest), 'Resume saved batch')
         manifest.control_state = 'running'
         manifest.lectures[0].status = 'Waiting to retry'
-        self.assertEqual(GoogleAIStudioSemiAutomationPage._saved_batch_action(manifest), 'Continue saved batch')
+        self.assertEqual(GoogleAIStudioSemiAutomationPage._saved_batch_action(manifest), 'Continue batch')
+
+    def test_compact_path_field_keeps_full_path_available_for_copying(self):
+        with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
+            root = Path(temporary)
+            repository = TemplateRepository(root / 'data')
+            repository.initialize()
+            page = GoogleAIStudioSemiAutomationPage(
+                repository, SettingsStore(repository.root).defaults(),
+                batch_store=BatchStateStore(root / 'batches'),
+            )
+            try:
+                selected = root / 'a long folder name' / 'lecture notes.pdf'
+                page.lecture_path.setText(str(selected))
+                self.assertEqual(page.lecture_path.text(), str(selected))
+                self.assertEqual(page.lecture_path.name_label.text(), 'lecture notes.pdf')
+                self.assertEqual(page.lecture_path.toolTip(), str(selected))
+                self.assertTrue(page.lecture_path.copy_button.isEnabled())
+                page.lecture_path.copy_path()
+                self.assertEqual(QApplication.clipboard().text(), str(selected))
+            finally:
+                page.close()
 
 
 if __name__ == '__main__':

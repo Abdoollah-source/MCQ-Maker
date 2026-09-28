@@ -38,6 +38,8 @@ class ShellTests(unittest.TestCase):
         self.assertGreaterEqual(self.window.create.editor.height(), 280)
 
     def test_navigation_and_unconfigured_create_state(self):
+        self.assertIn('AI Studio Automation', self.window.nav_titles)
+        self.assertFalse(any('semi-automation' in title.casefold() for title in self.window.nav_titles))
         for index, button in enumerate(self.window.nav_buttons):
             QTest.mouseClick(button, Qt.LeftButton)
             self.assertEqual(self.window.pages.currentIndex(), index)

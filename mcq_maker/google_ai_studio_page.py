@@ -6,9 +6,9 @@ from pathlib import Path
 from threading import Event
 
 from PySide6.QtCore import QObject, QRunnable, QThreadPool, Qt, QUrl, Signal
-from PySide6.QtGui import QDesktopServices
+from PySide6.QtGui import QDesktopServices, QGuiApplication
 from PySide6.QtWidgets import (QFileDialog, QGridLayout, QHBoxLayout, QLayout,
-                               QLineEdit, QMessageBox, QScrollArea, QSizePolicy,
+                               QLabel, QMessageBox, QScrollArea, QSizePolicy,
                                QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 
 from .ai_studio_browser import AIStudioBrowserManager
@@ -24,6 +24,70 @@ class GoogleAIStudioSignals(QObject):
     completed = Signal(str, int)
     failed = Signal(str)
     cancelled = Signal()
+
+
+class CompactPathField(QWidget):
+    """A compact, tooltip-backed path display with the former field interface."""
+
+    def __init__(self, title, selected_description, choose_label, choose, parent=None):
+        super().__init__(parent)
+        self._value = ''
+        self._selected_description = selected_description
+        self.setAccessibleName(title)
+        self.setMinimumHeight(52)
+        layout = QHBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(8)
+        details = QWidget(self)
+        details_layout = QVBoxLayout(details)
+        details_layout.setContentsMargins(0, 0, 0, 0)
+        details_layout.setSpacing(2)
+        self.name_label = QLabel('Not selected')
+        self.name_label.setProperty('role', 'field')
+        self.name_label.setTextFormat(Qt.PlainText)
+        self.name_label.setWordWrap(False)
+        self.name_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        self.detail_label = QLabel('Choose a file or folder to continue.')
+        self.detail_label.setProperty('role', 'muted')
+        self.detail_label.setTextFormat(Qt.PlainText)
+        self.detail_label.setWordWrap(False)
+        self.detail_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Fixed)
+        details_layout.addWidget(self.name_label)
+        details_layout.addWidget(self.detail_label)
+        self.choose_button = button(choose_label, True)
+        self.choose_button.setMinimumWidth(132)
+        self.choose_button.clicked.connect(choose)
+        self.copy_button = button('Copy path')
+        self.copy_button.setMinimumWidth(96)
+        self.copy_button.clicked.connect(self.copy_path)
+        layout.addWidget(details, 1)
+        layout.addWidget(self.choose_button)
+        layout.addWidget(self.copy_button)
+
+    def text(self):
+        return self._value
+
+    def setText(self, value):
+        self._value = str(value or '')
+        if not self._value:
+            self.name_label.setText('Not selected')
+            self.detail_label.setText('Choose a file or folder to continue.')
+            self.setToolTip('')
+            self.name_label.setToolTip('')
+            self.detail_label.setToolTip('')
+            self.copy_button.setEnabled(False)
+            return
+        path = Path(self._value)
+        self.name_label.setText(path.name or self._value)
+        self.detail_label.setText(f'{self._selected_description} · {path.parent.name or path.parent}')
+        self.setToolTip(self._value)
+        self.name_label.setToolTip(self._value)
+        self.detail_label.setToolTip(self._value)
+        self.copy_button.setEnabled(True)
+
+    def copy_path(self):
+        if self._value:
+            QGuiApplication.clipboard().setText(self._value)
 
 
 class GoogleAIStudioWorker(QRunnable):
@@ -111,7 +175,7 @@ class GoogleAIStudioWorker(QRunnable):
         try:
             output, question_count = asyncio.run(self._run())
         except Exception as exc:
-            self.signals.failed.emit(str(exc) or 'Google AI Studio semi-automation stopped unexpectedly.')
+            self.signals.failed.emit(str(exc) or 'AI Studio Automation stopped unexpectedly.')
         else:
             if self.cancelled.is_set():
                 self.signals.cancelled.emit()
@@ -155,7 +219,7 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
             self._restore_manifest_fields(self.resume_manifest)
             self._render_manifest_jobs(self.resume_manifest)
             self.run_button.setText(self._saved_batch_action(self.resume_manifest))
-            self.status.setText('A saved queue is available. Review its progress, then resume or discard it.')
+            self._show_saved_batch_summary(self.resume_manifest)
 
     def _build_ui(self):
         outer = QVBoxLayout(self)
@@ -163,7 +227,7 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         outer.setSpacing(20)
 
         header = QHBoxLayout()
-        header.addWidget(label('Google AI Studio Semi-Automation', 'title'), 1)
+        header.addWidget(label('AI Studio Automation', 'title'), 1)
         outer.addLayout(header)
         outer.addWidget(label(
             'Choose a lecture folder. MCQ Maker preserves completed exams while it processes the queue. '
@@ -183,11 +247,25 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         setup, setup_layout = panel()
         setup_layout.setSpacing(14)
         setup_layout.addWidget(label('Files and setup', 'heading'))
-        self.prompt_path = self._path_field(setup_layout, 'Saved prompt', 'Choose prompt', self._default_file('Pompts', 'PROMPT(MCQ-MAKER).txt'), 'Text files (*.txt *.md);;All files (*)')
-        self.reference_path = self._path_field(setup_layout, 'Reference file', 'Choose reference', self._default_file('References', 'refrence.txt'), 'Text files (*.txt *.md);;All files (*)')
-        self.lecture_path = self._folder_field(setup_layout, 'Lecture folder', '')
-        self.output_folder = self._folder_field(setup_layout, 'Output folder', self.settings.get('output_folder', ''))
+        self.prompt_path = self._path_field(
+            setup_layout, 'Prompt', 'Prompt file selected', 'Choose prompt',
+            self._default_file('Pompts', 'PROMPT(MCQ-MAKER).txt'),
+            'Text files (*.txt *.md);;All files (*)',
+        )
+        self.reference_path = self._path_field(
+            setup_layout, 'Reference', 'Reference file selected', 'Choose reference',
+            self._default_file('References', 'refrence.txt'),
+            'Text files (*.txt *.md);;All files (*)',
+        )
+        self.lecture_path = self._folder_field(setup_layout, 'Lecture folder', 'Lecture folder selected', '')
+        self.output_folder = self._folder_field(
+            setup_layout, 'Output folder', 'Output folder selected', self.settings.get('output_folder', ''),
+        )
+        body_layout.addWidget(setup)
 
+        configuration, configuration_layout = panel()
+        configuration_layout.setSpacing(12)
+        configuration_layout.addWidget(label('Generation configuration', 'heading'))
         options = QWidget()
         options_layout = QGridLayout(options)
         options_layout.setContentsMargins(0, 0, 0, 0)
@@ -219,14 +297,16 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         options_layout.setColumnStretch(0, 3)
         options_layout.setColumnStretch(1, 2)
         options_layout.setColumnStretch(2, 2)
-        setup_layout.addWidget(options)
-        body_layout.addWidget(setup)
+        configuration_layout.addWidget(options)
+        body_layout.addWidget(configuration)
 
         activity, activity_layout = panel()
         self.activity_panel = activity
         activity_layout.setSpacing(10)
-        activity_layout.addWidget(label('Activity', 'heading'))
-        self.status = label('Choose the files, then start one lecture.', 'muted')
+        activity_layout.addWidget(label('Batch activity', 'heading'))
+        self.batch_state = label('No saved batch', 'field')
+        activity_layout.addWidget(self.batch_state)
+        self.status = label('Choose a lecture folder to start a new AI Studio automation batch.', 'muted')
         self.status.setMinimumHeight(18)
         self.status.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
         activity_layout.addWidget(self.status)
@@ -262,14 +342,14 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         self.open_output_button.clicked.connect(self.open_output_folder)
         footer.addWidget(self.open_output_button)
         footer.addStretch()
-        self.pause_button = button('Pause')
+        self.pause_button = button('Pause after current')
         self.pause_button.clicked.connect(self.toggle_pause)
         footer.addWidget(self.pause_button)
         self.discard_button = button('Discard saved batch')
         self.discard_button.clicked.connect(self.discard_saved_batch)
         self.discard_button.setVisible(bool(getattr(self, 'resume_manifest', None)))
         footer.addWidget(self.discard_button)
-        self.run_button = button('Start semi-automation', primary=True)
+        self.run_button = button('Start batch', primary=True)
         self.run_button.clicked.connect(self.toggle_run)
         footer.addWidget(self.run_button)
         outer.addLayout(footer)
@@ -278,50 +358,22 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
     def _default_file(folder, filename):
         return Path(__file__).resolve().parents[1] / folder / filename
 
-    def _path_field(self, layout, title, action, initial, file_filter):
-        group = QWidget()
-        group.setMinimumHeight(70)
-        group_layout = QVBoxLayout(group)
-        group_layout.setContentsMargins(0, 0, 0, 0)
-        group_layout.setSpacing(6)
-        group_layout.addWidget(label(title, 'field'))
-        row = QWidget(group)
-        row.setMinimumHeight(38)
-        row_layout = QHBoxLayout(row)
-        row_layout.setContentsMargins(0, 0, 0, 0)
-        row_layout.setSpacing(8)
-        field = QLineEdit(str(initial) if Path(initial).is_file() else '')
-        field.setAccessibleName(title)
-        choose = button(action, True)
-        choose.setMinimumWidth(150)
-        choose.clicked.connect(lambda: self.choose_file(field, title, file_filter))
-        row_layout.addWidget(field, 1)
-        row_layout.addWidget(choose)
-        group_layout.addWidget(row)
-        layout.addWidget(group)
+    def _path_field(self, layout, title, selected_description, action, initial, file_filter):
+        field = CompactPathField(
+            title, selected_description, action,
+            lambda: self.choose_file(field, title, file_filter),
+        )
+        field.setText(str(initial) if Path(initial).is_file() else '')
+        layout.addWidget(field)
         return field
 
-    def _folder_field(self, layout, title, initial):
-        group = QWidget()
-        group.setMinimumHeight(70)
-        group_layout = QVBoxLayout(group)
-        group_layout.setContentsMargins(0, 0, 0, 0)
-        group_layout.setSpacing(6)
-        group_layout.addWidget(label(title, 'field'))
-        row = QWidget(group)
-        row.setMinimumHeight(38)
-        row_layout = QHBoxLayout(row)
-        row_layout.setContentsMargins(0, 0, 0, 0)
-        row_layout.setSpacing(8)
-        field = QLineEdit(str(initial))
-        field.setAccessibleName(title)
-        choose = button('Choose folder', True)
-        choose.setMinimumWidth(150)
-        choose.clicked.connect(lambda: self.choose_folder(field))
-        row_layout.addWidget(field, 1)
-        row_layout.addWidget(choose)
-        group_layout.addWidget(row)
-        layout.addWidget(group)
+    def _folder_field(self, layout, title, selected_description, initial):
+        field = CompactPathField(
+            title, selected_description, 'Choose folder',
+            lambda: self.choose_folder(field),
+        )
+        field.setText(str(initial))
+        layout.addWidget(field)
         return field
 
     def _set_model_options(self, preferred):
@@ -497,11 +549,11 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
             return
         if self.worker.paused.is_set():
             self.worker.paused.clear()
-            self.pause_button.setText('Pause')
+            self.pause_button.setText('Pause after current')
             self._event('[pause_cancelled]')
         else:
             self.worker.paused.set()
-            self.pause_button.setText('Resume now')
+            self.pause_button.setText('Resume batch')
             self.status.setText('Pausing after the current lecture…')
             self._event('[pausing_after_current]')
 
@@ -572,6 +624,30 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         self.parallel_tabs.setCurrentIndex(max(0, self.parallel_tabs.findData(manifest.max_workers)))
         if manifest.template_id:
             self.template.setCurrentIndex(max(0, self.template.findData(manifest.template_id)))
+
+    def _show_saved_batch_summary(self, manifest):
+        statuses = {item.status for item in manifest.lectures if item.status != 'Completed'}
+        if statuses & {'Interrupted', 'Needs attention'}:
+            state = 'Batch needs attention'
+            detail = 'Review the affected lecture status before starting the saved batch.'
+        elif manifest.control_state == 'paused' or 'Paused' in statuses:
+            state = 'Batch paused'
+            detail = 'Resume batch when you are ready to continue the remaining lectures.'
+        elif manifest.control_state == 'stopped' or 'Cancelled' in statuses:
+            state = 'Batch stopped safely'
+            detail = 'Resume batch to continue eligible lectures. Completed exams are preserved.'
+        elif statuses:
+            state = 'Saved batch ready'
+            detail = 'Review progress, then continue the saved batch or discard its saved progress.'
+        else:
+            state = 'Saved batch complete'
+            detail = 'All lectures in this saved batch are complete.'
+        self.batch_state.setText(state)
+        self.status.setText(detail)
+
+    def _show_empty_batch_summary(self):
+        self.batch_state.setText('No saved batch')
+        self.status.setText('Choose a lecture folder to start a new AI Studio automation batch.')
 
     @staticmethod
     def _event_parts(message):
@@ -670,10 +746,13 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         self.resume_manifest = available[0] if available else None
         self.discard_button.setVisible(bool(self.resume_manifest))
         self.run_button.setText(
-            self._saved_batch_action(self.resume_manifest) if self.resume_manifest else 'Start semi-automation'
+            self._saved_batch_action(self.resume_manifest) if self.resume_manifest else 'Start batch'
         )
         if self.resume_manifest:
             self._render_manifest_jobs(self.resume_manifest)
+            self._show_saved_batch_summary(self.resume_manifest)
+        else:
+            self._show_empty_batch_summary()
 
     @staticmethod
     def _saved_batch_action(manifest):
@@ -684,21 +763,22 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
             return 'Resume saved batch'
         if statuses & {'Interrupted', 'Needs attention'}:
             return 'Review saved batch'
-        return 'Continue saved batch'
+        return 'Continue batch'
 
     def _set_busy(self, busy):
         self.run_button.setEnabled(True)
-        self.run_button.setText('Stop' if busy else 'Start semi-automation')
+        self.run_button.setText('Stop safely' if busy else 'Start batch')
         self.pause_button.setEnabled(busy)
         self.discard_button.setEnabled(not busy)
         if busy:
-            self.pause_button.setText('Pause')
+            self.pause_button.setText('Pause after current')
+            self.batch_state.setText('Batch running')
         for control in (self.prompt_path, self.reference_path, self.lecture_path,
                         self.output_folder, self.model, self.thinking, self.parallel_tabs, self.template):
             control.setEnabled(not busy)
         if not busy:
             self.worker = None
-            self.pause_button.setText('Pause')
+            self.pause_button.setText('Pause after current')
             self.pause_button.setEnabled(False)
 
     def _ready(self):
