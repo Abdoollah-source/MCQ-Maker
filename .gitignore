@@ -1,0 +1,118 @@
+# =========================
+# Python caches
+# =========================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# =========================
+# Virtual environments / package caches
+# =========================
+.venv/
+venv/
+env/
+.venv-build/
+**/.venv/
+.uv-cache/
+
+# =========================
+# Build and release outputs
+# =========================
+build/
+dist/
+release/
+artifacts/
+
+# =========================
+# Recovery snapshots / local archives
+# =========================
+checkpoints/
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# =========================
+# Logs / local databases / temp files
+# =========================
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.tmp
+*.temp
+
+# =========================
+# Local AI Studio / browser automation state
+# =========================
+ai_studio/
+brave-profile/
+chrome-profile/
+user-data-dir/
+batches/
+playwright-report/
+test-results/
+playwright/.cache/
+*.har
+
+# =========================
+# Generated exams / local outputs
+# =========================
+outputs/
+output/
+generated/
+human_assisted_output/
+MCQ Maker Exams/
+
+# Generated HTML exams by default
+*.html
+
+# Keep required app HTML templates
+!mcq_maker/assets/standard_exam.html
+
+# =========================
+# Private lecture/source material
+# Keep PDFs out of Git by default unless explicitly approved.
+# =========================
+*.pdf
+
+# =========================
+# Secrets / credentials
+# =========================
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*.json
+token*.json
+secrets*.json
+
+# =========================
+# OS / IDE / local shortcuts
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.lnk
+# =========================
+# Experiment browser profiles / local CDP state
+# =========================
+experiments/ai_studio_playwright/profile*/
+experiments/ai_studio_playwright/profile_*/
+experiments/ai_studio_playwright/*profile*/

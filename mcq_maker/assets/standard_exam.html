@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mcq-maker-template-version" content="1">
+<meta name="mcq-maker-min-options" content="2">
+<meta name="mcq-maker-max-options" content="10">
+<title>MCQ Maker exam</title>
+<style>
+:root { color-scheme: light; font-family: "Segoe UI", sans-serif; color: #292724; background: #f5f3ef; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 860px; padding: 48px 24px; }
+header { margin-bottom: 32px; }
+h1 { font-size: 28px; font-weight: 600; margin: 8px 0 12px; }
+.eyebrow, .metadata { color: #59534d; font-size: 14px; }
+article { border: 1px solid #ddd8d1; border-radius: 8px; background: #fff; padding: 24px; margin-bottom: 20px; }
+h2 { font-size: 18px; line-height: 1.6; font-weight: 600; white-space: pre-wrap; }
+label { display: flex; align-items: baseline; gap: 12px; padding: 12px; border: 1px solid #8b847c; border-radius: 6px; margin: 8px 0; cursor: pointer; }
+label:hover { background: #f0ece7; }
+input { accent-color: #68445f; }
+input:focus-visible { outline: 2px solid #79506e; outline-offset: 3px; }
+label span { white-space: pre-wrap; }
+button { font: inherit; padding: 10px 18px; border: none; border-radius: 6px; background: #68445f; color: #fff; margin-top: 12px; }
+button:hover { background: #593850; }
+button:focus-visible { outline: 2px solid #79506e; outline-offset: 3px; }
+button:disabled { background: #e9e5df; color: #827a72; }
+.feedback { padding: 16px; border-radius: 6px; background: #eeebe6; white-space: pre-wrap; line-height: 1.6; }
+.feedback:empty { display: none; }
+footer { margin-top: 32px; color: #59534d; font-size: 12px; }
+@media print { body { padding: 0; } article { break-inside: avoid; } button { display: none; } }
+</style>
+</head>
+<body>
+<header><div class="eyebrow">MCQ Maker</div><h1 id="title" dir="auto">Your exam</h1><div id="summary" class="metadata"></div></header>
+<main id="questions"></main>
+<footer>Review the questions and explanations before sharing this exam.</footer>
+<script>
+/* MCQ_MAKER_DATA_START */
+const quizData = [];
+/* MCQ_MAKER_DATA_END */
+const examTitle = quizData[0]?.title || 'Your exam';
+document.title = examTitle;
+document.getElementById('title').textContent = examTitle;
+document.getElementById('summary').textContent = `${Math.max(0, quizData.length - 1)} questions · Choose an answer, then check it.`;
+quizData.slice(1).forEach((question, index) => {
+  const article = document.createElement('article');
+  const heading = document.createElement('h2');
+  heading.dir = 'auto';
+  heading.textContent = `${index + 1}. ${question.question}`;
+  article.appendChild(heading);
+  const answers = [];
+  question.options.forEach((option, answerIndex) => {
+    const row = document.createElement('label');
+    const radio = document.createElement('input');
+    radio.type = 'radio'; radio.name = `question-${index}`; radio.value = answerIndex;
+    const text = document.createElement('span'); text.dir = 'auto'; text.textContent = option;
+    row.append(radio, text); article.appendChild(row); answers.push(radio);
+  });
+  const check = document.createElement('button'); check.textContent = 'Check answer'; check.disabled = true;
+  answers.forEach(radio => radio.addEventListener('change', () => { check.disabled = false; }));
+  const feedback = document.createElement('p'); feedback.className = 'feedback'; feedback.dir = 'auto'; feedback.setAttribute('aria-live', 'polite');
+  check.addEventListener('click', () => {
+    const selected = answers.findIndex(radio => radio.checked);
+    feedback.textContent = (selected === question.correct ? 'Correct. ' : `Correct answer: ${question.options[question.correct]}. `) + question.explanation;
+  });
+  article.append(check, feedback); document.getElementById('questions').appendChild(article);
+});
+</script>
+</body>
+</html>

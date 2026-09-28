@@ -1,0 +1,9 @@
+[
+  {"title": "Module 5 Cardiology Review"},
+  {
+    "question": "Which chamber pumps blood into the pulmonary artery?",
+    "options": ["Left atrium", "Right atrium", "Left ventricle", "Right ventricle"],
+    "correct": 3,
+    "explanation": "The right ventricle ejects blood into the pulmonary artery."
+  }
+]

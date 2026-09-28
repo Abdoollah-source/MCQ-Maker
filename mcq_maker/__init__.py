@@ -1,0 +1,1 @@
+"""MCQ Maker desktop application."""

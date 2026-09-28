@@ -1,0 +1,9 @@
+MCQ Maker includes the following third-party software:
+
+PySide6 Essentials and Shiboken6 — Qt for Python — LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only with Qt exceptions.
+jsonschema, attrs, referencing, rpds-py, platformdirs, typing-extensions, and windows-toasts — permissive open-source licenses supplied by their respective authors.
+WinRT Python projection packages — MIT License.
+Microsoft Fluent UI System Icons — MIT License. The full icon license is installed in mcq_maker/assets/Fluent-Icons-LICENSE.txt.
+PyInstaller, pyinstaller-hooks-contrib, altgraph, pefile, pywin32-ctypes, packaging, and setuptools are used to produce the bundled application under their respective open-source licenses.
+
+Copyright and license details remain available from each project's installed package metadata and source distribution.

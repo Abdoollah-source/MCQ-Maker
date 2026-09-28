@@ -1,0 +1,21 @@
+# Verified Windows development dependencies (Python 3.14).
+attrs==26.1.0
+greenlet==3.5.6
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+PySide6-Essentials==6.10.2
+platformdirs==4.11.8
+playwright==1.63.0
+pyee==13.0.1
+pyinstaller==6.20.0
+pyinstaller-hooks-contrib==2026.7
+referencing==0.37.0
+rpds-py==2026.6.3
+shiboken6==6.10.2
+typing-extensions==4.16.0
+windows-toasts==1.3.1
+winrt-runtime==3.2.1
+winrt-windows-data-xml-dom==3.2.1
+winrt-windows-foundation==3.2.1
+winrt-windows-foundation-collections==3.2.1
+winrt-windows-ui-notifications==3.2.1

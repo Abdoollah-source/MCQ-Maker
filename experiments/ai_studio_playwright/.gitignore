@@ -1,0 +1,24 @@
+# Playwright AI Studio Probe - Ignore local data
+
+# Persistent browser profile (contains login session)
+profile/
+
+# Extracted response artifacts
+artifacts/
+human_assisted_output/
+human_assisted_artifacts/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+.venv-*/
+
+# Playwright browsers (installed globally via playwright install)
+# Not needed in repo
+
+# OS files
+.DS_Store
+Thumbs.db
