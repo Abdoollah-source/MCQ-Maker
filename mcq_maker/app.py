@@ -64,7 +64,8 @@ def main():
         colors = apply_theme(app, dark)
         if window is not None:
             window.update_icons(colors['secondary'])
-    refresh_theme()
+        return colors
+    colors = refresh_theme()
     app.styleHints().colorSchemeChanged.connect(lambda _: refresh_theme())
     window = MainWindow(repository=repository, settings=settings, settings_store=settings_store,
                         apply_theme_callback=refresh_theme, history=history, startup_manager=startup,
@@ -85,7 +86,10 @@ def main():
     window.set_notification_service(notifications)
     instance.activation_requested.connect(window.restore_window)
     app.aboutToQuit.connect(instance.close)
-    refresh_theme()
+    # The application palette and stylesheet were installed before any widgets
+    # were built.  Reapplying them here forces a full relayout of every page;
+    # only the newly-created window's icons still need the active palette.
+    window.update_icons(colors['secondary'])
     window.show()
     if args.compact_preview:
         QTimer.singleShot(100, lambda: window.resize(820, 620))

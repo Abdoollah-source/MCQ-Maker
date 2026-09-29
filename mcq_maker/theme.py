@@ -19,13 +19,33 @@ DARK = dict(bg='#201E20', surface='#292629', recessed='#242124', line='#433D43',
             warning='#F0CA7D', warning_bg='#3C3220', error='#FFACB5', error_bg='#402A30',
             selection='#64485D', selection_text='#FFFFFF', focus_surface='#352B33')
 
+
+# The installed font set does not change while MCQ Maker is running.  Looking it
+# up is relatively costly on Windows, and theme application can happen before
+# and after the main window is constructed.
+_SYSTEM_FONT_FAMILIES = None
+
+
+def _system_font_families():
+    global _SYSTEM_FONT_FAMILIES
+    if _SYSTEM_FONT_FAMILIES is None:
+        _SYSTEM_FONT_FAMILIES = frozenset(QFontDatabase.families())
+    return _SYSTEM_FONT_FAMILIES
+
+
 def apply_theme(app, dark=False):
     c = DARK if dark else LIGHT
-    families = QFontDatabase.families()
-    preferred = ('Segoe UI', 'Tahoma', 'Arial') if active_language() == 'ar' else (
+    families = _system_font_families()
+    arabic = active_language() == 'ar'
+    preferred = ('Segoe UI', 'Tahoma', 'Arial') if arabic else (
         'Segoe UI Variable', 'Segoe UI Variable Text', 'Segoe UI',
     )
     family = next((f for f in preferred if f in families), preferred[-1])
+    # Consolas has no Arabic glyphs.  Giving Arabic placeholders to that font
+    # makes Qt's style engine repeatedly perform a costly fallback lookup while
+    # the initial editor is polished.  The editor remains explicitly LTR; only
+    # its display face follows the Arabic-capable application font in Arabic.
+    editor_family = family if arabic else 'Consolas'
     font = QFont(family)
     font.setPixelSize(14)
     app.setFont(font)
@@ -37,7 +57,10 @@ def apply_theme(app, dark=False):
         palette.setColor(role, QColor(c[key]))
     app.setPalette(palette)
     app.setStyleSheet('''
-    QWidget { color: %(text)s; font-family: "%(family)s"; font-size: 14px; }
+    /* QApplication owns the shared font.  Repeating it in the global style
+       sheet makes Qt repolish every widget and is especially expensive when
+       shaping Arabic text. */
+    QWidget { color: %(text)s; }
     QMainWindow, QWidget#page, QWidget#content { background: %(bg)s; }
     QLabel { background: transparent; border: none; }
     QLabel[role="title"] { font-size: 24px; font-weight: 600; min-height: 32px; }
@@ -68,7 +91,7 @@ def apply_theme(app, dark=False):
     QPushButton#watcherStatus { text-align: left; min-height: 34px; padding: 0 10px; }
     QPushButton#watcherStatus[watcherState="on"] { background: %(success_bg)s; color: %(success)s; border-color: %(success)s; }
     QPushButton#watcherStatus[watcherState="paused"] { background: %(warning_bg)s; color: %(warning)s; border-color: %(warning)s; }
-    QPlainTextEdit { background: %(surface)s; border: 1px solid %(border)s; border-radius: 8px; padding: 16px; font-family: Consolas; font-size: 14px; selection-background-color: %(selection)s; selection-color: %(selection_text)s; }
+    QPlainTextEdit { background: %(surface)s; border: 1px solid %(border)s; border-radius: 8px; padding: 16px; font-family: "%(editor_family)s"; font-size: 14px; selection-background-color: %(selection)s; selection-color: %(selection_text)s; }
     QPlainTextEdit:hover { border-color: %(border_hover)s; }
     QPlainTextEdit:focus { border: 2px solid %(focus)s; background: %(focus_surface)s; padding: 15px; }
     QPlainTextEdit[validation="error"] { border: 2px solid %(error)s; padding: 15px; }
@@ -120,5 +143,5 @@ def apply_theme(app, dark=False):
     QMenu::item:selected { background: %(selected)s; color: %(selected_text)s; }
     QMenu::item:disabled { color: %(disabled_text)s; }
     QToolTip { background: %(surface)s; color: %(text)s; border: 1px solid %(border)s; padding: 6px; font-size: 12px; }
-    ''' % dict(c, family=family))
+    ''' % dict(c, family=family, editor_family=editor_family))
     return c

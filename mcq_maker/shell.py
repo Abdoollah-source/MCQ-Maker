@@ -16,7 +16,7 @@ from .history_page import HistoryPage
 from .history import payload_hash
 from .ai_generation_page import AIGenerationPage
 from .google_ai_studio_page import GoogleAIStudioSemiAutomationPage
-from .localization import apply_language, tr
+from .localization import active_language, apply_language, tr
 
 
 class QuizEditor(QPlainTextEdit):
@@ -228,7 +228,6 @@ class CreatePage(QWidget):
         self.generate_shortcut.setShortcut('Ctrl+Return')
         self.generate_shortcut.triggered.connect(self.generate_exam)
         self.addAction(self.generate_shortcut)
-        self.retranslate()
 
     def set_template_entries(self, entries):
         self.template_entries = {entry['id']: entry for entry in entries if entry.get('valid')}
@@ -505,7 +504,7 @@ class MainWindow(QMainWindow):
         self.notification_service = None
         self.force_quit = False
         self.pending_quit = False
-        if self.settings is not None:
+        if self.settings is not None and active_language() != self.settings.get('language', 'ar'):
             apply_language(QApplication.instance(), self.settings.get('language', 'ar'))
         self.setWindowTitle('MCQ Maker')
         self.setWindowIcon(sheet_icon())
@@ -606,7 +605,6 @@ class MainWindow(QMainWindow):
         content.addWidget(self.pages, 1)
         outer.addWidget(self.content, 1)
         self._watcher_state = 'off'
-        self.retranslate()
         self.navigate(0)
         self.process_clipboard_shortcut = QAction('Process Clipboard Now', self)
         self.process_clipboard_shortcut.setShortcut('Ctrl+Shift+V')
@@ -679,10 +677,9 @@ class MainWindow(QMainWindow):
         self.settings_button.setText(tr('common.settings'))
         self.compact_settings.setText(tr('common.settings'))
         self.update_watcher_state(self._watcher_state)
-        for page in (self.create, self.folder_scan, self.history_page, self.template_page,
-                     self.ai_generation, self.google_ai_studio):
-            if page is not None and hasattr(page, 'retranslate'):
-                page.retranslate()
+        current_page = self.pages.currentWidget()
+        if current_page is not None and hasattr(current_page, 'retranslate'):
+            current_page.retranslate()
 
     def open_settings(self):
         if self.settings is None or self.settings_store is None or self.repository is None:
@@ -935,6 +932,9 @@ class MainWindow(QMainWindow):
     def navigate(self, index):
         self.pages.setCurrentIndex(index)
         self.nav_buttons[index].setChecked(True)
+        page = self.pages.currentWidget()
+        if page is not None and hasattr(page, 'retranslate'):
+            page.retranslate()
         if index == 2:
             self.history_page.reload()
         if index == 3 and self.template_page is not None:

@@ -10,6 +10,7 @@ from mcq_maker.settings import SettingsStore
 from mcq_maker.settings_dialog import SettingsDialog
 from mcq_maker.shell import MainWindow
 from mcq_maker.template_repository import TemplateRepository
+from mcq_maker.theme import apply_theme
 
 
 BASE = Path(__file__).resolve().parents[1]
@@ -38,6 +39,17 @@ class LocalizationTests(unittest.TestCase):
             settings['language'] = 'en'
             store.save(settings)
             self.assertEqual(store.load()['language'], 'en')
+
+    def test_arabic_editor_uses_the_arabic_capable_application_font(self):
+        """Avoid the expensive Consolas fallback for Arabic editor placeholders."""
+        apply_language(self.app, 'ar')
+        apply_theme(self.app, False)
+        self.assertIn(f'font-family: "{self.app.font().family()}";', self.app.styleSheet())
+        self.assertNotIn('font-family: Consolas;', self.app.styleSheet())
+
+        apply_language(self.app, 'en')
+        apply_theme(self.app, False)
+        self.assertIn('font-family: "Consolas";', self.app.styleSheet())
 
     def test_settings_language_control_and_sidebar_retranslate(self):
         with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
