@@ -1,4 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta
 from pathlib import Path
 import tempfile
 import unittest
@@ -133,6 +134,12 @@ class HistoryPageTests(unittest.TestCase):
                 missing_item = next(page.table.topLevelItem(i) for i in range(3)
                                     if page.table.topLevelItem(i).data(0, 0x0100).id == missing_id)
                 page.table.setCurrentItem(missing_item)
+                self.assertEqual(missing_item.text(5), 'File missing')
+                self.assertIn('history record exists', missing_item.toolTip(5))
+                self.assertFalse(page.open_button.isEnabled())
+                self.assertTrue(page.show_button.isEnabled())
+                self.assertEqual(page.show_button.text(), 'Locate output file')
+                self.assertIn('new location', page.show_button.toolTip())
                 relocated = base/'relocated.html'
                 relocated.write_text('<html></html>', encoding='utf-8')
                 with patch('mcq_maker.history_page.QFileDialog.getOpenFileName', return_value=(str(relocated), 'HTML')):
@@ -146,6 +153,26 @@ class HistoryPageTests(unittest.TestCase):
                     page.remove_selected()
                 self.assertEqual(len(history.list_entries()), 2)
                 self.assertTrue(relocated.is_file())
+            finally:
+                page.close()
+
+    def test_history_uses_friendly_dates_and_a_helpful_empty_state(self):
+        format_created = HistoryPage.local_created
+        current = datetime.now().astimezone()
+        self.assertTrue(format_created(current.isoformat(), current).startswith('Today,'))
+        self.assertTrue(format_created((current - timedelta(days=1)).isoformat(), current).startswith('Yesterday,'))
+        self.assertIn(str((current - timedelta(days=7)).year), format_created((current - timedelta(days=7)).isoformat(), current))
+        with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
+            history = HistoryRepository(Path(root))
+            history.initialize()
+            page = HistoryPage(history)
+            try:
+                self.assertFalse(page.empty.isHidden())
+                self.assertEqual(page.empty_title.text(), 'No generated exams yet.')
+                self.assertEqual(
+                    page.empty_text.text(),
+                    'Generated exams will appear here after validation and saving.',
+                )
             finally:
                 page.close()
 

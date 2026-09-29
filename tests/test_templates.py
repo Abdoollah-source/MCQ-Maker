@@ -223,5 +223,25 @@ class TemplatePageTests(unittest.TestCase):
             self.assertTrue(row.isExpanded())
             page.close()
 
+    def test_default_and_validation_statuses_are_visible_in_template_rows(self):
+        with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
+            repo = TemplateRepository(Path(root)/'library')
+            repo.initialize()
+            page = TemplatePage(repo)
+            try:
+                snapshot = repo.list_templates()
+                entry = snapshot['templates'][0]
+                page.populate(snapshot)
+                row = page.tree.topLevelItem(0)
+                self.assertIn('Default template', row.text(0))
+                self.assertIn('Valid', row.text(0))
+                self.assertIn('Default template', row.toolTip(0))
+                self.assertEqual(page.template_status(entry), 'Valid')
+                invalid = dict(entry, valid=False, problem='The stored template file is missing.')
+                self.assertEqual(page.template_status(invalid), 'Missing template')
+                self.assertIn('missing', page.template_status_tooltip(invalid).casefold())
+            finally:
+                page.close()
+
 if __name__ == '__main__':
     unittest.main()

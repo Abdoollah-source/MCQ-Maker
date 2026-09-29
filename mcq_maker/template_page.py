@@ -147,13 +147,13 @@ class TemplatePage(QWidget):
         for entry in snapshot['templates']:
             parts = []
             if entry['is_default']:
-                parts.append('Default')
+                parts.append('Default template')
             parts.append(f"{entry['minimum_options']}–{entry['maximum_options']} options")
-            parts.append('Needs attention' if not entry['valid'] else 'Links need review' if entry.get('warnings') and not entry.get('warnings_acknowledged') else 'Source changed' if entry['source_changed'] else 'Ready')
+            parts.append(self.template_status(entry))
             item = QTreeWidgetItem([entry['display_name'] + '\n' + ' · '.join(parts)])
             item.setData(0, Qt.UserRole, entry['id'])
             item.setSizeHint(0, QSize(0, 64))
-            item.setToolTip(0, entry['display_name'])
+            item.setToolTip(0, self.template_status_tooltip(entry))
             if entry.get('warnings') and not entry.get('warnings_acknowledged'):
                 item.setIcon(0, warning_icon())
                 item.setToolTip(0, 'Link warnings: expand this template to review the affected lines.')
@@ -172,6 +172,25 @@ class TemplatePage(QWidget):
         self.empty.setVisible(not self.entries)
         self.selection_changed()
         self.library_changed.emit(snapshot)
+
+    @staticmethod
+    def template_status(entry):
+        if not entry['valid']:
+            return 'Missing template' if 'missing' in entry.get('problem', '').casefold() else 'Invalid template'
+        if entry.get('warnings') and not entry.get('warnings_acknowledged'):
+            return 'Valid · links need review'
+        if entry['source_changed']:
+            return 'Valid · source changed'
+        return 'Valid'
+
+    @classmethod
+    def template_status_tooltip(cls, entry):
+        status = cls.template_status(entry)
+        if entry['is_default']:
+            status = f'Default template · {status}'
+        if not entry['valid'] and entry.get('problem'):
+            return f'{status}. {entry["problem"]}'
+        return status
 
     def selection_changed(self, *_):
         # Buttons live in the expanded template row and are rebuilt after every operation.
@@ -197,6 +216,14 @@ class TemplatePage(QWidget):
         info = self.make_label(f"Format {entry.get('version', 1)} · Revision {entry.get('revision', 1)}\nOriginal: {source}\nStored copy: {self.repo.templates / entry['id'] / 'template.html'}", 'muted')
         info.setTextInteractionFlags(Qt.TextSelectableByMouse)
         layout.addWidget(info)
+        state = self.make_label(self.template_status_tooltip(entry), 'field')
+        if not entry['valid']:
+            state.setProperty('feedback', 'error')
+        elif entry.get('warnings') and not entry.get('warnings_acknowledged', False):
+            state.setProperty('feedback', 'warning')
+        else:
+            state.setProperty('feedback', 'success')
+        layout.addWidget(state)
         if not entry['valid']:
             problem = self.make_label('Needs attention: ' + entry['problem'])
             problem.setProperty('feedback', 'error')
@@ -226,9 +253,9 @@ class TemplatePage(QWidget):
         layout.addLayout(first)
         second = QHBoxLayout()
         for title, callback, enabled in [
-            ('Reveal in Explorer', self.reveal, True),
+            ('Reveal in folder', self.reveal, True),
             ('Ignore', self.ignore_warnings, bool(warnings) and not entry.get('warnings_acknowledged', False)),
-            ('Recheck', self.recheck, bool(entry.get('source_path'))),
+            ('Recheck source', self.recheck, bool(entry.get('source_path'))),
         ]:
             control = self.make_button(title, enabled and not self.busy)
             control.clicked.connect(lambda checked=False, template_id=entry['id'], action=callback: self.run_action(template_id, action))
@@ -330,9 +357,9 @@ class TemplatePage(QWidget):
             ('Preview', self.preview, entry['valid']),
             ('Re-import', self.reimport, True),
             ('Remove', self.remove, True),
-            ('Reveal in Explorer', self.reveal, True),
+            ('Reveal in folder', self.reveal, True),
             ('Ignore warnings', self.ignore_warnings, bool(entry.get('warnings')) and not entry.get('warnings_acknowledged', False)),
-            ('Recheck', self.recheck, bool(entry.get('source_path'))),
+            ('Recheck source', self.recheck, bool(entry.get('source_path'))),
         ]
         for name, callback, enabled in actions:
             action = menu.addAction(name)

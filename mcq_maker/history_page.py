@@ -48,7 +48,7 @@ class HistoryPage(QWidget):
         self.open_button = button('Open exam')
         self.open_button.clicked.connect(self.open_selected)
         actions.addWidget(self.open_button)
-        self.show_button = button('Show in folder')
+        self.show_button = button('Reveal in folder')
         self.show_button.clicked.connect(self.show_selected)
         actions.addWidget(self.show_button)
         self.remove_button = button('Remove from history')
@@ -87,10 +87,10 @@ class HistoryPage(QWidget):
         empty_layout = QVBoxLayout(self.empty)
         empty_layout.setContentsMargins(20, 20, 20, 20)
         empty_layout.addStretch()
-        self.empty_title = label('Your saved exams will appear here.', 'heading')
+        self.empty_title = label('No generated exams yet.', 'heading')
         self.empty_title.setAlignment(Qt.AlignCenter)
         empty_layout.addWidget(self.empty_title)
-        self.empty_text = label('Create an exam to keep its file location and details here.')
+        self.empty_text = label('Generated exams will appear here after validation and saving.')
         self.empty_text.setAlignment(Qt.AlignCenter)
         empty_layout.addWidget(self.empty_text)
         self.create_button = button('Create exam', True)
@@ -136,8 +136,8 @@ class HistoryPage(QWidget):
             self.empty_text.setText('Try a title, filename, template, or source filename.')
             self.create_button.hide()
         else:
-            self.empty_title.setText('Your saved exams will appear here.')
-            self.empty_text.setText('Create an exam to keep its file location and details here.')
+            self.empty_title.setText('No generated exams yet.')
+            self.empty_text.setText('Generated exams will appear here after validation and saving.')
             self.create_button.show()
         self.export_button.setEnabled(bool(self.entries))
         self.status.setText(f'{len(self.entries)} entr{"y" if len(self.entries) == 1 else "ies"}')
@@ -147,12 +147,26 @@ class HistoryPage(QWidget):
         self.selection_changed()
 
     @staticmethod
-    def local_created(value):
+    def local_created(value, now=None):
         try:
             moment = datetime.fromisoformat(value).astimezone()
-            return moment.strftime('%b %d, %Y\n%I:%M %p').replace(' 0', ' ')
+            current = now.astimezone() if now else datetime.now().astimezone()
+            time_text = moment.strftime('%I:%M %p').lstrip('0')
+            if moment.date() == current.date():
+                return f'Today, {time_text}'
+            if (current.date() - moment.date()).days == 1:
+                return f'Yesterday, {time_text}'
+            return f'{moment.strftime("%b %d, %Y").replace(" 0", " ")} · {time_text}'
         except (ValueError, TypeError):
             return 'Unknown time'
+
+    @staticmethod
+    def full_created(value):
+        try:
+            moment = datetime.fromisoformat(value).astimezone()
+            return moment.strftime('%A, %B %d, %Y at %I:%M %p').replace(' 0', ' ')
+        except (ValueError, TypeError):
+            return 'The recorded creation time is unavailable.'
 
     @staticmethod
     def source_name(mode):
@@ -170,10 +184,15 @@ class HistoryPage(QWidget):
         else:
             item.setText(0, f'{entry.title or "Untitled exam"}\n{filename}')
             item.setText(1, self.local_created(entry.created_utc))
+            item.setToolTip(1, self.full_created(entry.created_utc))
             item.setText(2, entry.template_name)
             item.setText(3, str(entry.question_count) if entry.question_count else '—')
             item.setText(4, self.source_name(entry.source_mode))
             item.setText(5, status)
+            if status == 'File missing':
+                item.setToolTip(5, 'This history record exists, but the saved HTML file is no longer at its original path.')
+            elif status == 'Saved':
+                item.setToolTip(5, 'The saved HTML exam is available.')
 
     def selected_entry(self):
         item = self.table.currentItem()
@@ -184,13 +203,19 @@ class HistoryPage(QWidget):
         output = Path(entry.output_path) if entry and entry.output_path else None
         exists = bool(output and output.is_file())
         self.open_button.setEnabled(exists)
-        self.show_button.setEnabled(bool(output and output.parent.is_dir()))
-        self.show_button.setText('Show in folder' if exists or not entry else 'Locate file')
+        self.open_button.setToolTip('Open the saved HTML exam.' if exists else (
+            'This history record exists, but the saved HTML file is no longer at its original path.' if entry else ''
+        ))
+        self.show_button.setEnabled(bool(output and (exists or entry.outcome == 'success')))
+        self.show_button.setText('Reveal in folder' if exists or not entry else 'Locate output file')
+        self.show_button.setToolTip('Open the folder containing the saved HTML exam.' if exists else (
+            'Choose the saved HTML exam at its new location to update this history record.' if entry else ''
+        ))
         self.remove_button.setEnabled(entry is not None)
         if entry and entry.outcome == 'failed':
             self.status.setText(entry.error_summary or 'This generation did not finish.')
         elif entry and not exists:
-            self.status.setText('This exam has moved or been deleted.')
+            self.status.setText('This history record exists, but the saved HTML file is no longer at its original path.')
 
     def open_selected(self):
         entry = self.selected_entry()
@@ -265,7 +290,7 @@ class HistoryPage(QWidget):
         open_action = menu.addAction('Open exam')
         open_action.setEnabled(bool(output and output.is_file()))
         open_action.triggered.connect(self.open_selected)
-        folder_action = menu.addAction('Show in folder' if output and output.is_file() else 'Locate file')
+        folder_action = menu.addAction('Reveal in folder' if output and output.is_file() else 'Locate output file')
         folder_action.setEnabled(bool(output and (output.is_file() or entry.outcome == 'success')))
         folder_action.triggered.connect(self.show_selected)
         menu.addSeparator()
