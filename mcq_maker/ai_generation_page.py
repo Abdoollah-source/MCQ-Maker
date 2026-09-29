@@ -10,6 +10,7 @@ from PySide6.QtWidgets import (QCheckBox, QFileDialog, QHBoxLayout, QHeaderView,
 from .ai_generation import AIGenerationWorker, AIRun, discover_pdfs
 from .ai_providers import MODELS
 from .components import Dropdown, button, label, panel
+from .localization import tr
 
 
 class AIGenerationPage(QWidget):
@@ -73,7 +74,8 @@ class AIGenerationPage(QWidget):
         self.header_layout.setContentsMargins(0, 0, 0, 0)
         self.header_layout.setSpacing(12)
 
-        self.header_layout.addWidget(label('AI generation', 'title'), 1)
+        self.title_label = label(tr('page.ai_generation'), 'title')
+        self.header_layout.addWidget(self.title_label, 1)
 
         self.library_button = button('Manage AI library', True)
         self.library_button.clicked.connect(self.manage_requested)
@@ -263,6 +265,9 @@ class AIGenerationPage(QWidget):
 
     def apply_settings(self, settings):
         self.settings = dict(settings)
+
+    def retranslate(self):
+        self.title_label.setText(tr('page.ai_generation'))
 
     def set_template_snapshot(self, snapshot):
         self.template_entries = {x['id']: x for x in snapshot['templates']}

@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QTreeWidget, Q
                               QFileDialog, QInputDialog, QMessageBox, QMenu)
 from .template_validation import TemplateError
 from .components import button, label
+from .localization import tr
 
 class JobSignals(QObject):
     finished = Signal(object, str)
@@ -60,11 +61,12 @@ class TemplatePage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(16)
         top = QHBoxLayout()
-        top.addWidget(label('Templates', 'title'), 1)
-        self.refresh_button = button('Refresh', True)
+        self.title_label = label(tr('page.templates'), 'title')
+        top.addWidget(self.title_label, 1)
+        self.refresh_button = button(tr('common.refresh'), True)
         self.refresh_button.clicked.connect(self.reload)
         top.addWidget(self.refresh_button)
-        self.import_button = button('Import template', True, True)
+        self.import_button = button(tr('common.import'), True, True)
         self.import_button.clicked.connect(self.import_template)
         top.addWidget(self.import_button)
         layout.addLayout(top)
@@ -94,6 +96,11 @@ class TemplatePage(QWidget):
         if item is not None and item.parent() is not None:
             item = item.parent()
         return item.data(0, Qt.UserRole) if item else None
+
+    def retranslate(self):
+        self.title_label.setText(tr('page.templates'))
+        self.refresh_button.setText(tr('common.refresh'))
+        self.import_button.setText(tr('common.import'))
 
     def selected_entry(self):
         return self.entries.get(self.selected_id())

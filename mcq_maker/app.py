@@ -4,6 +4,7 @@ import sys
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import QApplication
 from .theme import apply_theme
+from .localization import apply_language
 from .shell import MainWindow
 from .template_repository import TemplateRepository
 from .settings import SettingsStore
@@ -31,6 +32,7 @@ def main():
         return 0
     settings_store = SettingsStore(repository.root)
     settings = settings_store.load()
+    apply_language(app, settings['language'])
     ai_library = AILibrary(repository.root)
     try:
         ai_library.initialize()

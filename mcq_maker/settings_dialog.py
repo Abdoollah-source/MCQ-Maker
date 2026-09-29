@@ -9,6 +9,7 @@ from PySide6.QtWidgets import (QButtonGroup, QCheckBox, QDialog,
 from .components import Dropdown, button, label
 from .ai_studio_errors import InvalidBraveExecutableError
 from .ai_studio_browser import AIStudioBrowserManager
+from .localization import tr
 
 
 class SettingsDialog(QDialog):
@@ -16,7 +17,7 @@ class SettingsDialog(QDialog):
 
     def __init__(self, settings, templates, parent=None):
         super().__init__(parent)
-        self.setWindowTitle('Settings')
+        self.setWindowTitle(tr('settings.title'))
         self.setModal(False)
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.resize(720, 640)
@@ -27,7 +28,7 @@ class SettingsDialog(QDialog):
         outer = QVBoxLayout(self)
         outer.setContentsMargins(24, 24, 24, 20)
         outer.setSpacing(20)
-        title = label('Settings', 'title')
+        title = label(tr('settings.title'), 'title')
         outer.addWidget(title)
 
         self.scroll = QScrollArea()
@@ -40,10 +41,10 @@ class SettingsDialog(QDialog):
         content.setSpacing(32)
         content.setSizeConstraint(QLayout.SetMinimumSize)
 
-        files, files_layout = self._section('Files')
+        files, files_layout = self._section(tr('settings.files'))
         self.output_folder = QLineEdit(settings['output_folder'])
         self.output_folder.setAccessibleName('Output folder')
-        browse = button('Choose folder', True)
+        browse = button(tr('common.choose_folder'), True)
         browse.clicked.connect(self.choose_folder)
         output_row = QWidget()
         output_layout = QHBoxLayout(output_row)
@@ -51,7 +52,7 @@ class SettingsDialog(QDialog):
         output_layout.setSpacing(8)
         output_layout.addWidget(self.output_folder, 1)
         output_layout.addWidget(browse)
-        self._add_setting(files_layout, 'Output folder', output_row)
+        self._add_setting(files_layout, tr('settings.output_folder'), output_row)
 
         self.default_template = Dropdown()
         for entry in templates:
@@ -60,7 +61,7 @@ class SettingsDialog(QDialog):
                 if entry.get('is_default'):
                     self.default_template.setCurrentIndex(self.default_template.count() - 1)
         self.default_template.setEnabled(self.default_template.count() > 0)
-        self._add_setting(files_layout, 'Default template', self.default_template)
+        self._add_setting(files_layout, tr('settings.default_template'), self.default_template)
 
         self.open_after = QCheckBox('Open it in my browser')
         self.open_after.setChecked(settings['open_after_manual_generation'])
@@ -109,7 +110,12 @@ class SettingsDialog(QDialog):
         ai_studio_layout.addWidget(label('Leave this blank to find Brave automatically.', 'muted'))
         content.addWidget(ai_studio)
 
-        appearance, appearance_layout = self._section('Appearance and notifications')
+        appearance, appearance_layout = self._section(tr('settings.appearance'))
+        self.language = Dropdown()
+        self.language.addItem(tr('language.ar'), 'ar')
+        self.language.addItem(tr('language.en'), 'en')
+        self.language.setCurrentIndex(max(0, self.language.findData(settings.get('language', 'ar'))))
+        self._add_setting(appearance_layout, tr('settings.interface_language'), self.language)
         theme_row = QWidget()
         theme_layout = QHBoxLayout(theme_row)
         theme_layout.setContentsMargins(0, 0, 0, 0)
@@ -123,11 +129,11 @@ class SettingsDialog(QDialog):
             theme_layout.addWidget(choice)
         theme_layout.addStretch()
         self.theme_buttons[settings['theme']].setChecked(True)
-        self._add_setting(appearance_layout, 'Theme', theme_row)
+        self._add_setting(appearance_layout, tr('settings.theme'), theme_row)
 
         self.notifications = QCheckBox('Show notifications')
         self.notifications.setChecked(settings['notifications'])
-        self._add_setting(appearance_layout, 'Notifications', self.notifications)
+        self._add_setting(appearance_layout, tr('settings.notifications'), self.notifications)
 
         self.notification_sounds = QCheckBox('Play notification sounds')
         self.notification_sounds.setChecked(settings['notification_sounds'])
@@ -148,7 +154,7 @@ class SettingsDialog(QDialog):
         footer.setSpacing(12)
         self.status = label('All settings are up to date.', 'muted')
         footer.addWidget(self.status, 1)
-        done = button('Done', True, True)
+        done = button(tr('common.done'), True, True)
         done.clicked.connect(self.close)
         footer.addWidget(done)
         outer.addLayout(footer)
@@ -184,7 +190,7 @@ class SettingsDialog(QDialog):
     def _connect_changes(self):
         self.output_folder.editingFinished.connect(self._notify_change)
         self.brave_executable.editingFinished.connect(self._notify_change)
-        for combo in (self.default_template, self.conflicts, self.close_behavior):
+        for combo in (self.default_template, self.conflicts, self.close_behavior, self.language):
             combo.currentIndexChanged.connect(self._notify_change)
         for checkbox in (self.open_after, self.include_subfolders, self.clipboard_watcher,
                          self.start_windows, self.notifications, self.notification_sounds):
@@ -272,6 +278,7 @@ class SettingsDialog(QDialog):
             'notifications': self.notifications.isChecked(),
             'notification_sounds': self.notification_sounds.isChecked(),
             'theme': self.selected_theme(),
+            'language': self.language.currentData(),
             'ai_studio_brave_executable': self.brave_executable.text().strip() or None,
         })
         return settings, self.default_template.currentData()

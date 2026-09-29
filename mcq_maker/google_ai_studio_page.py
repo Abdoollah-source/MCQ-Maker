@@ -16,6 +16,7 @@ from .ai_studio_batch import (BatchStateStore, GoogleAIStudioBatchController,
                                create_manifest,
                                manifest_matches_configuration)
 from .components import Dropdown, button, label, panel
+from .localization import tr
 
 
 class GoogleAIStudioSignals(QObject):
@@ -227,7 +228,8 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         outer.setSpacing(20)
 
         header = QHBoxLayout()
-        header.addWidget(label('AI Studio Automation', 'title'), 1)
+        self.title_label = label(tr('page.ai_studio'), 'title')
+        header.addWidget(self.title_label, 1)
         outer.addLayout(header)
         outer.addWidget(label(
             'Choose a lecture folder. MCQ Maker preserves completed exams while it processes the queue. '
@@ -403,6 +405,9 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
             selected_parallel = self.settings.get('ai_studio_parallel_tabs', 1)
             parallel_index = self.parallel_tabs.findData(selected_parallel if selected_parallel in {1, 2} else 1)
             self.parallel_tabs.setCurrentIndex(max(0, parallel_index))
+
+    def retranslate(self):
+        self.title_label.setText(tr('page.ai_studio'))
 
     def choose_file(self, field, title, file_filter):
         selected, _ = QFileDialog.getOpenFileName(self, f'Choose {title.casefold()}', field.text(), file_filter)

@@ -83,6 +83,8 @@ class SettingsDialogTests(unittest.TestCase):
             self.assertTrue(dialog.output_folder.text())
             self.assertEqual(dialog.conflicts.count(), 2)
             self.assertEqual(dialog.close_behavior.count(), 2)
+            self.assertEqual(dialog.language.count(), 2)
+            self.assertEqual(dialog.language.currentData(), 'ar')
             self.assertEqual(len(dialog.theme_group.buttons()), 3)
             self.assertEqual(dialog.brave_executable.text(), '')
             values, template_id = dialog.values(settings)

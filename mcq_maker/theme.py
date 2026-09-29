@@ -1,5 +1,6 @@
 """Semantic palette and widget styling shared by every screen."""
 from PySide6.QtGui import QColor, QFont, QFontDatabase, QPalette
+from .localization import active_language
 
 LIGHT = dict(bg='#F5F3EF', surface='#FFFFFF', recessed='#EEEBE6', line='#DDD8D1',
              border='#8B847C', border_hover='#635D57', primary='#68445F',
@@ -21,7 +22,10 @@ DARK = dict(bg='#201E20', surface='#292629', recessed='#242124', line='#433D43',
 def apply_theme(app, dark=False):
     c = DARK if dark else LIGHT
     families = QFontDatabase.families()
-    family = next((f for f in ('Segoe UI Variable', 'Segoe UI Variable Text', 'Segoe UI') if f in families), 'Segoe UI')
+    preferred = ('Segoe UI', 'Tahoma', 'Arial') if active_language() == 'ar' else (
+        'Segoe UI Variable', 'Segoe UI Variable Text', 'Segoe UI',
+    )
+    family = next((f for f in preferred if f in families), preferred[-1])
     font = QFont(family)
     font.setPixelSize(14)
     app.setFont(font)

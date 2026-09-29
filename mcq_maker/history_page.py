@@ -10,6 +10,7 @@ from PySide6.QtWidgets import (QFileDialog, QHBoxLayout, QLineEdit, QMenu,
 
 from .components import button, label, panel
 from .history import HistoryError
+from .localization import tr
 
 
 class HistoryPage(QWidget):
@@ -28,8 +29,9 @@ class HistoryPage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(20)
         header = QHBoxLayout()
-        header.addWidget(label('History', 'title'), 1)
-        self.export_button = button('Export CSV')
+        self.title_label = label(tr('page.history'), 'title')
+        header.addWidget(self.title_label, 1)
+        self.export_button = button(tr('history.export'))
         self.export_button.clicked.connect(self.export_csv)
         header.addWidget(self.export_button)
         layout.addLayout(header)
@@ -45,13 +47,13 @@ class HistoryPage(QWidget):
         layout.addWidget(self.search)
 
         actions = QHBoxLayout()
-        self.open_button = button('Open exam')
+        self.open_button = button(tr('history.open_exam'))
         self.open_button.clicked.connect(self.open_selected)
         actions.addWidget(self.open_button)
-        self.show_button = button('Reveal in folder')
+        self.show_button = button(tr('common.reveal_folder'))
         self.show_button.clicked.connect(self.show_selected)
         actions.addWidget(self.show_button)
-        self.remove_button = button('Remove from history')
+        self.remove_button = button(tr('history.remove'))
         self.remove_button.clicked.connect(self.remove_selected)
         actions.addWidget(self.remove_button)
         actions.addStretch()
@@ -146,6 +148,13 @@ class HistoryPage(QWidget):
         self.status.style().polish(self.status)
         self.selection_changed()
 
+    def retranslate(self):
+        self.title_label.setText(tr('page.history'))
+        self.export_button.setText(tr('history.export'))
+        self.open_button.setText(tr('history.open_exam'))
+        self.remove_button.setText(tr('history.remove'))
+        self.selection_changed()
+
     @staticmethod
     def local_created(value, now=None):
         try:
@@ -207,7 +216,7 @@ class HistoryPage(QWidget):
             'This history record exists, but the saved HTML file is no longer at its original path.' if entry else ''
         ))
         self.show_button.setEnabled(bool(output and (exists or entry.outcome == 'success')))
-        self.show_button.setText('Reveal in folder' if exists or not entry else 'Locate output file')
+        self.show_button.setText(tr('common.reveal_folder') if exists or not entry else 'Locate output file')
         self.show_button.setToolTip('Open the folder containing the saved HTML exam.' if exists else (
             'Choose the saved HTML exam at its new location to update this history record.' if entry else ''
         ))

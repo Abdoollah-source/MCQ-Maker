@@ -27,6 +27,7 @@ DEFAULTS = {
     'notifications': True,
     'notification_sounds': False,
     'theme': 'system',
+    'language': 'ar',
     'ai_studio_brave_executable': None,
     'ai_studio_model': None,
     'ai_studio_thinking': None,
@@ -67,6 +68,8 @@ class SettingsStore:
             raise SettingsError('Close behavior is invalid.')
         if settings['theme'] not in {'system', 'light', 'dark'}:
             raise SettingsError('Theme preference is invalid.')
+        if settings['language'] not in {'ar', 'en'}:
+            raise SettingsError('Interface language preference is invalid.')
         brave = settings['ai_studio_brave_executable']
         if brave is not None:
             if not isinstance(brave, str):

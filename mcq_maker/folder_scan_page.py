@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (QApplication, QFileDialog, QHBoxLayout,
                                QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 
 from .components import AnimatedProgressBar, button, label, panel
+from .localization import tr
 from .folder_scan import FolderScanWorker, ScanResult
 
 
@@ -40,8 +41,9 @@ class FolderScanPage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(20)
         header = QHBoxLayout()
-        header.addWidget(label('Folder scan', 'title'), 1)
-        self.choose_button = button('Choose folder', True)
+        self.title_label = label(tr('page.folder'), 'title')
+        header.addWidget(self.title_label, 1)
+        self.choose_button = button(tr('folder.choose'), True)
         self.choose_button.clicked.connect(self.choose_folder)
         header.addWidget(self.choose_button)
         layout.addLayout(header)
@@ -95,14 +97,14 @@ class FolderScanPage(QWidget):
         layout.addWidget(report_panel, 1)
 
         footer = QHBoxLayout()
-        self.open_output_button = button('Open output folder', True)
+        self.open_output_button = button(tr('folder.open_output'), True)
         self.open_output_button.clicked.connect(self.open_output_folder)
         footer.addWidget(self.open_output_button)
         self.copy_button = button('Copy report')
         self.copy_button.clicked.connect(self.copy_report)
         footer.addWidget(self.copy_button)
         footer.addStretch()
-        self.scan_button = button('Start scan', primary=True)
+        self.scan_button = button(tr('folder.start'), primary=True)
         self.scan_button.clicked.connect(self.toggle_scan)
         footer.addWidget(self.scan_button)
         layout.addLayout(footer)
@@ -118,6 +120,11 @@ class FolderScanPage(QWidget):
     def apply_settings(self, settings):
         self.settings = dict(settings)
         self._update_ready_state()
+
+    def retranslate(self):
+        self.title_label.setText(tr('page.folder'))
+        self.choose_button.setText(tr('folder.choose'))
+        self.open_output_button.setText(tr('folder.open_output'))
 
     def set_template_snapshot(self, snapshot):
         self.template_entries = {entry['id']: entry for entry in snapshot['templates']}

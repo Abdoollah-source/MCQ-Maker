@@ -16,6 +16,7 @@ from .history_page import HistoryPage
 from .history import payload_hash
 from .ai_generation_page import AIGenerationPage
 from .google_ai_studio_page import GoogleAIStudioSemiAutomationPage
+from .localization import apply_language, tr
 
 
 class QuizEditor(QPlainTextEdit):
@@ -121,8 +122,9 @@ class CreatePage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(24)
         header = QHBoxLayout()
-        header.addWidget(label('Create exam', 'title'), 1)
-        self.import_button = button('Import file', True)
+        self.title_label = label(tr('page.create'), 'title')
+        header.addWidget(self.title_label, 1)
+        self.import_button = button(tr('create.import'), True)
         self.import_button.setToolTip('Import a .json, .txt, or .md quiz file (Ctrl+O)')
         self.import_button.clicked.connect(self.import_file)
         header.addWidget(self.import_button)
@@ -137,30 +139,33 @@ class CreatePage(QWidget):
         left = QVBoxLayout(self.left)
         left.setContentsMargins(0, 0, 0, 0)
         left.setSpacing(12)
-        left.addWidget(label('Questions', 'field'))
+        self.questions_label = label(tr('create.questions'), 'field')
+        left.addWidget(self.questions_label)
         toolbar = QHBoxLayout()
-        self.paste = button('Paste from clipboard', True)
+        self.paste = button(tr('create.paste'), True)
         self.paste.clicked.connect(self.paste_from_clipboard)
         toolbar.addWidget(self.paste)
-        self.example = button('Try an example', True)
+        self.example = button(tr('create.example'), True)
         self.example.clicked.connect(self.load_example)
         toolbar.addWidget(self.example)
         toolbar.addStretch()
-        self.clear = button('Clear', True)
+        self.clear = button(tr('create.clear'), True)
         self.clear.clicked.connect(self.editor_clear)
         self.clear.setEnabled(False)
         toolbar.addWidget(self.clear)
         left.addLayout(toolbar)
         self.editor = QuizEditor()
+        self.editor.setLayoutDirection(Qt.LeftToRight)
         self.editor.setAccessibleName('Questions')
-        self.editor.setPlaceholderText('Paste your quiz JSON here.')
+        self.editor.setPlaceholderText(tr('create.placeholder'))
         self.editor.setReadOnly(False)
         self.editor.setMinimumHeight(280)
         self.editor.textChanged.connect(self.schedule_validate)
         self.editor.file_dropped.connect(self.load_file)
         left.addWidget(self.editor, 1)
-        left.addWidget(label('You can also import a .json, .txt, or .md file.', 'muted'))
-        self.validation = label('Paste questions to begin.')
+        self.import_hint = label(tr('create.import_hint'), 'muted')
+        left.addWidget(self.import_hint)
+        self.validation = label(tr('create.begin'))
         left.addWidget(self.validation)
         self.error_details = QPlainTextEdit()
         self.error_details.setReadOnly(True)
@@ -169,34 +174,41 @@ class CreatePage(QWidget):
         self.error_details.hide()
         left.addWidget(self.error_details)
         self.details, fields = panel()
-        fields.addWidget(label('Save details', 'heading'))
+        self.save_details_label = label(tr('create.save_details'), 'heading')
+        fields.addWidget(self.save_details_label)
         template_group = QVBoxLayout()
         template_group.setSpacing(8)
-        template_group.addWidget(label('Template', 'field'))
+        self.template_label = label(tr('create.template'), 'field')
+        template_group.addWidget(self.template_label)
         self.template = Dropdown()
-        self.template.addItem('No template selected')
+        self.template.addItem(tr('create.no_template'))
         self.template.setEnabled(False)
         template_group.addWidget(self.template)
         fields.addLayout(template_group)
         output_group = QVBoxLayout()
         output_group.setSpacing(8)
-        output_group.addWidget(label('Output folder', 'field'))
+        self.output_folder_label = label(tr('create.output_folder'), 'field')
+        output_group.addWidget(self.output_folder_label)
         self.output_label = label(str(self.output_folder), 'muted')
+        self.output_label.setLayoutDirection(Qt.LeftToRight)
         self.output_label.setTextInteractionFlags(Qt.TextSelectableByMouse)
         output_group.addWidget(self.output_label)
-        self.open_output = button('Open output folder', True)
+        self.open_output = button(tr('create.open_output'), True)
         self.open_output.clicked.connect(self.open_output_folder)
         output_group.addWidget(self.open_output)
         fields.addLayout(output_group)
         self.detail_values = {}
+        self.detail_labels = {}
         for title, value, key in [('Quiz title', 'Waiting for questions', 'title'), ('Questions', '—', 'count'), ('Proposed filename', 'Appears after validation', 'filename')]:
             group = QVBoxLayout()
             group.setSpacing(8)
-            group.addWidget(label(title, 'field'))
+            title_label = label(title, 'field')
+            group.addWidget(title_label)
             value_label = label(value, 'muted')
             value_label.setTextInteractionFlags(Qt.TextSelectableByMouse)
             group.addWidget(value_label)
             self.detail_values[key] = value_label
+            self.detail_labels[key] = title_label
             fields.addLayout(group)
         fields.addStretch()
         self.columns.addWidget(self.left, 1)
@@ -204,17 +216,19 @@ class CreatePage(QWidget):
         self.scroll.setWidget(self.body)
         layout.addWidget(self.scroll, 1)
         footer = QHBoxLayout()
-        footer.addWidget(label('Your questions stay on this device until you generate an exam.', 'muted'), 1)
-        self.generate = button('Generate exam', primary=True)
+        self.private_note = label(tr('create.private_note'), 'muted')
+        footer.addWidget(self.private_note, 1)
+        self.generate = button(tr('create.generate'), primary=True)
         self.generate.setMinimumSize(156, 40)
         self.generate.setToolTip('Generate this exam (Ctrl+Enter)')
         self.generate.clicked.connect(self.generate_exam)
         footer.addWidget(self.generate)
         layout.addLayout(footer)
-        self.generate_shortcut = QAction('Generate exam', self)
+        self.generate_shortcut = QAction(tr('create.generate'), self)
         self.generate_shortcut.setShortcut('Ctrl+Return')
         self.generate_shortcut.triggered.connect(self.generate_exam)
         self.addAction(self.generate_shortcut)
+        self.retranslate()
 
     def set_template_entries(self, entries):
         self.template_entries = {entry['id']: entry for entry in entries if entry.get('valid')}
@@ -226,6 +240,30 @@ class CreatePage(QWidget):
         self.open_after_manual_generation = settings['open_after_manual_generation']
         self.manual_conflicts = settings['manual_conflicts']
         self.schedule_validate()
+
+    def retranslate(self):
+        self.title_label.setText(tr('page.create'))
+        self.import_button.setText(tr('create.import'))
+        self.questions_label.setText(tr('create.questions'))
+        self.paste.setText(tr('create.paste'))
+        self.example.setText(tr('create.example'))
+        self.clear.setText(tr('create.clear'))
+        self.editor.setPlaceholderText(tr('create.placeholder'))
+        self.import_hint.setText(tr('create.import_hint'))
+        self.save_details_label.setText(tr('create.save_details'))
+        self.template_label.setText(tr('create.template'))
+        self.output_folder_label.setText(tr('create.output_folder'))
+        self.open_output.setText(tr('create.open_output'))
+        self.detail_labels['title'].setText(tr('create.quiz_title'))
+        self.detail_labels['count'].setText(tr('create.questions'))
+        self.detail_labels['filename'].setText(tr('create.filename'))
+        self.private_note.setText(tr('create.private_note'))
+        self.generate.setText(tr('create.generate'))
+        self.generate_shortcut.setText(tr('create.generate'))
+        if not self.editor.toPlainText().strip():
+            self.validation.setText(tr('create.begin'))
+            self.detail_values['title'].setText(tr('create.waiting'))
+            self.detail_values['filename'].setText(tr('create.after_validation'))
 
     def schedule_validate(self, *_):
         if self.editor.toPlainText().strip():
@@ -256,10 +294,10 @@ class CreatePage(QWidget):
         text = self.editor.toPlainText()
         entry = self.selected_template()
         if not text.strip():
-            self.message('Paste questions to begin.')
-            self.detail_values['title'].setText('Waiting for questions')
+            self.message(tr('create.begin'))
+            self.detail_values['title'].setText(tr('create.waiting'))
             self.detail_values['count'].setText('—')
-            self.detail_values['filename'].setText('Appears after validation')
+            self.detail_values['filename'].setText(tr('create.after_validation'))
             return
         if not entry:
             self.message('Choose a valid template before generating.', True)
@@ -337,10 +375,10 @@ class CreatePage(QWidget):
             self.generate.setEnabled(False)
             self.clear.setEnabled(False)
             self.show_details()
-            self.detail_values['title'].setText('Waiting for questions')
+            self.detail_values['title'].setText(tr('create.waiting'))
             self.detail_values['count'].setText('—')
-            self.detail_values['filename'].setText('Appears after validation')
-            self.message('Questions cleared. Press Ctrl+Z to restore them.')
+            self.detail_values['filename'].setText(tr('create.after_validation'))
+            self.message(tr('create.begin'))
 
     def open_output_folder(self):
         self.output_folder.mkdir(parents=True, exist_ok=True)
@@ -467,6 +505,8 @@ class MainWindow(QMainWindow):
         self.notification_service = None
         self.force_quit = False
         self.pending_quit = False
+        if self.settings is not None:
+            apply_language(QApplication.instance(), self.settings.get('language', 'ar'))
         self.setWindowTitle('MCQ Maker')
         self.setWindowIcon(sheet_icon())
         available = self.screen().availableGeometry()
@@ -482,13 +522,13 @@ class MainWindow(QMainWindow):
         nav = QVBoxLayout(self.sidebar)
         nav.setContentsMargins(12, 24, 12, 16)
         nav.setSpacing(4)
-        nav.addWidget(label('MCQ Maker', 'heading'))
+        self.brand_label = label('MCQ Maker', 'heading')
+        nav.addWidget(self.brand_label)
         nav.addSpacing(24)
         self.nav_buttons = []
-        self.nav_titles = (
-            'Create exam', 'Folder scan', 'History', 'Templates', 'AI generation',
-            'AI Studio Automation',
-        )
+        self.nav_keys = ('nav.create', 'nav.folder', 'nav.history', 'nav.templates',
+                         'nav.ai_generation', 'nav.ai_studio')
+        self.nav_titles = tuple(tr(key) for key in self.nav_keys)
         for i, title in enumerate(self.nav_titles):
             b = button(title, True)
             b.setProperty('nav', True)
@@ -498,14 +538,15 @@ class MainWindow(QMainWindow):
             nav.addWidget(b)
             self.nav_buttons.append(b)
         nav.addStretch()
-        nav.addWidget(label('Clipboard watcher', 'muted'))
-        self.watcher_status = button('Off', True)
+        self.clipboard_label = label(tr('clipboard.watcher'), 'muted')
+        nav.addWidget(self.clipboard_label)
+        self.watcher_status = button(tr('watcher.off'), True)
         self.watcher_status.setObjectName('watcherStatus')
         self.watcher_status.setToolTip('Turn clipboard watching on or off.')
         self.watcher_status.clicked.connect(self.toggle_sidebar_clipboard_watcher)
         nav.addWidget(self.watcher_status)
         nav.addSpacing(12)
-        self.settings_button = button('Settings', settings is not None)
+        self.settings_button = button(tr('common.settings'), settings is not None)
         self.settings_button.setToolTip('Open Settings (Ctrl+,)')
         self.settings_button.clicked.connect(self.open_settings)
         nav.addWidget(self.settings_button)
@@ -515,15 +556,17 @@ class MainWindow(QMainWindow):
         content = QVBoxLayout(self.content)
         content.setContentsMargins(24, 24, 24, 24)
         content.setSpacing(16)
-        self.compact_nav = button('Navigate', True)
+        self.compact_nav = button(tr('common.navigate'), True)
         menu = QMenu(self.compact_nav)
+        self.compact_nav_actions = []
         for i, title in enumerate(self.nav_titles):
             action = menu.addAction(title)
             action.triggered.connect(lambda checked=False, index=i: self.navigate(index))
+            self.compact_nav_actions.append(action)
         menu.addSeparator()
-        self.compact_watcher_status = menu.addAction('Clipboard watcher: Off')
+        self.compact_watcher_status = menu.addAction(f'{tr("clipboard.watcher")}: {tr("watcher.off")}')
         self.compact_watcher_status.setEnabled(False)
-        self.compact_settings = menu.addAction('Settings')
+        self.compact_settings = menu.addAction(tr('common.settings'))
         self.compact_settings.setEnabled(settings is not None)
         self.compact_settings.triggered.connect(self.open_settings)
         self.compact_nav.setMenu(menu)
@@ -562,6 +605,8 @@ class MainWindow(QMainWindow):
         self.pages.addWidget(self.google_ai_studio)
         content.addWidget(self.pages, 1)
         outer.addWidget(self.content, 1)
+        self._watcher_state = 'off'
+        self.retranslate()
         self.navigate(0)
         self.process_clipboard_shortcut = QAction('Process Clipboard Now', self)
         self.process_clipboard_shortcut.setShortcut('Ctrl+Shift+V')
@@ -622,6 +667,23 @@ class MainWindow(QMainWindow):
         if isinstance(page, int) and 0 <= page < self.pages.count():
             self.navigate(page)
 
+    def retranslate(self):
+        """Refresh the app-level labels after a display-language change."""
+        self.nav_titles = tuple(tr(key) for key in self.nav_keys)
+        for button_control, title in zip(self.nav_buttons, self.nav_titles):
+            button_control.setText(title)
+        for action, title in zip(self.compact_nav_actions, self.nav_titles):
+            action.setText(title)
+        self.clipboard_label.setText(tr('clipboard.watcher'))
+        self.compact_nav.setText(tr('common.navigate'))
+        self.settings_button.setText(tr('common.settings'))
+        self.compact_settings.setText(tr('common.settings'))
+        self.update_watcher_state(self._watcher_state)
+        for page in (self.create, self.folder_scan, self.history_page, self.template_page,
+                     self.ai_generation, self.google_ai_studio):
+            if page is not None and hasattr(page, 'retranslate'):
+                page.retranslate()
+
     def open_settings(self):
         if self.settings is None or self.settings_store is None or self.repository is None:
             return
@@ -655,6 +717,7 @@ class MainWindow(QMainWindow):
     def apply_settings_change(self, dialog, new_settings, default_id):
         previous_startup = bool(self.settings and self.settings.get('start_with_windows'))
         requested_startup = bool(new_settings.get('start_with_windows'))
+        language_changed = new_settings.get('language') != dialog._settings.get('language')
         try:
             if self.startup_manager is not None and requested_startup != previous_startup:
                 self.startup_manager.set_enabled(requested_startup)
@@ -675,6 +738,8 @@ class MainWindow(QMainWindow):
         self.folder_scan.apply_settings(self.settings)
         self.ai_generation.apply_settings(self.settings)
         self.google_ai_studio.apply_settings(self.settings)
+        apply_language(QApplication.instance(), self.settings.get('language', 'ar'))
+        self.retranslate()
         if self.clipboard_watcher is not None:
             self.clipboard_watcher.apply_settings(self.settings)
         if self.tray_controller is not None:
@@ -683,7 +748,10 @@ class MainWindow(QMainWindow):
             self.apply_theme_callback(self.settings['theme'])
         if default_changed and self.template_page is not None:
             self.template_page.reload()
+        dialog._settings = dict(self.settings)
         dialog.mark_saved()
+        if language_changed:
+            dialog.status.setText(tr('language.restart_note'))
 
     def save_ai_studio_preferences(self, model, thinking, parallel_tabs):
         """Persist the AI Studio choices selected on the generation panel."""
@@ -758,7 +826,8 @@ class MainWindow(QMainWindow):
                 self.history_page.table.setCurrentItem(self.history_page.table.topLevelItem(0))
 
     def update_watcher_state(self, state):
-        display = {'off': 'Off', 'on': 'Watching', 'paused': 'Paused'}[state]
+        self._watcher_state = state
+        display = {'off': tr('watcher.off'), 'on': tr('watcher.watching'), 'paused': tr('watcher.paused')}[state]
         self.watcher_status.setText(display)
         self.watcher_status.setProperty('watcherState', state)
         self.watcher_status.setToolTip(
@@ -767,7 +836,7 @@ class MainWindow(QMainWindow):
         )
         self.watcher_status.style().unpolish(self.watcher_status)
         self.watcher_status.style().polish(self.watcher_status)
-        self.compact_watcher_status.setText(f'Clipboard watcher: {display}')
+        self.compact_watcher_status.setText(f'{tr("clipboard.watcher")}: {display}')
         if self.tray_controller is not None:
             self.tray_controller.set_watcher_state(state)
 
