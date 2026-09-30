@@ -17,6 +17,7 @@ from .ai_studio_errors import (AIStudioBrowserLaunchError, AIStudioCancelledErro
                                AIStudioProfileInUseError, BraveNotFoundError,
                                InvalidBraveExecutableError)
 from .app_data import app_data_root
+from .playwright_runtime import PlaywrightRuntimeError, start as start_playwright_runtime
 
 
 BRAVE_RELATIVE_PATH = Path('BraveSoftware') / 'Brave-Browser' / 'Application' / 'brave.exe'
@@ -182,12 +183,11 @@ class AIStudioBrowserManager:
     async def _start_playwright(self):
         if self._playwright_factory is None:
             try:
-                from playwright.async_api import async_playwright
-            except ImportError as exc:
+                return await start_playwright_runtime()
+            except PlaywrightRuntimeError as exc:
                 raise AIStudioConnectionError(
                     'The Playwright browser component is unavailable. Reinstall MCQ Maker and try again.'
                 ) from exc
-            factory = async_playwright
         else:
             factory = self._playwright_factory
         return await factory().start()

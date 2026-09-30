@@ -21,7 +21,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--theme', choices=['system', 'light', 'dark'], help='Development preview theme')
     parser.add_argument('--compact-preview', action='store_true', help='Open the compact layout for visual verification')
+    # Hidden release-verification entry point. It is inert unless explicitly
+    # requested and requires MCQ_MAKER_TEST_DATA_ROOT before it does any work.
+    parser.add_argument('--playwright-smoke-test', action='store_true', help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.playwright_smoke_test:
+        from .playwright_smoke import run as run_playwright_smoke_test
+        return run_playwright_smoke_test()
     app = QApplication(sys.argv[:1])
     app.setApplicationName('MCQ Maker')
     app.setStyle('Fusion')
