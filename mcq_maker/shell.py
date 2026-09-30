@@ -714,7 +714,11 @@ class MainWindow(QMainWindow):
     def apply_settings_change(self, dialog, new_settings, default_id):
         previous_startup = bool(self.settings and self.settings.get('start_with_windows'))
         requested_startup = bool(new_settings.get('start_with_windows'))
-        language_changed = new_settings.get('language') != dialog._settings.get('language')
+        # Compare against the window's persisted settings snapshot.  The dialog
+        # may be a lightweight test double (or an older caller) without its
+        # private _settings attribute; the main window already owns the
+        # authoritative previous value.
+        language_changed = new_settings.get('language') != (self.settings or {}).get('language')
         try:
             if self.startup_manager is not None and requested_startup != previous_startup:
                 self.startup_manager.set_enabled(requested_startup)

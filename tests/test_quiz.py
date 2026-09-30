@@ -12,6 +12,7 @@ from mcq_maker.quiz_validation import QuizError, validate_quiz
 from mcq_maker.shell import CreatePage, MainWindow
 from mcq_maker.template_repository import TemplateRepository
 from mcq_maker.history import HistoryRepository
+from mcq_maker.localization import apply_language
 
 BASE = Path(__file__).resolve().parents[1]
 TEMPLATE = (BASE / 'mcq_maker' / 'assets' / 'standard_exam.html').read_text(encoding='utf-8')
@@ -102,6 +103,10 @@ class CreatePageTests(unittest.TestCase):
     def setUpClass(cls):
         cls.app = QApplication.instance() or QApplication([])
 
+    def setUp(self):
+        # Create-page copy is asserted in English by this test class.
+        apply_language(self.app, 'en')
+
     def test_live_validation_generation_auto_clear_and_undo(self):
         with tempfile.TemporaryDirectory(dir=BASE/'artifacts') as root:
             repo = TemplateRepository(Path(root)/'library')
@@ -147,7 +152,7 @@ class CreatePageTests(unittest.TestCase):
             self.assertTrue(page.generate.isEnabled())
             page.editor_clear()
             self.assertEqual(page.editor.toPlainText(), '')
-            self.assertIn('Questions cleared', page.validation.text())
+            self.assertEqual(page.validation.text(), 'Paste questions to begin.')
             page.editor.undo()
             QTest.qWait(380)
             self.assertIn('Sample clinical review', page.editor.toPlainText())

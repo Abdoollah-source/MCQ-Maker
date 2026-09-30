@@ -1,0 +1,1907 @@
+Characteristic signs and symptoms may lead to…
+A. Genetic testing
+B. Microscopic examination
+C. Definitive clinical diagnosis
+D. Presumptive clinical diagnosis
+E. Serologic testing
+Answer: D. Presumptive clinical diagnosis [1]
+Presumptive clinical diagnosis may be reached by …
+A. General signs and symptoms
+B. Characteristic signs and symptoms
+C. Systemic signs and symptoms
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+The primary purpose of culture media in microbiology is to …
+A. Genotyping of bacterial genome
+B. Isolate bacteria for biochemical identification
+C. Stain bacterial cells
+D. All of the above
+E. None of the above
+Answer: B. Isolate bacteria for biochemical identification [1]
+Culture media after finishing the diagnosis must be …
+A. Discarded directly in the waste container
+B. Dried before disposal
+C. Disinfect before discarding
+D. Washed with Alcohol
+E. Incinerate
+Answer: C. Disinfect before discarding [1]
+The contamination source in clinical sample collection is …
+A. Laboratory equipment
+B. The patient’s normal flora
+C. Hospital environment
+D. Antiseptic solutions
+E. All of the above
+Answer: E. All of the above [1]
+Treponema pallidum is particularly viewed by … microscopy.
+A. Bright-field
+B. Phase-contrast
+C. Dark-field
+D. DIC
+E. None of the above
+Answer: C. Dark-field [1]
+… is the next main step after achieving the definitive diagnosis.
+A. Specimen collection
+B. Antimicrobial susceptibility testing
+C. Presumptive diagnosis
+D. Patient discharge
+E. Microscopic quantitation
+Answer: B. Antimicrobial susceptibility testing [1]
+Blood agar and chocolate agar are examples of …
+A. Simple media
+B. Enrichment broths
+C. Enriched media
+D. Synthetic media
+E. Indicator media
+Answer: C. Enriched media [1]
+MacConkey agar is considered both …, and …
+A. Simple and enriched medium
+B. Enriched and enrichment medium
+C. Selective and differential medium
+D. Transport and anaerobic medium
+E. None of the above
+Answer: C. Selective and differential medium [1]
+Chemical fixation is preferred over heat fixation because …
+A. Hardens fine internal cell structures
+B. Hardens bacterial cell wall only
+C. Increasing cell contrast
+D. Observing living cells
+E. None of the above
+Answer: A. Hardens fine internal cell structures [1]
+Catalase test detects the enzyme that converts hydrogen peroxide (H2O2) into …
+A. Ammonia and oxygen
+B. Water and oxygen (H2O and O2)
+C. Carbon dioxide and water
+D. Peroxide and oxygen
+E. Nitrogen and water
+Answer: B. Water and oxygen (H2O and O2) [1]
+The indole test detects the breakdown of …
+A. Lysine
+B. Ornithine
+C. Tryptophan
+D. Tyrosine
+E. None of the above
+Answer: C. Tryptophan [1]
+Enumerate the physical methods of sterilization.
+Answer: 1. Heat (Moist heat such as autoclaving; Dry heat such as hot air ovens, flaming, and incineration); 2. Filtration (membrane filters); 3. Radiation (Ionizing radiation such as gamma rays; Non-ionizing radiation such as UV light). [1]
+… kills all microbial life forms, including endospores.
+A. Disinfection
+B. Decontamination
+C. Pasteurization
+D. Sterilization
+E. None of the above
+Answer: D. Sterilization [1]
+A correct sample collection practice is done by …
+A. Using non-sterile containers
+B. Collecting samples after antibiotic therapy
+C. Using sterile, leak-proof containers and labeling properly
+D. Transporting without labels
+E. None of the above
+Answer: C. Using sterile, leak-proof containers and labeling properly [1]
+The preferred water for preparing culture media is …
+A. Tap water
+B. Distilled or low-mineral water
+C. Rainwater
+D. Buffer solution
+E. None of the above
+Answer: B. Distilled or low-mineral water [1]
+What is the influence of the Antimicrobial Susceptibility Testing report?
+A. Number of specimens collected
+B. Type of specimen collected
+C. Choice of treatment
+D. Microscopic staining method
+E. None of the above
+Answer: C. Choice of treatment [1]
+Non-culture diagnostic techniques are utilized when …
+A. Microorganisms are slow-growing
+B. Microorganisms cannot be cultured in vitro
+C. Rapid laboratory diagnosis is required
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+Mannitol salt agar is selective because it contains …
+A. Bile salts
+B. Crystal violet
+C. 7.5% of NaCl
+D. Mannitol
+E. Peptone
+Answer: C. 7.5% of NaCl [1]
+Differential interference contrast (DIC) microscopy generates images that reveal …
+A. Scanning the surface antigens
+B. External cell structures
+C. Two-dimensional
+D. Internal cell structures
+E. None of the above
+Answer: D. Internal cell structures [1]
+Differential interference contrast (DIC) microscopy produces images that appear …
+A. External cell structures
+B. Three-dimensional
+C. Two-dimensional
+D. All of the above
+E. None of the above
+Answer: B. Three-dimensional [1]
+Negative staining helps visualize …
+A. Cell walls
+B. Bacterial capsules
+C. Flagella
+D. Endospores
+E. All of the above
+Answer: B. Bacterial capsules [1]
+A positive indole test result is …
+A. Bubble formation
+B. Purple color
+C. Turbidity
+D. Yellow precipitate
+E. Pink to red color ring
+Answer: E. Pink to red color ring [1]
+Enumerate the four general conditions for sample collection.
+Answer: 1. Collect the specimen prior to the administration of antimicrobial therapy; 2. Collect from the actual anatomical site of infection while avoiding normal flora contamination; 3. Use sterile, leak-proof containers and properly label the specimen; 4. Transport the specimen promptly to the laboratory under appropriate storage conditions. [1]
+The most common clinical specimens collected for microbiological diagnosis are:
+A. Sputum, urine, blood, feces, tissue biopsy
+B. Only blood and urine
+C. Only sputum and feces
+D. All of the above
+E. None of the above
+Answer: A. Sputum, urine, blood, feces, tissue biopsy [1]
+Disinfection differs from sterilization in that it …
+A. Kills all microbial life forms
+B. Destroys only pathogenic organisms
+C. Removes microorganisms without killing
+D. Requires filtration
+E. Kills endospores
+Answer: B. Destroys only pathogenic organisms [1]
+Blood samples for culture should be collected …
+A. After antibiotics are prescribed
+B. Without disinfecting the skin
+C. Prior to antibiotic therapy and after skin decontamination
+D. All of the above
+E. None of the above
+Answer: C. Prior to antibiotic therapy and after skin decontamination [1]
+Peptone in culture media is …
+A. A carbohydrate mixture
+B. A complex mixture of partially digested proteins
+C. A yeast extract
+D. A mineral supplement
+E. A malt extract
+Answer: B. A complex mixture of partially digested proteins [1]
+The phase-contrast microscope is useful for …
+A. Viewing living cells without staining
+B. Observing stained cells
+C. Detecting internal bacterial structure
+D. Observing surface bacterial structures in 3D
+E. All of the above
+Answer: A. Viewing living cells without staining [1]
+Biochemical tests are considered the completion of the …
+A. Serologic pathway
+B. Culture pathway
+C. Microscopic pathway
+D. Genetic pathway
+E. None of the above
+Answer: B. Culture pathway [1]
+Which of the following is not a non-culture diagnostic technique?
+A. Direct microscopy
+B. Immunological methods
+C. Serology
+D. Nucleic acid amplification tests (NAAT)
+E. Bacteria grown on culture media
+Answer: E. Bacteria grown on culture media [1]
+Mannitol salt agar is differential because it contains …
+A. Bile salts
+B. Crystal violet
+C. 7.5% of NaCl
+D. Mannitol
+E. Peptone
+Answer: D. Mannitol [1]
+Examples of negative stains are …
+A. Methylene blue and basic fuchsin
+B. Impregnation method
+C. India ink and Nigrosin
+D. Gram stain and acid-fast stain
+E. None of the above
+Answer: C. India ink and Nigrosin [1]
+A positive catalase test result is …
+A. Red color ring
+B. Bubble formation
+C. Turbidity
+D. Blue fluorescence
+E. None of the above
+Answer: B. Bubble formation [1]
+Urease hydrolyzes urea to produce …
+A. Ammonia and carbon dioxide
+B. Water and oxygen
+C. Acid and gas
+D. Ammonia and pyruvate
+E. None of the above
+Answer: A. Ammonia and carbon dioxide [1]
+Enumerate the situations requiring the use of non-cultural techniques for diagnosis.
+Answer: 1. When the causative microorganism cannot be cultivated in vitro (e.g., Treponema pallidum); 2. For slow-growing microorganisms (e.g., Mycobacterium tuberculosis); 3. When rapid identification is necessary for clinical management; 4. When prior antibiotic therapy prevents viable bacterial recovery in culture. [1]
+The diagnostic approach involving selective and nonselective media is …
+A. Microscopic examination
+B. Serologic testing
+C. Immunological testing
+D. Genetic testing
+E. Culture
+Answer: E. Culture [1]
+Decontamination means …
+A. Killing all microorganisms
+B. Removal of pathogens so items are safe to handle or dispose of
+C. Chemical sterilization
+D. All of the above
+E. None of the above
+Answer: B. Removal of pathogens so items are safe to handle or dispose of [1]
+Rapid transport of specimens to the lab is essential because …
+A. Microorganisms multiply faster during transport
+B. Some pathogens may die or be overgrown by contaminants
+C. It helps reduce the sample size
+D. It prevents sample leakage
+E. None of the above
+Answer: B. Some pathogens may die or be overgrown by contaminants [1]
+Peptone is prepared by partially digesting proteins using …
+A. Amylase
+B. Lipase
+C. Proteolytic enzymes like pepsin
+D. All of the above
+E. None of the above
+Answer: C. Proteolytic enzymes like pepsin [1]
+The purpose of staining in bright-field microscopy is to …
+A. Kill bacteria
+B. Increase contrast between cells and background
+C. Reduce light reflection
+D. All of the above
+E. None of the above
+Answer: B. Increase contrast between cells and background [1]
+A chemical method of sterilization is …
+A. Ethylene oxide gas
+B. Moist heat
+C. Dry heat
+D. Filtration
+E. None of the above
+Answer: A. Ethylene oxide gas [1]
+Blood or serum is added to media to …
+A. Inhibit bacterial growth
+B. Enrich media for fastidious bacteria
+C. Solidify liquid media
+D. Act as a pH indicator
+E. None of the above
+Answer: B. Enrich media for fastidious bacteria [1]
+Mannitol salt agar is selective for …
+A. Streptococci
+B. Staphylococci
+C. Enterobacteriaceae
+D. Non-Enterobacteriaceae
+E. None of the above
+Answer: B. Staphylococci [1]
+The scanning electron microscope (SEM) is particularly useful for …
+A. Observing internal structures
+B. Providing 3D images of object surfaces
+C. Studying bacterial motility
+D. Two-dimensional image
+E. None of the above
+Answer: B. Providing 3D images of object surfaces [1]
+Simple stain examples include …
+A. Methylene blue and basic fuchsin
+B. Impregnation method
+C. India ink and Nigrosin
+D. Gram stain and acid-fast stain
+E. None of the above
+Answer: A. Methylene blue and basic fuchsin [1]
+Oxidase test detects the presence of …
+A. Catalase enzyme
+B. Cytochrome oxidase
+C. Decarboxylase enzyme
+D. Deaminase enzyme
+E. Urease enzyme
+Answer: B. Cytochrome oxidase [1]
+Illustrate the basic constituents of culture media.
+Answer: The basic constituents include: 1. Water (distilled or low-mineral); 2. Peptone (source of organic nitrogen and amino acids); 3. Electrolytes (such as sodium chloride to maintain osmotic pressure); 4. Agar (solidifying agent derived from red algae); 5. Nutrient extracts (such as meat or yeast extracts supplying vitamins and growth factors). [1]
+Infectious disease occurs when the organism causes …………. and loss function of body systems.
+A. Tissue damage
+B. Eye injury
+C. Ear wound
+D. All of the above
+E. None of the above
+Answer: A. Tissue damage [1]
+Bacteria can play an important role in the human body via:
+A. Degradation of food
+B. Protection against opportunistic bacteria
+C. Immune suppression
+D. A and B
+E. All of the above
+Answer: D. A and B [1]
+One of the medical terms represents an individual infected with a pathogen showing active disease signs compared to an uninfected or dormant state:
+A. Asymptomatic
+B. Carrier
+C. Symptomatic
+D. A and B
+E. None of the above
+Answer: C. Symptomatic [1]
+The infectious disease is usually diagnosed in the patient when:
+A. Organisms replicate and multiply in host
+B. Tissues are damaged
+C. Developed signs appear
+D. Immune response is induced
+E. All of the above
+Answer: E. All of the above [1]
+Interaction between the host and the microorganism is affected by the:
+A. Host immune status
+B. Microbial virulence factors
+C. Both A and B
+D. None of the above
+Answer: C. Both A and B [1]
+……………. is the tool that makes it possible to identify the exact pathogens of infectious diseases and the most optimal therapy.
+A. Microbiology
+B. Diagnostic Microbiology
+C. Bacteriology
+D. Virology
+E. All of the above
+Answer: B. Diagnostic Microbiology [1]
+Which of the following factors render culture-based methods less reliable?
+A. Transport of specimens under less than ideal conditions
+B. Prior use of antibiotics
+C. Small number of organisms
+D. All of the above
+Answer: D. All of the above [1]
+Microbial colonization may result in:
+A. Elimination of the microorganism
+B. Infection in which the organisms multiply
+C. Transient or prolonged carrier state
+D. All of the above
+Answer: D. All of the above [1]
+Which of the following basic laboratory techniques are considered definitive microbiologic diagnosis of an infectious disease?
+A. Morphologic identification of the agent
+B. Cultivation and identification of the organisms and immunologic assay
+C. Detection of microbial DNA or RNA
+D. Detection of an inflammatory or host immune response to the pathogenic agents
+E. All of the above
+Answer: E. All of the above [1]
+The purpose and philosophy of diagnostic bacteriology depends on:
+A. Identifying the causative microorganism by different laboratory methods
+B. Identifying the causative microorganism by same laboratory methods
+C. Both A and B
+D. None of the above
+Answer: A. Identifying the causative microorganism by different laboratory methods [1]
+The purpose of diagnostic microbiology includes:
+A. Confirm the suspicion of infectious diseases
+B. Identify the etiological agent
+C. Decision on antimicrobial therapy
+D. Elimination of the microbes
+E. All of the above
+Answer: E. All of the above [1]
+Many factors limit the success or degree of sterilization, disinfection, or decontamination, such as:
+A. Organic load (organisms, blood or body fluids)
+B. Type of organisms present
+C. The concentration and exposure time to the germicide
+D. The physical and chemical nature of the surface temperature, pH, humidity
+E. All of the above
+Answer: E. All of the above [1]
+Material Safety Data Sheets (MSDSs) address this type of safety in the laboratory:
+A. Fire safety
+B. Electrical safety
+C. Biosafety
+D. Chemical safety
+E. All of the above
+Answer: D. Chemical safety [1]
+Microbiology laboratory admonitions include the necessity to:
+A. Wear gloves & wash hands after working with infectious materials
+B. Disinfect all instruments immediately after use
+C. Use water to moisten specimen labels
+D. Disinfect all contaminated waste before discarding
+E. All of the above
+Answer: E. All of the above [1]
+……… is a process that destroys pathogenic organisms, but not necessarily all microorganisms, endospores, or prions.
+A. Disinfection
+B. Sterilization
+C. Decontamination
+D. None of the above
+Answer: A. Disinfection [1]
+Infectious agents are usually not completely destroyed by:
+A. Disinfection
+B. Filtration
+C. Boiling
+D. Sterilization
+E. None of the above
+Answer: A. Disinfection [1]
+One of the following methods is not considered sterilization:
+A. Moist heat
+B. Burning
+C. Pasteurization
+D. Gamma radiation
+E. All of the above
+Answer: C. Pasteurization [1]
+Diagnostic microbiologists study the:
+A. Causes of infectious disease
+B. Treatment of infectious disease
+C. Control of infectious disease
+D. All of them
+Answer: D. All of them [1]
+An important component of the laboratory safety program is:
+A. Chemical safety
+B. Electrical safety
+C. Fire safety
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+A detailed request form that accompanies clinical samples must contain:
+A. Patient details
+B. Sample type
+C. Time of collection
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+Fastidious microorganisms that may die during improper or delayed transportation include:
+A. Neisseria gonorrhoeae & Haemophilus influenzae
+B. Neisseria gonorrhoeae & Staphylococcus aureus
+C. E. coli and Staphylococcus aureus
+D. Klebsiella pneumoniae and E. coli
+Answer: A. Neisseria gonorrhoeae & Haemophilus influenzae [1]
+Specimens for microbiological culture should be taken … to avoid false-negative results.
+A. Prior to commencement of antibiotic therapy
+B. After commencement of antibiotic therapy
+C. Together with commencement of antibiotic therapy
+D. None of the above
+Answer: A. Prior to commencement of antibiotic therapy [1]
+All specimens that may contain highly infectious organisms must be marked as:
+A. HIGH RISK
+B. LOW RISK
+C. NO RISK
+D. All of the above
+E. None of the above
+Answer: A. HIGH RISK [1]
+Refrigeration of samples at … can help to preserve cells and reduce multiplication of commensals in unpreserved specimens.
+A. 4 °C
+B. 27 °C
+C. 37 °C
+D. 70 °C
+Answer: A. 4 °C [1]
+Which of the following fluids is essential for freezing of specimens at -70 °C or below?
+A. Phenol
+B. Alcohol
+C. Glycerol
+D. Ethanol
+E. All of the above
+Answer: C. Glycerol [1]
+Indicator media may contain selective agents including antibiotics or substances such as … and crystal violet to suppress the growth of most Gram-positive microorganisms.
+A. NaCl salts
+B. Bile salts
+C. Phosphate
+D. Carbohydrates
+E. Potassium
+Answer: B. Bile salts [1]
+Bile salts and crystal violet are used in culture media to suppress the growth of most:
+A. Fastidious microorganisms
+B. Gram-negative microorganisms
+C. Gram-positive microorganisms
+D. Both A and B
+Answer: C. Gram-positive microorganisms [1]
+MacConkey agar contains lactose and a pH indicator (neutral red); it is used for the detection of:
+A. Salt-tolerant bacteria
+B. Lactose-fermenting bacteria
+C. Lactose-fermenting yeasts
+D. All of the above
+E. None of the above
+Answer: B. Lactose-fermenting bacteria [1]
+MacConkey agar is used to differentiate between lactose-fermenting bacteria such as … from non-lactose fermenting bacteria such as …:
+A. Salmonella spp. & Escherichia coli
+B. Escherichia coli & Salmonella spp.
+C. Escherichia coli & Klebsiella
+D. None of the above
+Answer: B. Escherichia coli & Salmonella spp. [1]
+When the temperature of molten agar cools down to …, it is poured into Petri dishes.
+A. 20 °C
+B. 37 °C
+C. 45 °C
+D. 47 °C
+Answer: C. 45 °C [1]
+Malt extract agar consists of maltose (about 50%) and:
+A. Starch
+B. Dextrin
+C. Glucose
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+Meat extract media contains different components like:
+A. Protein degradation products
+B. Inorganic salts
+C. Carbohydrates
+D. Growth factors
+E. All of the above
+Answer: E. All of the above [1]
+The selective agents in MacConkey agar are:
+A. Methylene blue
+B. Crystal violet
+C. Safranin
+D. Bile salts
+E. Both B and D
+Answer: E. Both B and D [1]
+Routine microbiological culture media are sterilized by:
+A. Boiling
+B. Autoclave
+C. Pasteurization
+D. Dry heat (Oven)
+E. Filtration
+Answer: B. Autoclave [1]
+Some antibiotics are added to media in order to formulate:
+A. Enriched media
+B. Simple media
+C. Selective media
+D. Basal media
+E. Transport media
+Answer: C. Selective media [1]
+Types of culture media based on physical consistency are:
+A. Liquid media (or broth)
+B. Semisolid media
+C. Solid media
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+An example of non-enriched media is:
+A. Blood agar
+B. Chocolate agar
+C. Mannitol salt agar
+D. A and B
+E. None of the above
+Answer: C. Mannitol salt agar [1]
+Growth of Salmonella spp. on MacConkey agar produces:
+A. Yellow colonies
+B. Red colonies
+C. Colorless colonies
+D. Black colonies
+E. None of the above
+Answer: C. Colorless colonies [1]
+Based on nutritional and growth requirements, culture media are classified into categories including:
+A. Routine laboratory media
+B. Selective media
+C. Synthetic media
+D. Both A and C
+Answer: D. Both A and C [1]
+A technique used to preserve overall morphology but not the fine internal structures of the cell is:
+A. Chemical fixation
+B. Biological fixation
+C. Heat fixation
+D. Both A and B
+E. None of the above
+Answer: C. Heat fixation [1]
+A technique used to protect the fine internal structures of cells is:
+A. Chemical fixation
+B. Biological fixation
+C. Heat fixation
+D. Both A and B
+E. None of the above
+Answer: A. Chemical fixation [1]
+Chemical fixation can be performed using … and mercuric chloride.
+A. Ethanol
+B. Acetic acid
+C. Formaldehyde
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+The presence of the enzyme urease can be determined by inoculating an organism into:
+A. Stuart’s broth or Christensen’s agar
+B. Kovac's broth
+C. Selenite broth
+D. Middlebrook broth
+E. None of the above
+Answer: A. Stuart’s broth or Christensen’s agar [1]
+……….. is generally used to separate organisms into major groups: Enterobacteriaceae (fermentative) and Pseudomonas spp. (oxidative).
+A. Enrichment medium
+B. Selective medium
+C. Oxidation-Fermentation (O-F) medium
+D. Enriched medium
+E. None of the above
+Answer: C. Oxidation-Fermentation (O-F) medium [1]
+Decarboxylases cleave the carboxyl group from amino acids so that amino acids are converted into:
+A. Nucleic acids
+B. Nucleotides
+C. Polypeptides
+D. Amines
+E. None of the above
+Answer: D. Amines [1]
+Which of the following tests is used to differentiate Staphylococcus aureus from coagulase-negative staphylococci?
+A. Oxidase
+B. Coagulase
+C. Urease
+D. Catalase
+Answer: B. Coagulase [1]
+Staining procedures that use two dyes to impart different colors to different bacteria or bacterial structures are termed:
+A. Differential stains
+B. Negative stains
+C. Simple stains
+D. None of them
+Answer: A. Differential stains [1]
+Non-traditional methods for the identification of pathogens or their products include:
+A. Molecular testing
+B. Saliva-based testing
+C. Chromogenic media testing
+D. Rapid immunochromatographic testing
+E. All of the above
+Answer: E. All of the above [1]
+Impregnation methods are used for thickening bacterial structures (like flagella) by deposition of:
+A. Sodium chloride
+B. Potassium chloride
+C. Silver salts
+D. All of the above
+E. None of the above
+Answer: C. Silver salts [1]
+The most commonly employed differential stains in diagnostic bacteriology are:
+A. Gram stain
+B. Red stain
+C. Acid-fast stain
+D. All of the above
+E. A and C
+Answer: E. A and C [1]
+Anaerobic cultures are clinically indicated if which of the following is present?
+A. Sulfur granules
+B. Gas in tissue
+C. Foul smell
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+The oxidase test is initially used for differentiating between groups of … bacteria.
+A. Gram-negative
+B. Gram-positive
+C. Viruses
+D. All of the above
+E. None of the above
+Answer: A. Gram-negative [1]
+……… is the process by which internal and external structures of cells are preserved and attached to a slide.
+A. Smear technique
+B. Fixation technique
+C. Staining method
+D. Latex agglutination technique
+E. All of the above
+Answer: B. Fixation technique [1]
+Which microscope is used to detect Mycobacterium tuberculosis after auramine-rhodamine staining?
+A. Dark-field microscope
+B. Phase-contrast microscope
+C. Electron microscope
+D. Fluorescence microscope
+E. All of the above
+Answer: D. Fluorescence microscope [1]
+In clinical laboratories, antimicrobial susceptibility testing is usually performed by disk diffusion or/and:
+A. Minimal Inhibitory Concentration (MIC)
+B. Catalase
+C. Oxidase
+D. All of the above
+E. None of the above
+Answer: A. Minimal Inhibitory Concentration (MIC) [1]
+The term ……… has traditionally been reserved for a compound naturally produced by living microorganisms, such as bacteria and fungi, that inhibits or kills other microorganisms.
+A. Antibiotic
+B. Antisera
+C. Antibiogram
+D. All of the above
+E. None of the above
+Answer: A. Antibiotic [1]
+Antibiotic sensitivity tests are usually performed by which of the following methods?
+A. Kirby-Bauer disk diffusion method
+B. Minimal inhibitory concentration method
+C. Automated antimicrobial susceptibility test systems
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+An antibiotic class that acts by causing injury to the plasma membrane is:
+A. Lipopeptides
+B. Ampicillin
+C. Chloramphenicol
+D. Gentamicin
+E. None of the above
+Answer: A. Lipopeptides [1]
+The Minimal Inhibitory Concentration (MIC) is the:
+A. Concentration of antibody reacting with antigen
+B. Dose of infectious agent that causes disease
+C. Concentration of bacterial toxin damaging tissues
+D. Concentration of growth factors inducing growth
+E. Lowest concentration of antibiotic that inhibits visible bacterial growth
+Answer: E. Lowest concentration of antibiotic that inhibits visible bacterial growth [1]
+All of the following are recognized antibiotic mechanisms of action EXCEPT:
+A. Inhibition of growth factors in culture medium
+B. Alteration of cell membranes
+C. Inhibition of protein synthesis
+D. Inhibition of nucleic acid synthesis
+E. Inhibition of cell wall synthesis
+Answer: A. Inhibition of growth factors in culture medium [1]
+Which of the following techniques cannot be used to determine the quantitative MIC of an antimicrobial drug?
+A. E-test
+B. Microbroth dilution test
+C. Kirby-Bauer disk diffusion test
+D. Macrobroth dilution test
+E. Both B and D
+Answer: C. Kirby-Bauer disk diffusion test [1]
+Antibiotics are naturally produced by living microorganisms such as:
+A. Bacteria and parasites
+B. Parasites and viruses
+C. Viruses and fungi
+D. Bacteria and fungi
+E. Fungi and parasites
+Answer: D. Bacteria and fungi [1]
+Antimicrobial therapeutic agents target anabolic cellular processes such as:
+A. Cell wall synthesis
+B. Negative pressure
+C. Cell gravity
+D. All of the above
+E. None of the above
+Answer: A. Cell wall synthesis [1]
+The lowest concentration of antibiotic that kills 100% (or ≥99.9%) of the bacteria is defined as the:
+A. Minimal Bactericidal Concentration (MBC)
+B. Minimal Inhibitory Concentration (MIC)
+C. Breakpoint concentration
+D. None of the above
+Answer: A. Minimal Bactericidal Concentration (MBC) [1]
+In this susceptibility testing method, tubes containing serial twofold dilutions of an antibiotic in broth are inoculated with the test organism:
+A. Agar dilution
+B. Broth (tube) dilution
+C. Disk diffusion
+D. All of these
+Answer: B. Broth (tube) dilution [1]
+Pathogens such as …………… usually have predictable sensitivity patterns to certain antibiotics.
+A. Streptococcus pyogenes
+B. Neisseria meningitidis
+C. Staphylococcal species
+D. Enterococci
+E. A and B
+Answer: E. A and B [1]
+Most …………… show unpredictable susceptibility patterns to various antibiotics and routinely require testing to determine therapy.
+A. Gram-negative bacilli
+B. Enterococci
+C. Staphylococcal species
+D. All of these
+E. None of the above
+Answer: D. All of these [1]
+An antibiotic that functions specifically as an RNA synthesis inhibitor is:
+A. Ansamycins / Rifampicin
+B. Sulfonamides
+C. Lipopeptides
+D. Tetracyclines
+E. Ampicillin
+Answer: A. Ansamycins / Rifampicin [1]
+Antibiotics that inhibit cell wall synthesis include:
+A. Beta-lactams
+B. Glycopeptides
+C. Fosfomycin
+D. Bacitracin and Alafosfalin
+E. All of these
+Answer: E. All of these [1]
+Antibiotics that act as folate synthesis inhibitors include:
+A. Ansamycins
+B. Sulfonamides
+C. Lipopeptides
+D. Rifampicin
+E. Tetracyclines
+Answer: B. Sulfonamides [1]
+Novobiocin susceptibility testing (NST) is used to differentiate:
+A. Staphylococcus saprophyticus from Staphylococcus epidermidis
+B. Staphylococcus aureus from Staphylococcus saprophyticus
+C. Staphylococcus aureus from Staphylococcus epidermidis
+D. Staphylococcus saprophyticus from Streptococcus pyogenes
+E. None of the above
+Answer: A. Staphylococcus saprophyticus from Staphylococcus epidermidis [1]
+Both pneumococci (Streptococcus pneumoniae) and Neisseria meningitidis appear microscopically as:
+A. Gram-negative bacilli
+B. Bacilli
+C. Diplococci
+D. All of the above
+E. None of the above
+Answer: C. Diplococci [1]
+The bile esculin test is used to identify and differentiate:
+A. Group D streptococci and Enterococcus faecium (positive) from other streptococci/staphylococci
+B. Staphylococcus saprophyticus from Staphylococcus aureus
+C. Streptococcus pneumoniae from Streptococcus mutans
+D. None of the above
+Answer: A. Group D streptococci and Enterococcus faecium (positive) from other streptococci/staphylococci [1]
+Streptococcus pyogenes growing on a sheep blood agar plate displays:
+A. Alpha-hemolysis, a clear zone surrounding colonies
+B. Alpha-hemolysis, a green zone surrounding colonies
+C. Beta-hemolysis, a clear zone of complete hemolysis surrounding colonies
+D. Gamma-hemolysis
+E. None of the above
+Answer: C. Beta-hemolysis, a clear zone of complete hemolysis surrounding colonies [1]
+Useful tests for differentiating Streptococcus pneumoniae from other alpha-hemolytic streptococci include:
+A. Inulin fermentation
+B. Bile solubility test
+C. Both A and B
+D. Lactose fermentation
+E. None of the above
+Answer: C. Both A and B [1]
+Gram-positive bacteria that can grow on MacConkey medium and produce deep pink colonies are:
+A. Streptococcus spp.
+B. Staphylococcus spp.
+C. Enterococcus spp.
+D. All of the above
+E. None of the above
+Answer: C. Enterococcus spp. [1]
+Which statement regarding Enterococci is INCORRECT?
+A. It is a Gram-positive coccus that can grow on MacConkey agar
+B. It possesses a prominent hyaluronic acid capsule distinguishing it from S. pneumoniae
+C. It grows in the presence of 6.5% NaCl and 40% bile
+D. It survives heating at 60 °C for 30 minutes
+E. It is part of the normal flora of the human intestinal tract
+Answer: B. It possesses a prominent hyaluronic acid capsule distinguishing it from S. pneumoniae [1]
+Plague is a serious bacterial infection caused by:
+A. Clostridium
+B. Mycobacteria
+C. Yersinia pestis
+D. Pseudomonas aeruginosa
+E. None of the above
+Answer: C. Yersinia pestis [1]
+Direct detection of bacteria from joint fluid or cerebrospinal fluid showing Gram-negative diplococci with adjacent sides flattened (resembling coffee beans) indicates:
+A. Enterobacter
+B. Klebsiella
+C. Serratia
+D. Escherichia
+E. Neisseria meningitidis
+Answer: E. Neisseria meningitidis [1]
+Streptococcus pneumoniae colonies characteristically produce a zone of:
+A. Beta-hemolysis
+B. Alpha-hemolysis (greenish discoloration)
+C. Gamma-hemolysis
+D. Pitting of agar surface
+Answer: B. Alpha-hemolysis (greenish discoloration) [1]
+The bacteria that were previously classified as Group D streptococci are:
+A. Escherichia
+B. Pneumococci
+C. Pseudomonas
+D. Enterococcus
+E. Pyogenes
+Answer: D. Enterococcus [1]
+Enterococci can grow under which temperature condition?
+A. 37 °C
+B. 45 °C
+C. 10 °C
+D. All of the above
+Answer: D. All of the above [1]
+The basic cellular morphology of Staphylococcus is:
+A. Cocci in clusters
+B. Non-motile
+C. Non-sporing
+D. All of the above
+E. None of the above
+Answer: D. All of the above [1]
+Pigments produced by Pseudomonas aeruginosa include:
+A. Pyocyanin (blue-green)
+B. Pyoverdine (green-fluorescent)
+C. Pyorubin (red-brown)
+D. Pyomelanin (black)
+E. All of the above
+Answer: E. All of the above [1]
+Which of the following organisms is soluble in bile salts (lysed by sodium deoxycholate)?
+A. Streptococcus mutans
+B. Streptococcus sanguinis
+C. Streptococcus agalactiae
+D. Streptococcus pneumoniae
+E. Streptococcus pyogenes
+Answer: D. Streptococcus pneumoniae [1]
+Which statement regarding Streptococcus pneumoniae is WRONG?
+A. It is a Gram-positive lancet-shaped diplococcus
+B. It can ferment inulin with acid production
+C. Pneumococci are catalase and oxidase negative
+D. Pneumococci have a hyaluronic acid capsule
+E. None of the above
+Answer: D. Pneumococci have a hyaluronic acid capsule [1]
+Bacteria commonly responsible for causing skin lesions and pyogenic infections:
+A. Pseudomonas aeruginosa
+B. Streptococcus pyogenes
+C. Staphylococcus aureus
+D. Both A and C
+E. All of the above
+Answer: E. All of the above [1]
+All of the following bacteria are common causes of urinary tract infections EXCEPT:
+A. Klebsiella pneumoniae
+B. Escherichia coli
+C. Enterobacter
+D. Proteus mirabilis
+E. Salmonella enterica
+Answer: E. Salmonella enterica [1]
+Which of the following bacteria is primarily a cause of enteric typhoid fever rather than acute bacterial pneumonia?
+A. Klebsiella
+B. Enterobacter
+C. Serratia
+D. Salmonella
+Answer: D. Salmonella [1]
+Which bacteria cause acute dysentery (bloody mucoid stools)?
+A. Shigella
+B. Escherichia coli
+C. Salmonella
+D. Serratia
+E. Klebsiella
+Answer: A. Shigella [1]
+Which bacteria are associated with plague, mesenteric adenitis, and terminal ileitis?
+A. Yersinia
+B. Escherichia
+C. Salmonella
+D. Serratia
+E. Klebsiella
+Answer: A. Yersinia [1]
+Non-suppurative complications of Streptococcus pyogenes infections include:
+A. Enterocolitis
+B. Meningitis
+C. Pneumonia
+D. Acute rheumatic fever and acute glomerulonephritis
+E. Respiratory infections
+Answer: D. Acute rheumatic fever and acute glomerulonephritis [1]
+The fluorescent greenish-yellow water-soluble pigment of Pseudomonas aeruginosa is:
+A. Pyocyanin
+B. Pyorubin
+C. Pyomelanin
+D. Pyoverdine
+E. None of the above
+Answer: D. Pyoverdine [1]
+All of the following characteristics are true for Neisseria meningitidis EXCEPT:
+A. Gram-positive
+B. Kidney-bean shaped diplococci
+C. Grows on modified Thayer-Martin medium
+D. Oxidase positive
+E. Fastidious aerobe
+Answer: A. Gram-positive [1]
+Hektoen enteric (HE) agar is a selective and differential medium for:
+A. Pseudomonas
+B. Salmonella and Shigella
+C. Klebsiella
+D. Enterobacter
+Answer: B. Salmonella and Shigella [1]
+Enterococci are characterized by:
+A. Gram-positive cocci in pairs/short chains
+B. Ability to grow on bile esculin and hydrolyze esculin
+C. Ability to grow on MacConkey agar and 6.5% NaCl
+D. Positive PYR test
+E. All of these
+Answer: E. All of these [1]
+A hallmark diagnostic colony feature of Pseudomonas aeruginosa on nutrient agar is:
+A. Bright pink lactose-fermenting colonies
+B. Green-metallic sheen on EMB agar
+C. Smooth colonies with bluish-green diffusible pigment and a grape-like/corn-taco odor
+D. Golden-yellow non-diffusible pigment
+Answer: C. Smooth colonies with bluish-green diffusible pigment and a grape-like/corn-taco odor [1]
+Which of the following organisms typically produces a golden-yellow carotenoid pigment on nutrient agar?
+A. Staphylococcus saprophyticus
+B. Staphylococcus epidermidis
+C. Staphylococcus aureus
+D. Streptococcus pneumoniae
+Answer: C. Staphylococcus aureus [1]
+Confirmatory laboratory tests for Staphylococcus aureus include:
+A. Free and bound coagulase test
+B. Heat-stable thermonuclease test
+C. Mannitol fermentation on MSA
+D. All of these
+Answer: D. All of these [1]
+Streptococcus pneumoniae is:
+A. Beta-hemolytic and optochin resistant
+B. Alpha-hemolytic and optochin sensitive
+C. Non-hemolytic and bacitracin sensitive
+D. Catalase positive
+Answer: B. Alpha-hemolytic and optochin sensitive [1]
+Neisseria gonorrhoeae, Neisseria meningitidis, and Moraxella catarrhalis grow best in an atmosphere containing:
+A. 3% to 7% CO2
+B. 20% O2 without CO2
+C. 100% N2
+D. Strictly anaerobic conditions
+Answer: A. 3% to 7% CO2 [1]
+If bacterial meningitis is suspected, the primary and most definitive clinical specimen is:
+A. Urine
+B. Blood
+C. Cerebrospinal fluid (CSF)
+D. Sputum
+Answer: C. Cerebrospinal fluid (CSF) [1]
+Which of the following organisms are classified as non-lactose fermenters on MacConkey agar?
+A. Salmonella spp.
+B. Shigella spp.
+C. Proteus spp.
+D. Salmonella and Shigella
+E. All of the above
+Answer: D. Salmonella and Shigella [1]
+Which organism is positive for both the indole test and H2S production?
+A. Proteus vulgaris
+B. Klebsiella pneumoniae
+C. Shigella sonnei
+D. Morganella morganii
+Answer: A. Proteus vulgaris [1]
+Which organism is positive for the indole test among lactose-fermenting Gram-negative rods?
+A. Klebsiella pneumoniae
+B. Escherichia coli
+C. Enterobacter cloacae
+D. Proteus mirabilis
+Answer: B. Escherichia coli [1]
+Which of the following groups of organisms are rapid urease producers?
+A. Proteus vulgaris and Proteus mirabilis
+B. Klebsiella pneumoniae
+C. Morganella morganii
+D. All of the above
+E. E. coli and Shigella
+Answer: D. All of the above [1]
+Which organism is characteristically Methyl Red (MR) negative and Voges-Proskauer (VP) positive?
+A. Escherichia coli
+B. Klebsiella pneumoniae
+C. Proteus vulgaris
+D. Shigella sonnei
+Answer: B. Klebsiella pneumoniae [1]
+A fastidious Gram-negative diplococcus isolated from CSF in children and young adults that ferments glucose and maltose is:
+A. Neisseria meningitidis
+B. Haemophilus influenzae
+C. Pseudomonas aeruginosa
+D. Streptococcus pneumoniae
+Answer: A. Neisseria meningitidis [1]
+Major causative agents of acute bacterial neonatal meningitis include:
+A. Streptococcus agalactiae (Group B Streptococcus)
+B. Escherichia coli K1
+C. Listeria monocytogenes
+D. All of the above
+Answer: D. All of the above [1]
+Continuous bacteremia is defined by persistent positive blood cultures over time and is classically associated with:
+A. Infective endocarditis
+B. Localized furuncle
+C. Gastroenteritis
+D. Superficial wound infection
+Answer: A. Infective endocarditis [1]
+The preferred anticoagulant for blood culture collection that neutralizes serum bactericidal activity and inhibits phagocytosis is:
+A. Heparin
+B. EDTA
+C. Sodium Polyanethol Sulfonate (SPS)
+D. Sodium citrate
+Answer: C. Sodium Polyanethol Sulfonate (SPS) [1]
+Intermittent bacteremia most commonly occurs when:
+A. Bacteria are continuously shed from an intravascular vegetative lesion
+B. Bacteria from an extravascular site of infection enter the lymphatic system at irregular intervals
+C. Skin commensals contaminate the blood draw
+D. Non-viable organisms are introduced into the circulation
+Answer: B. Bacteria from an extravascular site of infection enter the lymphatic system at irregular intervals [1]
+A pathogen colonizing the upper airways that can be aspirated into the lower lungs during sleep to cause lobar pneumonia is:
+A. Streptococcus pneumoniae
+B. Enterococcus faecalis
+C. Bacillus subtilis
+D. Treponema pallidum
+Answer: A. Streptococcus pneumoniae [1]
+Bacteraemia is precisely defined as:
+A. The presence of bacterial toxins in blood
+B. The presence of viable bacteria in the bloodstream
+C. An exaggerated systemic immune response with multiorgan failure
+D. Extravasation of erythrocytes
+Answer: B. The presence of viable bacteria in the bloodstream [1]
+Ascending urinary tract infections caused by uropathogenic E. coli can lead to bacteremia via:
+A. Direct mucosal extension into the renal parenchyma and vascular bed (pyelonephritis)
+B. Salivary gland invasion
+C. Intestinal ulceration
+D. Respiratory seeding
+Answer: A. Direct mucosal extension into the renal parenchyma and vascular bed (pyelonephritis) [1]
+Septic arthritis can arise when which pathogen hematogenously seeds and crosses the synovial membrane of a joint?
+A. Staphylococcus aureus
+B. Clostridium botulinum
+C. Shigella sonnei
+D. Mycoplasma pneumoniae
+Answer: A. Staphylococcus aureus [1]
+Subacute bacterial endocarditis following dental procedures is most commonly caused by which viridans streptococcus?
+A. Streptococcus sanguinis
+B. Streptococcus pneumoniae
+C. Staphylococcus epidermidis
+D. Enterococcus faecalis
+Answer: A. Streptococcus sanguinis [1]
+Streptococcus gallolyticus (formerly S. bovis) bacteremia and endocarditis have a strong clinical correlation with:
+A. Colon carcinoma and GI malignancy
+B. Pulmonary tuberculosis
+C. Acute glomerulonephritis
+D. Dental caries
+Answer: A. Colon carcinoma and GI malignancy [1]
+In adult blood cultures, blood should be diluted in culture broth at an optimal ratio of approximately:
+A. 1:1 to 1:2
+B. 1:10 (1 part blood to 9-10 parts broth)
+C. 1:50
+D. 1:100
+Answer: B. 1:10 (1 part blood to 9-10 parts broth) [1]
+Diluting blood in culture media at a 1:10 ratio serves to:
+A. Lyse all bacterial cells
+B. Dilute antimicrobial agents and dilute serum bactericidal factors/complement
+C. Prevent clotting without using anticoagulant
+D. Maximize erythrocyte sedimentation
+Answer: B. Dilute antimicrobial agents and dilute serum bactericidal factors/complement [1]
+Routine blood culture bottles should be incubated at 35–37 °C and monitored for:
+A. 24 hours
+B. 48 hours
+C. 5 to 7 days
+D. 4 weeks
+Answer: C. 5 to 7 days [1]
+Clinical criteria including fever, tachycardia, tachypnea, hypotension, and leukocytosis in response to bloodstream infection signify:
+A. Sepsis and septic shock
+B. Transient bacteremia
+C. Latent colonization
+D. Asymptomatic carrier state
+Answer: A. Sepsis and septic shock [1]
+Standard commercial blood culture systems generally utilize broth formulations such as:
+A. Tryptic soy broth
+B. Brain heart infusion broth
+C. Thioglycolate broth
+D. All of the above
+Answer: D. All of the above [1]
+Normal cerebrospinal fluid performs which physiological functions?
+A. Serves as a mechanical and hydraulic shock absorber
+B. Regulates intracranial pressure and transports nutrients/metabolites
+C. Both A and B
+D. Primary site for hematopoiesis
+Answer: C. Both A and B [1]
+Haemophilus influenzae requires which two essential erythrocyte-derived factors for growth in vitro?
+A. Factor X (Hemin) and Factor V (NAD)
+B. Factor VIII and Factor IX
+C. Glucose and Inulin
+D. Bile salts and Esculin
+Answer: A. Factor X (Hemin) and Factor V (NAD) [1]
+Brain abscesses commonly represent polymicrobial infections containing:
+A. Streptococcus intermedius and Staphylococcus aureus
+B. Anaerobic Gram-negative bacilli (Bacteroides, Prevotella)
+C. Fusobacterium species
+D. All of the above
+Answer: D. All of the above [1]
+Acute pyogenic bacterial infection of the brain parenchyma prior to capsule formation is known pathologically as:
+A. Cerebritis
+B. Encephalitis
+C. Meningitis
+D. Cellulitis
+Answer: A. Cerebritis [1]
+The combination of which two media supports the cultivation of virtually all significant bacterial etiologies of acute meningitis?
+A. Blood agar and Chocolate agar
+B. MacConkey agar and Mannitol salt agar
+C. Sabouraud agar and Nutrient agar
+D. TCBS and Lowenstein-Jensen
+Answer: A. Blood agar and Chocolate agar [1]
+A Cytospin centrifuge is specifically recommended for preparing CSF smears because it:
+A. Destroys all host red blood cells
+B. Concentrates cellular components and microorganisms onto a defined slide area with minimal distortion
+C. Kills dangerous bacterial pathogens instantly
+D. Eliminates the need for staining
+Answer: B. Concentrates cellular components and microorganisms onto a defined slide area with minimal distortion [1]
+Emergency diagnostic evaluation of suspected meningitis relies on CSF analysis, including:
+A. Total and differential leukocyte cell count
+B. CSF glucose concentration (relative to serum)
+C. Total protein concentration
+D. Gram stain and microbiological culture
+E. All of the above
+Answer: E. All of the above [1]
+A distinct pungent or sharp indole smell observed during culture is characteristic of which respiratory/meningeal pathogen?
+A. Haemophilus influenzae
+B. Streptococcus pneumoniae
+C. Listeria monocytogenes
+D. Neisseria meningitidis
+Answer: A. Haemophilus influenzae [1]
+The primary epidemiological risk factor for outbreaks of Neisseria meningitidis meningitis is:
+A. Close contact in crowded conditions (e.g., military camps, college dormitories)
+B. Consumption of unpasteurized dairy products
+C. Advanced age and chronic lung disease
+D. Contact with household pets
+Answer: A. Close contact in crowded conditions (e.g., military camps, college dormitories) [1]
+Foodborne transmission of meningitis caused by Listeria monocytogenes primarily occurs via:
+A. Ingestion of contaminated soft cheeses, unpasteurized milk, and processed deli meats
+B. Inhalation of respiratory droplets
+C. Tick vectors
+D. Soil inoculation into puncture wounds
+Answer: A. Ingestion of contaminated soft cheeses, unpasteurized milk, and processed deli meats [1]
+The causative agent of whooping cough (pertussis) is:
+A. Bordetella pertussis
+B. Corynebacterium diphtheriae
+C. Haemophilus influenzae
+D. Mycoplasma pneumoniae
+Answer: A. Bordetella pertussis [1]
+Acute exudative pharyngitis ("sore throat") of bacterial origin is most commonly caused by:
+A. Streptococcus pyogenes (Group A Streptococcus)
+B. Staphylococcus epidermidis
+C. Pseudomonas aeruginosa
+D. Escherichia coli
+Answer: A. Streptococcus pyogenes (Group A Streptococcus) [1]
+The Elek immunodiffusion plate test is an in vitro assay utilized to demonstrate toxigenicity in:
+A. Corynebacterium diphtheriae
+B. Clostridium tetani
+C. Clostridium perfringens
+D. Bordetella pertussis
+Answer: A. Corynebacterium diphtheriae [1]
+A major clinical problem associated with Mycobacterium tuberculosis is its ability to:
+A. Resist environmental desiccation and survive in dried sputum for months
+B. Resist standard chemical disinfectants and multiple antibiotic classes
+C. Survive and replicate inside unactivated alveolar macrophages
+D. All of the above
+Answer: D. All of the above [1]
+Colonies of Mycobacterium tuberculosis grown on Lowenstein-Jensen egg-based medium are typically:
+A. Smooth, mucoid, and lactose fermenting
+B. Rough, buff-colored, crumbly, and hydrophobic with a wrinkled surface
+C. Bright golden-yellow and beta-hemolytic
+D. Tiny, glistening, dewdrop-like colonies
+Answer: B. Rough, buff-colored, crumbly, and hydrophobic with a wrinkled surface [1]
+The primary selective media used for the recovery of Bordetella pertussis from nasopharyngeal swabs are:
+A. Regan-Lowe medium and Bordet-Gengou agar
+B. MacConkey agar and EMB agar
+C. Thayer-Martin medium and Chocolate agar
+D. Lowenstein-Jensen and Middlebrook 7H11
+Answer: A. Regan-Lowe medium and Bordet-Gengou agar [1]
+Tuberculosis in humans is primarily transmitted by:
+A. Airborne droplet nuclei generated during coughing or sneezing
+B. Direct contact with skin abrasions
+C. Ingestion of contaminated water
+D. Arthropod vectors
+Answer: A. Airborne droplet nuclei generated during coughing or sneezing [1]
+The classic selective medium for Mycobacterium tuberculosis cultivation containing malachite green to inhibit contaminants is:
+A. Lowenstein-Jensen (L-J) medium
+B. Loeffler coagulated serum slope
+C. Mueller-Miller tellurite agar
+D. TCBS agar
+Answer: A. Lowenstein-Jensen (L-J) medium [1]
+A major reservoir for Staphylococcus aureus in asymptomatic human carriers is the:
+A. Anterior nares
+B. External ear canal
+C. Cornea
+D. Oropharynx
+Answer: A. Anterior nares [1]
+Typical bacteria causing community-acquired acute bronchitis and exacerbation of COPD include:
+A. Streptococcus pneumoniae, Haemophilus influenzae, and Moraxella catarrhalis
+B. Clostridium tetani and Clostridium botulinum
+C. Neisseria gonorrhoeae and Treponema pallidum
+D. Yersinia pestis
+Answer: A. Streptococcus pneumoniae, Haemophilus influenzae, and Moraxella catarrhalis [1]
+Lower respiratory tract secretions (sputum) are considered cytologically acceptable for bacterial culture when microscopic examination reveals:
+A. >25 polymorphonuclear leukocytes (neutrophils) and <10 squamous epithelial cells per low-power field
+B. <10 neutrophils and >25 squamous epithelial cells per low-power field
+C. Only squamous epithelial cells
+D. Absence of inflammatory cells
+Answer: A. >25 polymorphonuclear leukocytes (neutrophils) and <10 squamous epithelial cells per low-power field [1]
+The Mycobacterium tuberculosis complex comprises which group of organisms?
+A. M. tuberculosis, M. bovis, M. africanum, M. microti
+B. M. leprae, M. ulcerans, M. marinum
+C. M. avium, M. intracellulare, M. kansasii
+D. None of the above
+Answer: A. M. tuberculosis, M. bovis, M. africanum, M. microti [1]
+Acid-fast staining of Mycobacterium tuberculosis relies on the retention of carbol-fuchsin due to high cell wall content of:
+A. Mycolic acids and complex lipids
+B. Peptidoglycan alone
+C. Lipopolysaccharide
+D. Teichoic acids
+Answer: A. Mycolic acids and complex lipids [1]
+A tough, grayish pseudomembrane obstructing the pharynx coupled with cervical lymphadenopathy ("bull neck") is pathognomonic for:
+A. Respiratory diphtheria (Corynebacterium diphtheriae)
+B. Streptococcal pharyngitis
+C. Whooping cough
+D. Tuberculosis
+Answer: A. Respiratory diphtheria (Corynebacterium diphtheriae) [1]
+Media containing potassium tellurite (e.g., Mueller-Miller or Tinsdale agar) reduce tellurite to elemental tellurium, producing grey-black colonies of:
+A. Corynebacterium diphtheriae
+B. Streptococcus pyogenes
+C. Bordetella pertussis
+D. Haemophilus influenzae
+Answer: A. Corynebacterium diphtheriae [1]
+Metachromatic (Babès-Ernst) granules in club-shaped Corynebacterium diphtheriae cells are composed of:
+A. Polymerized inorganic polyphosphate
+B. Glycogen
+C. Starch
+D. Calcium carbonate
+Answer: A. Polymerized inorganic polyphosphate [1]
+The specimen of choice for laboratory diagnosis of whooping cough is:
+A. Nasopharyngeal swab (calcium alginate or Dacron) or aspirate
+B. Expectoration of lower sputum
+C. Throat swab of palatine tonsils
+D. Saliva
+Answer: A. Nasopharyngeal swab (calcium alginate or Dacron) or aspirate [1]
+Lysozyme present in tears and saliva damages bacterial cells by:
+A. Cleaving beta-1,4-glycosidic bonds between NAM and NAG in peptidoglycan
+B. Inhibiting DNA gyrase
+C. Disrupting the outer cell membrane
+D. Denaturing ribosomes
+Answer: A. Cleaving beta-1,4-glycosidic bonds between NAM and NAG in peptidoglycan [1]
+The normal anatomical route by which the vast majority of bacterial urinary tract infections develop is the:
+A. Ascending route from the urethra to the bladder
+B. Descending hematogenous route from the kidneys
+C. Direct lymphatic extension from the colon
+D. Ingestion of contaminated fluid
+Answer: A. Ascending route from the urethra to the bladder [1]
+The single most common etiological agent of uncomplicated community-acquired urinary tract infections is:
+A. Uropathogenic Escherichia coli (UPEC)
+B. Proteus mirabilis
+C. Klebsiella pneumoniae
+D. Staphylococcus saprophyticus
+Answer: A. Uropathogenic Escherichia coli (UPEC) [1]
+Inflammation of the urinary bladder is medically termed:
+A. Cystitis
+B. Urethritis
+C. Pyelonephritis
+D. Prostatitis
+Answer: A. Cystitis [1]
+Classical clinical symptoms of acute cystitis include:
+A. Dysuria, frequency, and urgency
+B. Flank pain, high fever, and costovertebral angle tenderness
+C. Vaginal discharge with itching
+D. Jaundice and ascites
+Answer: A. Dysuria, frequency, and urgency [1]
+Females develop urinary tract infections significantly more frequently than males because:
+A. The female urethra is anatomically shorter and terminates in close proximity to the warm, moist vulvar and anal flora
+B. Females lack local secretory IgA
+C. Urine in females has a higher pH
+D. Females have less immune surveillance
+Answer: A. The female urethra is anatomically shorter and terminates in close proximity to the warm, moist vulvar and anal flora [1]
+Proteus mirabilis produces abundant amounts of which enzyme that alkalizes urine and promotes staghorn stone formation?
+A. Urease
+B. Catalase
+C. Gelatinase
+D. Coagulase
+Answer: A. Urease [1]
+Formation of calculus (stone) in the urinary tract is termed:
+A. Nephrolithiasis (kidney)
+B. Ureterolithiasis (ureter)
+C. Cystolithiasis (bladder)
+D. All of the above
+Answer: D. All of the above [1]
+A urinary tract infection involving the renal pelvis and kidney parenchyma, presenting with systemic symptoms and costovertebral tenderness, is:
+A. Pyelonephritis
+B. Urethritis
+C. Cystitis
+D. Prostatitis
+Answer: A. Pyelonephritis [1]
+Staphylococcus saprophyticus is a primary cause of acute cystitis in:
+A. Young, sexually active women
+B. Elderly catheterized males
+C. Neonates
+D. Immunocompromised patients with leukemia
+Answer: A. Young, sexually active women [1]
+The normal pH range of the healthy adult vaginal environment maintained by Lactobacillus species is:
+A. 3.8 to 4.5
+B. 6.5 to 7.5
+C. 7.5 to 8.5
+D. 2.0 to 3.0
+Answer: A. 3.8 to 4.5 [1]
+Microscopic examination of urine that strongly supports active urinary tract infection demonstrates:
+A. >5 white blood cells (pyuria) per high-power field (HPF)
+B. <1 epithelial cell per HPF
+C. Massive hyaline casts only
+D. Absence of bacteriuria
+Answer: A. >5 white blood cells (pyuria) per high-power field (HPF) [1]
+Standard primary routine plating media for urine culture quantitative isolation include:
+A. Blood agar and MacConkey agar
+B. Thayer-Martin and Sabouraud agar
+C. Lowenstein-Jensen and Middlebrook
+D. TCBS and bismuth sulfite agar
+Answer: A. Blood agar and MacConkey agar [1]
+Non-gonococcal urethritis (NGU) is most commonly caused by:
+A. Chlamydia trachomatis
+B. Ureaplasma urealyticum
+C. Mycoplasma genitalium
+D. All of the above
+Answer: D. All of the above [1]
+Clinical presentation of gonococcal urethritis in men typically features:
+A. Profuse purulent yellowish urethral discharge with dysuria within 2 to 7 days
+B. Thin watery white discharge after 3 weeks
+C. Painless ulcerative lesions on the glans
+D. Hematuria without discharge
+Answer: A. Profuse purulent yellowish urethral discharge with dysuria within 2 to 7 days [1]
+Bacterial vaginosis is characterized by:
+A. A thin, homogeneous, grayish-yellow vaginal discharge with an elevated pH (>4.5) and a "fishy" amine odor, associated with Gardnerella vaginalis and anaerobes
+B. Curdy white "cottage cheese" discharge with severe vulvar itching
+C. Purulent endocervical discharge with high fever
+D. Ulcerative genital lesions
+Answer: A. A thin, homogeneous, grayish-yellow vaginal discharge with an elevated pH (>4.5) and a "fishy" amine odor, associated with Gardnerella vaginalis and anaerobes [1]
+The primary lesion of primary syphilis, appearing as a painless, indurated, solitary circular ulcer with raised margins, is called a:
+A. Chancre
+B. Gumma
+C. Condyloma lata
+D. Bubo
+Answer: A. Chancre [1]
+The causative bacterium of syphilis is:
+A. Treponema pallidum subsp. pallidum
+B. Neisseria gonorrhoeae
+C. Haemophilus ducreyi
+D. Chlamydia trachomatis
+Answer: A. Treponema pallidum subsp. pallidum [1]
+Bacterial sexually transmitted infections (STIs) include:
+A. Chlamydia trachomatis
+B. Neisseria gonorrhoeae
+C. Treponema pallidum
+D. Mycoplasma genitalium
+E. All of the above
+Answer: E. All of the above [1]
+The anatomical site yielding the highest rate of recovery for Neisseria gonorrhoeae in infected women is the:
+A. Endocervical canal
+B. Anterior vagina
+C. Labia majora
+D. Rectum
+Answer: A. Endocervical canal [1]
+Lactobacilli present in the vagina maintain vaginal health by:
+A. Fermenting glycogen to lactic acid and generating hydrogen peroxide
+B. Producing alkaline ammonia
+C. Secreting digestive proteases
+D. Phagocytosing pathogens
+Answer: A. Fermenting glycogen to lactic acid and generating hydrogen peroxide [1]
+Definitive diagnosis of neurosyphilis is confirmed by examining cerebrospinal fluid for:
+A. Elevated mononuclear leukocytes, elevated protein, and positive CSF-VDRL test
+B. Presence of Gram-positive spore-forming rods
+C. Markedly elevated glucose
+D. Decreased opening pressure
+Answer: A. Elevated mononuclear leukocytes, elevated protein, and positive CSF-VDRL test [1]
+Direct microscopic diagnosis of primary syphilis is achieved by examining fresh serous exudate from a chancre under:
+A. Dark-field microscopy
+B. Standard bright-field without stain
+C. Electron microscopy
+D. Acid-fast stain
+Answer: A. Dark-field microscopy [1]
+An obligate intracellular bacterium possessing a tiny genome (~600 genes) that replicates via elementary bodies (EBs) and reticulate bodies (RBs) is:
+A. Chlamydia trachomatis
+B. Mycoplasma hominis
+C. Neisseria gonorrhoeae
+D. Treponema pallidum
+Answer: A. Chlamydia trachomatis [1]
+Chlamydia trachomatis genital infections are often referred to as the "silent disease" because:
+A. Up to 70–80% of infected females and 50% of males are asymptomatic
+B. The organism does not evoke any local inflammation
+C. It produces no antibodies
+D. It only causes disease in livestock
+Answer: A. Up to 70–80% of infected females and 50% of males are asymptomatic [1]
+Virulence factors of Neisseria gonorrhoeae include:
+A. Pili (attachment to mucosal cells)
+B. Opa and Por outer membrane proteins
+C. Lipooligosaccharide (LOS) endotoxin
+D. IgA protease
+E. All of the above
+Answer: E. All of the above [1]
+Direct fluorescent antibody (DFA) staining or Giemsa staining of Chlamydia trachomatis infected epithelial cells demonstrates:
+A. Intracytoplasmic inclusion bodies
+B. Extracellular Gram-positive chains
+C. Spores
+D. Acid-fast granules
+Answer: A. Intracytoplasmic inclusion bodies [1]
+Definitive diagnosis of syphilis has historically been complicated by the fact that:
+A. Treponema pallidum cannot be continuously cultivated on artificial cell-free media in vitro
+B. It is a virus
+C. It does not produce an immune response
+D. It only lives in ticks
+Answer: A. Treponema pallidum cannot be continuously cultivated on artificial cell-free media in vitro [1]
+The gold standard culture medium for the isolation of Neisseria gonorrhoeae from non-sterile clinical sites is:
+A. Modified Thayer-Martin (MTM) agar
+B. Loeffler agar
+C. Mueller-Miller tellurite agar
+D. MacConkey agar
+Answer: A. Modified Thayer-Martin (MTM) agar [1]
+Humans are the only natural host and reservoir for which of the following pathogens?
+A. Neisseria gonorrhoeae
+B. Treponema pallidum
+C. Both A and B
+D. Clostridium tetani
+Answer: C. Both A and B [1]
+A soft, painless, destructive granulomatous lesion developing in skin, bone, or internal organs during tertiary syphilis is called a:
+A. Gumma
+B. Chancre
+C. Condyloma lata
+D. Furuncle
+Answer: A. Gumma [1]
+A widespread maculopapular, copper-red rash affecting the palms of the hands and soles of the feet is pathognomonic for:
+A. Secondary syphilis
+B. Primary syphilis
+C. Tertiary syphilis
+D. Neurosyphilis
+Answer: A. Secondary syphilis [1]
+Transplacental transmission of Treponema pallidum leading to stillbirth, Hutchinson's teeth, or saddle nose is known as:
+A. Congenital syphilis
+B. Neonatal tetanus
+C. Ophthalmia neonatorum
+D. Secondary syphilis
+Answer: A. Congenital syphilis [1]
+Which organism is the major cause of pseudomembranous colitis following broad-spectrum antibiotic therapy?
+A. Clostridium difficile
+B. Clostridium botulinum
+C. Clostridium perfringens
+D. Clostridium tetani
+Answer: A. Clostridium difficile [1]
+Typhoid (enteric) fever is caused by:
+A. Salmonella enterica serotype Typhi
+B. Salmonella enterica serotype Typhimurium
+C. Shigella dysenteriae
+D. Vibrio cholerae
+Answer: A. Salmonella enterica serotype Typhi [1]
+Infection with Helicobacter pylori is associated with an increased risk of developing:
+A. Peptic ulcers and gastric carcinoma / MALT lymphoma
+B. Prostatitis
+C. Pyelonephritis
+D. Pancreatitis
+Answer: A. Peptic ulcers and gastric carcinoma / MALT lymphoma [1]
+All of the following statements regarding Helicobacter pylori are true EXCEPT:
+A. It is a major cause of peptic ulcer disease
+B. It produces urease to create a buffering cloud of ammonia
+C. The urea breath test is an established non-invasive diagnostic method
+D. It is an invasive cause of bacillary dysentery
+Answer: D. It is an invasive cause of bacillary dysentery [1]
+Hemolytic Uremic Syndrome (HUS) marked by microangiopathic hemolytic anemia, thrombocytopenia, and acute renal failure is caused by:
+A. Shiga toxin (Stx) produced by Shigella dysenteriae type 1 or Shiga-toxin producing E. coli (EHEC/STEC)
+B. Salmonella enteritidis
+C. Staphylococcus aureus
+D. Vibrio cholerae
+Answer: A. Shiga toxin (Stx) produced by Shigella dysenteriae type 1 or Shiga-toxin producing E. coli (EHEC/STEC) [1]
+The typical appearance of stool in patients with severe cholera is:
+A. Watery, pale, flecked with mucus, resembling "rice water"
+B. Grossly bloody with pus and shreds of necrotic mucosa
+C. Formed and dark tarry
+D. Pale and steatorrheic
+Answer: A. Watery, pale, flecked with mucus, resembling "rice water" [1]
+Shigella is readily transmitted from person to person via the fecal-oral route primarily because:
+A. It has an extremely low infectious dose (as few as 10–100 organisms)
+B. It forms resistant endospores
+C. It multiplies in ambient air
+D. It is transmitted by mosquito vectors
+Answer: A. It has an extremely low infectious dose (as few as 10–100 organisms) [1]
+The pathotype of Escherichia coli that is the leading cause of traveler’s diarrhea is:
+A. Enterotoxigenic E. coli (ETEC)
+B. Enteroinvasive E. coli (EIEC)
+C. Enteropathogenic E. coli (EPEC)
+D. Enterohemorrhagic E. coli (EHEC)
+Answer: A. Enterotoxigenic E. coli (ETEC) [1]
+Biochemical characteristics of Helicobacter pylori include:
+A. Catalase positive, oxidase positive, and strongly urease positive
+B. Catalase negative, oxidase negative, and urease negative
+C. Strict anaerobe
+D. Lactose fermenter
+Answer: A. Catalase positive, oxidase positive, and strongly urease positive [1]
+Gas gangrene (clostridial myonecrosis) is caused primarily by:
+A. Clostridium perfringens
+B. Clostridium tetani
+C. Clostridium difficile
+D. Clostridium botulinum
+Answer: A. Clostridium perfringens [1]
+An enteric pathogen that produces a potent neurotoxin ingested in contaminated home-canned food is:
+A. Clostridium botulinum
+B. Vibrio cholerae
+C. Salmonella typhi
+D. Shigella flexneri
+Answer: A. Clostridium botulinum [1]
+Ingestion of food contaminated with preformed enterotoxins of Staphylococcus aureus causes:
+A. Rapid onset of nausea, severe vomiting, and abdominal cramps within 1 to 6 hours
+B. Watery diarrhea developing after 2 weeks
+C. High remittent fever with rose spots
+D. Flaccid paralysis
+Answer: A. Rapid onset of nausea, severe vomiting, and abdominal cramps within 1 to 6 hours [1]
+Staphylococcal enterotoxins are:
+A. Heat-stable proteins resistant to gastric acid and boiling at 100 °C for 30 minutes
+B. Heat-labile lipopolysaccharides
+C. Destroyed readily by mild stomach acid
+D. Polysaccharide capsules
+Answer: A. Heat-stable proteins resistant to gastric acid and boiling at 100 °C for 30 minutes [1]
+Enteropathogenic bacteria that cause gastrointestinal infection via mucosal invasion and intracellular spread include:
+A. Shigella spp., EIEC, Salmonella spp., and Campylobacter jejuni
+B. Vibrio cholerae and ETEC
+C. Clostridium botulinum
+D. None of the above
+Answer: A. Shigella spp., EIEC, Salmonella spp., and Campylobacter jejuni [1]
+For the recovery of Salmonella and Shigella from stool, specimens are plated onto:
+A. Hektoen enteric (HE) agar and Salmonella-Shigella (SS) agar
+B. Mannitol salt agar
+C. Nutrient agar
+D. TCBS agar
+Answer: A. Hektoen enteric (HE) agar and Salmonella-Shigella (SS) agar [1]
+The selective and differential culture medium used for the primary isolation of Vibrio cholerae is:
+A. Thiosulfate-Citrate-Bile Salts-Sucrose (TCBS) agar
+B. MacConkey agar
+C. EMB agar
+D. Lowenstein-Jensen medium
+Answer: A. Thiosulfate-Citrate-Bile Salts-Sucrose (TCBS) agar [1]
+Clostridium difficile survives for prolonged periods in healthcare environments on dry surfaces because:
+A. It forms environmentally resistant bacterial endospores
+B. It produces a thick protective capsule
+C. It is an obligate intracellular parasite
+D. It possesses silver-coated cell walls
+Answer: A. It forms environmentally resistant bacterial endospores [1]
+E. coli pathotype that produces heat-labile (LT) and heat-stable (ST) enterotoxins along with colonization factor antigens (CFAs) is:
+A. Enterotoxigenic E. coli (ETEC)
+B. Enteropathogenic E. coli (EPEC)
+C. Enteroinvasive E. coli (EIEC)
+D. Enterohemorrhagic E. coli (EHEC)
+Answer: A. Enterotoxigenic E. coli (ETEC) [1]
+E. coli pathotype that harbors a large virulence plasmid enabling it to invade and destroy colonic epithelial cells (clinically resembling shigellosis) is:
+A. Enteroinvasive E. coli (EIEC)
+B. Enterotoxigenic E. coli (ETEC)
+C. Enteropathogenic E. coli (EPEC)
+D. Enteroaggregative E. coli (EAEC)
+Answer: A. Enteroinvasive E. coli (EIEC) [1]
+E. coli pathotype that produces the translocated intimin receptor (Tir) and causes attaching and effacing lesions with severe watery diarrhea in infants is:
+A. Enteropathogenic E. coli (EPEC)
+B. Enterotoxigenic E. coli (ETEC)
+C. Enteroinvasive E. coli (EIEC)
+D. Enteroaggregative E. coli (EAEC)
+Answer: A. Enteropathogenic E. coli (EPEC) [1]
+Enterohemorrhagic E. coli (EHEC, such as O157:H7) causes:
+A. Hemorrhagic colitis (bloody diarrhea with severe abdominal cramps) without fever
+B. Watery non-inflammatory diarrhea in travelers
+C. Chronic mucoid diarrhea in adults
+D. Gastric ulcers
+Answer: A. Hemorrhagic colitis (bloody diarrhea with severe abdominal cramps) without fever [1]
+Vibrio cholerae cholera toxin induces severe diarrhea by:
+A. Permanently activating host adenylate cyclase, raising intracellular cAMP levels and causing massive electrolyte/water efflux
+B. Directly creating pores in the cell membrane
+C. Cleaving 28S ribosomal RNA and halting protein synthesis
+D. Invading deep submucosal vascular beds
+Answer: A. Permanently activating host adenylate cyclase, raising intracellular cAMP levels and causing massive electrolyte/water efflux [1]
+Salmonella enterica serotype Typhi invades the intestinal mucosa and is transported to the liver, spleen, and bone marrow inside:
+A. Mononuclear phagocytes (macrophages)
+B. Red blood cells
+C. Endothelial cells
+D. Neutrophils
+Answer: A. Mononuclear phagocytes (macrophages) [1]
+Inflammation of the conjunctiva is commonly known as:
+A. Pink eye (Conjunctivitis)
+B. Stye
+C. Blepharitis
+D. Keratitis
+Answer: A. Pink eye (Conjunctivitis) [1]
+A tender, erythematous, localized subcutaneous nodule on the margin of the eyelid caused by infection of an eyelash follicle (stye) is:
+A. External hordeolum (Stye)
+B. Chalazion
+C. Keratitis
+D. Blepharitis
+Answer: A. External hordeolum (Stye) [1]
+The leading infectious cause of preventable blindness worldwide, characterized by chronic follicular conjunctivitis and trichiasis, is:
+A. Trachoma (caused by Chlamydia trachomatis)
+B. Bacterial conjunctivitis
+C. Blepharitis
+D. Corneal ulceration
+Answer: A. Trachoma (caused by Chlamydia trachomatis) [1]
+Exudative cytology in acute bacterial conjunctivitis typically shows a predominance of:
+A. Polymorphonuclear leukocytes (PMNs)
+B. Mononuclear lymphocytes
+C. Plasma cells
+D. Eosinophils
+Answer: A. Polymorphonuclear leukocytes (PMNs) [1]
+Exudative cytology in viral conjunctivitis typically shows a predominance of:
+A. Mononuclear lymphocytes
+B. Polymorphonuclear leukocytes (PMNs)
+C. Basophils
+D. Red blood cells
+Answer: A. Mononuclear lymphocytes [1]
+Bacterial pathogens responsible for hyperacute, destructive conjunctivitis with high risk of corneal perforation include:
+A. Neisseria gonorrhoeae and Pseudomonas aeruginosa
+B. Staphylococcus epidermidis
+C. Corynebacterium pseudodiphtheriticum
+D. Moraxella catarrhalis
+Answer: A. Neisseria gonorrhoeae and Pseudomonas aeruginosa [1]
+Acute otitis media (AOM) in children is most frequently caused by:
+A. Streptococcus pneumoniae, Haemophilus influenzae, Moraxella catarrhalis
+B. Pseudomonas aeruginosa and Proteus vulgaris
+C. Clostridium perfringens
+D. Staphylococcus epidermidis
+Answer: A. Streptococcus pneumoniae, Haemophilus influenzae, Moraxella catarrhalis [1]
+Chronic suppurative otitis media is most commonly associated with:
+A. Pseudomonas aeruginosa and Staphylococcus aureus
+B. Streptococcus pneumoniae
+C. Haemophilus influenzae
+D. Moraxella catarrhalis
+Answer: A. Pseudomonas aeruginosa and Staphylococcus aureus [1]
+The primary anatomical source of bacteria causing acute bacterial sinusitis and acute otitis media is:
+A. Endogenous normal flora of the nasopharynx
+B. External swimming pool water
+C. Contaminated food
+D. Bloodborne seeding
+Answer: A. Endogenous normal flora of the nasopharynx [1]
+A large, aerobic, Gram-positive, endospore-forming rod causing cutaneous malignant pustules with black eschars is:
+A. Bacillus anthracis
+B. Clostridium perfringens
+C. Staphylococcus aureus
+D. Streptococcus pyogenes
+Answer: A. Bacillus anthracis [1]
+The three toxin components produced by Bacillus anthracis are:
+A. Protective Antigen (PA), Edema Factor (EF), and Lethal Factor (LF)
+B. Tetanospasmin, Tetanolysin, and Botulinum toxin
+C. Alpha toxin, Beta toxin, and Enterotoxin
+D. Endotoxin, Exotoxin A, and Exotoxin B
+Answer: A. Protective Antigen (PA), Edema Factor (EF), and Lethal Factor (LF) [1]
+The principal toxin produced by Clostridium tetani that produces spastic paralysis (lockjaw) is:
+A. Tetanospasmin
+B. Botulinum toxin
+C. Alpha-toxin
+D. Perfringolysin O
+Answer: A. Tetanospasmin [1]
+Tetanospasmin acts by:
+A. Cleaving synaptobrevin to block the release of inhibitory neurotransmitters (glycine and GABA) from spinal motor neurons
+B. Inhibiting acetylcholine release at the neuromuscular junction
+C. Activating adenylate cyclase
+D. Lysozyme-mediated hydrolysis of cell walls
+Answer: A. Cleaving synaptobrevin to block the release of inhibitory neurotransmitters (glycine and GABA) from spinal motor neurons [1]
+The primary pathogenic factor of Clostridium perfringens responsible for myonecrosis and massive gas production in tissues is:
+A. Alpha-toxin (lecithinase / phospholipase C)
+B. Tetanospasmin
+C. Enterotoxin B
+D. Streptolysin O
+Answer: A. Alpha-toxin (lecithinase / phospholipase C) [1]
+The most common cause of superficial folliculitis, furuncles (boils), and carbuncles is:
+A. Staphylococcus aureus
+B. Streptococcus pyogenes
+C. Pseudomonas aeruginosa
+D. Escherichia coli
+Answer: A. Staphylococcus aureus [1]
+Skin infection known as "hot tub folliculitis" or swimmer's ear (otitis externa) is commonly caused by:
+A. Pseudomonas aeruginosa
+B. Staphylococcus aureus
+C. Enterococcus faecalis
+D. Clostridium perfringens
+Answer: A. Pseudomonas aeruginosa [1]
+A rapidly progressive, necrotizing subcutaneous soft tissue infection involving deep fascial planes is called:
+A. Necrotizing fasciitis
+B. Impetigo
+C. Erysipelas
+D. Folliculitis
+Answer: A. Necrotizing fasciitis [1]
+Exfoliative toxin produced by certain strains of Staphylococcus aureus causes:
+A. Staphylococcal Scalded Skin Syndrome (SSSS)
+B. Toxic Shock Syndrome
+C. Gas gangrene
+D. Scarlet fever
+Answer: A. Staphylococcal Scalded Skin Syndrome (SSSS) [1]
+The serous membrane that adheres tightly to the entire external surface of the lungs is the:
+A. Visceral pleura
+B. Parietal pleura
+C. Pericardium
+D. Peritoneum
+Answer: A. Visceral pleura [1]
+The serous membrane lining the inner wall of the thoracic cavity is the:
+A. Parietal pleura
+B. Visceral pleura
+C. Epicardium
+D. Endocardium
+Answer: A. Parietal pleura [1]
+The aspiration of pleural fluid from the pleural space using a needle is called:
+A. Thoracentesis
+B. Paracentesis
+C. Arthrocentesis
+D. Lumbar puncture
+Answer: A. Thoracentesis [1]
+An abnormal accumulation of large volumes of free fluid within the peritoneal cavity is termed:
+A. Ascites
+B. Empyema
+C. Hydrothorax
+D. Synovial effusion
+Answer: A. Ascites [1]
+The procedure used to withdraw fluid from the peritoneal cavity for diagnostic or therapeutic purposes is:
+A. Paracentesis
+B. Thoracentesis
+C. Arthrocentesis
+D. Pericardiocentesis
+Answer: A. Paracentesis [1]
+Normal uninfected peritoneal fluid contains:
+A. Fewer than 300 WBCs/ml
+B. Over 5,000 WBCs/ml
+C. Greater than 50% neutrophils
+D. Heavy bacterial growth
+Answer: A. Fewer than 300 WBCs/ml [1]
+Perihepatitis presenting with right upper quadrant pain and "violin-string" adhesions between the liver capsule and abdominal wall (Fitz-Hugh–Curtis syndrome) is a complication of PID caused by:
+A. Chlamydia trachomatis and Neisseria gonorrhoeae
+B. Escherichia coli
+C. Staphylococcus aureus
+D. Salmonella enterica
+Answer: A. Chlamydia trachomatis and Neisseria gonorrhoeae [1]
+Inflammation and infection of the fallopian tubes, which represents a leading cause of female tubal infertility and ectopic pregnancy, is:
+A. Salpingitis
+B. Cervicitis
+C. Vaginitis
+D. Oophoritis
+Answer: A. Salpingitis [1]
+Fluid located within diarthrodial joint cavities is known as:
+A. Synovial fluid
+B. Pleural fluid
+C. Peritoneal fluid
+D. Pericardial fluid
+Answer: A. Synovial fluid [1]
+The normal volume of clear serous fluid contained within the pericardial sac surrounding the heart is:
+A. 15 to 20 ml
+B. 100 to 200 ml
+C. 500 ml
+D. Less than 1 ml
+Answer: A. 15 to 20 ml [1]
+Acute infectious myocarditis and pericarditis in previously healthy young adults are most commonly caused by:
+A. Coxsackievirus B and other enteroviruses
+B. Staphylococcus aureus
+C. Streptococcus pneumoniae
+D. Mycobacterium avium
+Answer: A. Coxsackievirus B and other enteroviruses [1]
+The single most common bacterial pathogen isolated from hematogenous osteomyelitis across all patient age groups is:
+A. Staphylococcus aureus
+B. Pseudomonas aeruginosa
+C. Escherichia coli
+D. Salmonella enterica
+Answer: A. Staphylococcus aureus [1]
+In patients with sickle cell disease who develop acute osteomyelitis, which organism is characteristically recovered with increased frequency alongside S. aureus?
+A. Salmonella spp.
+B. Clostridium tetani
+C. Listeria monocytogenes
+D. Neisseria meningitidis
+Answer: A. Salmonella spp. [1]
+Bone marrow aspiration and biopsy are particularly useful in diagnosing which intracellular and disseminated infections?
+A. Brucellosis, Histoplasmosis, Leishmaniasis, and disseminated Tuberculosis
+B. Acute cystitis
+C. Scarlet fever
+D. Cholera
+Answer: A. Brucellosis, Histoplasmosis, Leishmaniasis, and disseminated Tuberculosis [1]
+In patients with advanced HIV/AIDS, disseminated opportunistic pathogens frequently identified or cultured from bone marrow include:
+A. Mycobacterium avium complex (MAC), Cryptococcus neoformans, and Cytomegalovirus (CMV)
+B. Streptococcus pyogenes
+C. Staphylococcus saprophyticus
+D. Bordetella pertussis
+Answer: A. Mycobacterium avium complex (MAC), Cryptococcus neoformans, and Cytomegalovirus (CMV) [1]
+All of the following are pathogenic protozoa EXCEPT:
+A. Trypanosoma
+B. Leishmania
+C. Plasmodium
+D. Schistosoma
+Answer: D. Schistosoma [1]
+All of the following are parasitic helminths EXCEPT:
+A. Schistosoma
+B. Wuchereria bancrofti
+C. Echinococcus granulosus
+D. Plasmodium falciparum
+Answer: D. Plasmodium falciparum [1]
+The causative agent of American trypanosomiasis (Chagas disease) is:
+A. Trypanosoma cruzi
+B. Trypanosoma brucei
+C. Leishmania donovani
+D. Plasmodium vivax
+Answer: A. Trypanosoma cruzi [1]
+The causative agent of African sleeping sickness is:
+A. Trypanosoma brucei
+B. Trypanosoma cruzi
+C. Plasmodium falciparum
+D. Wuchereria bancrofti
+Answer: A. Trypanosoma brucei [1]
+The causative agent of human malaria is:
+A. Plasmodium species
+B. Trypanosoma cruzi
+C. Leishmania tropica
+D. Schistosoma mansoni
+Answer: A. Plasmodium species [1]
+The primary causative organism of lymphatic filariasis (elephantiasis) is:
+A. Wuchereria bancrofti
+B. Strongyloides stercoralis
+C. Enterobius vermicularis
+D. Taenia solium
+Answer: A. Wuchereria bancrofti [1]
+The fastest diagnostic laboratory method for detecting motile trophozoites of intestinal parasites (such as Entamoeba histolytica or Giardia lamblia) in fresh liquid stool is:
+A. Direct saline wet mount
+B. Formalin-ether sedimentation
+C. ELISA
+D. Harada-Mori culture
+Answer: A. Direct saline wet mount [1]
+The Harada-Mori filter paper culture method is specifically utilized for the recovery and hatching of larvae of:
+A. Nematodes such as Strongyloides stercoralis and hookworms
+B. Entamoeba histolytica
+C. Giardia duodenalis
+D. Schistosoma haematobium
+Answer: A. Nematodes such as Strongyloides stercoralis and hookworms [1]
+Examination of thick and thin peripheral blood smears stained with Giemsa is the definitive diagnostic method for:
+A. Malaria, Babesiosis, and African trypanosomiasis
+B. Intestinal ascariasis
+C. Cutaneous leishmaniasis
+D. Schistosomiasis
+Answer: A. Malaria, Babesiosis, and African trypanosomiasis [1]
+The most frequent opportunistic fungal pathogens causing life-threatening invasive fungal infections (IFIs) following prolonged antibiotic therapy or immunosuppression are:
+A. Candida spp. and Aspergillus spp.
+B. Strongyloides stercoralis
+C. Entamoeba histolytica
+D. Trichomonas vaginalis
+Answer: A. Candida spp. and Aspergillus spp. [1]
+Fungal cultures for systemic dimorphic and filamentous fungi typically require incubation for:
+A. 2 to 4 weeks
+B. 24 hours
+C. 48 hours
+D. 3 to 6 months
+Answer: A. 2 to 4 weeks [1]
+Standard classical diagnostic approaches for laboratory confirmation of fungal infections include:
+A. Direct microscopic examination (e.g., 10% KOH mounts, calcofluor white)
+B. Histopathological demonstration of tissue invasive forms (GMS, PAS stains)
+C. Fungal culture on Sabouraud dextrose agar (SDA)
+D. All of the above
+Answer: D. All of the above [1]
+Recent non-culture adjunct techniques for rapid diagnosis of invasive fungal infections include:
+A. Fungal antigen detection (serum galactomannan and 1,3-beta-D-glucan assays)
+B. Molecular methods (pan-fungal PCR)
+C. Matrix-Assisted Laser Desorption Ionization-Time of Flight Mass Spectrometry (MALDI-TOF MS)
+D. All of the above
+Answer: D. All of the above [1]

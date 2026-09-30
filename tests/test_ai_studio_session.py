@@ -10,6 +10,7 @@ from mcq_maker.ai_studio_errors import (AIStudioBrowserLaunchError, AIStudioCali
                                         AIStudioGenerationError, AIStudioGenerationTimeoutError,
                                         AIStudioProfileInUseError, AIStudioResponseError, AIStudioValidationError)
 from mcq_maker.ai_studio_selectors import AttachmentReady, ThinkingDiscovery
+from mcq_maker.default_resources import DefaultResourceStore
 from mcq_maker.ai_studio_session import (AIStudioConversationSession, AIStudioSessionState,
                                          AIStudioConfiguration, AIStudioDiscovery)
 
@@ -608,7 +609,7 @@ class AIStudioSessionTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([call for call in locators.calls if call == ('send',)], [('send',)])
 
     def test_authoritative_prompt_keeps_calibration_and_json_output_rules_separate(self):
-        prompt_path = Path(__file__).resolve().parents[1] / 'Pompts' / 'PROMPT(MCQ-MAKER).txt'
+        prompt_path = DefaultResourceStore().bundled_path('prompt')
         prompt = prompt_path.read_text(encoding='utf-8')
         self.assertIn('PHASE 1 REQUIRED RESPONSE', prompt)
         self.assertIn('For lecture generation, return exactly one complete JSON array', prompt)

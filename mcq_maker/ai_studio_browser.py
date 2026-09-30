@@ -16,6 +16,7 @@ from .ai_studio_errors import (AIStudioBrowserLaunchError, AIStudioCancelledErro
                                AIStudioConnectionError,
                                AIStudioProfileInUseError, BraveNotFoundError,
                                InvalidBraveExecutableError)
+from .app_data import app_data_root
 
 
 BRAVE_RELATIVE_PATH = Path('BraveSoftware') / 'Brave-Browser' / 'Application' / 'brave.exe'
@@ -65,12 +66,11 @@ class AIStudioBrowserManager:
 
     @property
     def profile_path(self):
-        local_app_data = self.environment.get('LOCALAPPDATA')
-        if not local_app_data:
+        if not self.environment.get('LOCALAPPDATA') and not self.environment.get('MCQ_MAKER_TEST_DATA_ROOT'):
             raise InvalidBraveExecutableError(
                 'Windows Local AppData is unavailable, so MCQ Maker cannot prepare its AI Studio profile.'
             )
-        return Path(local_app_data) / 'MCQ Maker' / 'ai_studio' / 'brave-profile'
+        return app_data_root(self.environment) / 'ai_studio' / 'brave-profile'
 
     def _configured_executable(self):
         value = self.brave_executable

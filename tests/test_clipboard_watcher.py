@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QApplication
 
 from mcq_maker.clipboard_watcher import ClipboardWatcher, recognizable_quiz_text
 from mcq_maker.history import HistoryRepository
+from mcq_maker.localization import apply_language
 from mcq_maker.settings import SettingsStore
 from mcq_maker.shell import MainWindow, sheet_icon
 from mcq_maker.template_repository import TemplateRepository
@@ -171,6 +172,11 @@ class ClipboardWindowTests(unittest.TestCase):
     def setUpClass(cls):
         cls.app = QApplication.instance() or QApplication([])
 
+    def setUp(self):
+        # These assertions verify the English UI copy, regardless of a prior
+        # test having selected the Arabic application language.
+        apply_language(self.app, 'en')
+
     def test_process_clipboard_now_opens_create_preview_without_enabling_watcher(self):
         with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
             root = Path(temporary)
@@ -200,6 +206,7 @@ class ClipboardWindowTests(unittest.TestCase):
             repository.initialize()
             store = SettingsStore(repository.root)
             settings = store.defaults()
+            settings['language'] = 'en'
             clipboard = FakeClipboard()
             window = MainWindow(repository=repository, settings=settings, settings_store=store)
             tray = TrayController(window, sheet_icon())
@@ -237,6 +244,7 @@ class ClipboardWindowTests(unittest.TestCase):
             repository.initialize()
             store = SettingsStore(repository.root)
             settings = store.defaults()
+            settings['language'] = 'en'
             clipboard = FakeClipboard()
             window = MainWindow(repository=repository, settings=settings, settings_store=store)
             watcher = ClipboardWatcher(clipboard, repository, settings, parent=window)

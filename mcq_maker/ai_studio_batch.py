@@ -20,6 +20,7 @@ from .ai_studio_errors import (
     AIStudioInitializationError, AIStudioUploadError, AIStudioValidationError,
     AIStudioResponseError,
 )
+from .app_data import app_data_root
 from .ai_studio_session import AIStudioConversationSession
 from .exam_generator import proposed_filename, save_exam, serialize_payload
 
@@ -116,8 +117,7 @@ def configuration_fingerprint(*, prompt_path, reference_path, model, thinking,
 
 
 def default_batch_root():
-    root = os.environ.get('LOCALAPPDATA')
-    return Path(root or Path.home()) / 'MCQ Maker' / 'ai_studio' / 'batches'
+    return app_data_root() / 'ai_studio' / 'batches'
 
 
 @dataclass

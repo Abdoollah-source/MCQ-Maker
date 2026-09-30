@@ -6,7 +6,10 @@ a = Analysis(
     ['launch_mcq_maker.pyw'],
     pathex=[],
     binaries=windows_toasts_binaries,
-    datas=[('mcq_maker/assets', 'mcq_maker/assets')] + windows_toasts_data,
+    datas=[
+        ('mcq_maker/assets', 'mcq_maker/assets'),
+        ('mcq_maker/resources', 'mcq_maker/resources'),
+    ] + windows_toasts_data,
     hiddenimports=windows_toasts_hidden,
     hookspath=[],
     hooksconfig={},

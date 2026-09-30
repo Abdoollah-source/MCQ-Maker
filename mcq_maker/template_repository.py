@@ -7,7 +7,8 @@ import os
 from pathlib import Path
 import tempfile
 from uuid import uuid4, UUID
-from platformdirs import user_data_path
+from .app_data import app_data_root
+from .default_resources import DefaultResourceStore
 from .template_validation import TemplateError, MAX_TEMPLATE_BYTES, decode_template, validate_template, render_preview
 
 def timestamp():
@@ -31,7 +32,7 @@ def write_json(path, data):
 
 class TemplateRepository:
     def __init__(self, root=None):
-        self.root = Path(root) if root is not None else user_data_path('MCQ Maker', appauthor=False, roaming=False)
+        self.root = Path(root) if root is not None else app_data_root()
         self.templates = self.root / 'templates'
         self.catalog = self.templates / 'catalog.json'
 
@@ -64,7 +65,9 @@ class TemplateRepository:
         if not catalog.get('seeded'):
             existing = self.list_templates()['templates']
             if not existing:
-                bundled = Path(__file__).parent / 'assets' / 'standard_exam.html'
+                # Import an independent per-user seed, rather than relying on a
+                # checkout-only path or a mutable bundled location at runtime.
+                bundled = DefaultResourceStore(self.root).default_path('template')
                 self.import_template(bundled, 'Standard exam', bundled=True)
             catalog = self._catalog()
             catalog['seeded'] = True

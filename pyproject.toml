@@ -19,4 +19,4 @@ build-backend = "setuptools.build_meta"
 include = ["mcq_maker*"]
 
 [tool.setuptools.package-data]
-mcq_maker = ["assets/*.svg", "assets/*.txt", "assets/*.html", "assets/*.png", "assets/*.ico"]
+mcq_maker = ["assets/*.svg", "assets/*.txt", "assets/*.html", "assets/*.png", "assets/*.ico", "resources/defaults/prompt/*.txt", "resources/defaults/reference/*.txt", "resources/defaults/templates/*.html"]

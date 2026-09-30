@@ -16,6 +16,7 @@ from .ai_studio_batch import (BatchStateStore, GoogleAIStudioBatchController,
                                create_manifest,
                                manifest_matches_configuration)
 from .components import Dropdown, button, label, panel
+from .default_resources import DefaultResourceStore
 from .localization import tr
 
 
@@ -194,6 +195,10 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
     def __init__(self, repository, settings, history=None, parent=None, batch_store=None):
         super().__init__(parent)
         self.repository = repository
+        # The production shell always supplies its per-user repository. The
+        # lightweight no-repository shell is retained for isolated UI tests and
+        # previews, where bundled read-only defaults are sufficient.
+        self.default_resources = DefaultResourceStore(repository.root) if repository is not None else None
         self.settings = dict(settings or {})
         self.history = history
         self.batch_store = batch_store or BatchStateStore()
@@ -251,12 +256,12 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         setup_layout.addWidget(label('Files and setup', 'heading'))
         self.prompt_path = self._path_field(
             setup_layout, 'Prompt', 'Prompt file selected', 'Choose prompt',
-            self._default_file('Pompts', 'PROMPT(MCQ-MAKER).txt'),
+            self._default_resource_path('prompt'),
             'Text files (*.txt *.md);;All files (*)',
         )
         self.reference_path = self._path_field(
             setup_layout, 'Reference', 'Reference file selected', 'Choose reference',
-            self._default_file('References', 'refrence.txt'),
+            self._default_resource_path('reference'),
             'Text files (*.txt *.md);;All files (*)',
         )
         self.lecture_path = self._folder_field(setup_layout, 'Lecture folder', 'Lecture folder selected', '')
@@ -356,10 +361,6 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         footer.addWidget(self.run_button)
         outer.addLayout(footer)
 
-    @staticmethod
-    def _default_file(folder, filename):
-        return Path(__file__).resolve().parents[1] / folder / filename
-
     def _path_field(self, layout, title, selected_description, action, initial, file_filter):
         field = CompactPathField(
             title, selected_description, action,
@@ -368,6 +369,11 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
         field.setText(str(initial) if Path(initial).is_file() else '')
         layout.addWidget(field)
         return field
+
+    def _default_resource_path(self, kind):
+        if self.default_resources is not None:
+            return self.default_resources.default_path(kind)
+        return DefaultResourceStore().bundled_path(kind)
 
     def _folder_field(self, layout, title, selected_description, initial):
         field = CompactPathField(
@@ -616,8 +622,16 @@ class GoogleAIStudioSemiAutomationPage(QWidget):
             self._job_updated(item.file_name, item.status, detail, str(item.attempt_count))
 
     def _restore_manifest_fields(self, manifest):
-        self.prompt_path.setText(manifest.prompt_path)
-        self.reference_path.setText(manifest.reference_path)
+        # Old manifests retain their original paths. If an old checkout-only
+        # default has since disappeared, display the new seeded default without
+        # mutating the historical manifest.
+        resolver = self.default_resources
+        prompt = (resolver.resolve_existing_or_default(manifest.prompt_path, 'prompt')
+                  if resolver is not None else self._default_resource_path('prompt'))
+        reference = (resolver.resolve_existing_or_default(manifest.reference_path, 'reference')
+                     if resolver is not None else self._default_resource_path('reference'))
+        self.prompt_path.setText(str(prompt))
+        self.reference_path.setText(str(reference))
         self.lecture_path.setText(manifest.folder)
         self.output_folder.setText(manifest.output_folder)
         model_index = self.model.findData(manifest.model)

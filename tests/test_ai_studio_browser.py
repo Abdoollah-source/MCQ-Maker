@@ -128,6 +128,15 @@ class AIStudioBrowserManagerTests(unittest.TestCase):
             self.assertEqual(manager.profile_path, expected)
             self.assertNotIn('Abdoollah', str(manager.profile_path))
 
+    def test_profile_path_uses_explicit_test_root_override(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            test_root = root / 'isolated'
+            environment = self._environment(root)
+            environment['MCQ_MAKER_TEST_DATA_ROOT'] = str(test_root)
+            manager = AIStudioBrowserManager(environment=environment)
+            self.assertEqual(manager.profile_path, test_root / 'ai_studio' / 'brave-profile')
+
     def test_launch_command_is_an_argument_list_with_loopback_cdp(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

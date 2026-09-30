@@ -12,6 +12,7 @@ from PySide6.QtCore import Qt, QRunnable
 from mcq_maker.google_ai_studio_page import (GoogleAIStudioSemiAutomationPage,
                                              GoogleAIStudioSignals, GoogleAIStudioWorker)
 from mcq_maker.ai_studio_batch import BatchStateStore, create_manifest
+from mcq_maker.localization import apply_language
 from mcq_maker.settings import SettingsStore
 from mcq_maker.template_repository import TemplateRepository
 
@@ -44,6 +45,10 @@ class GoogleAIStudioPageTests(unittest.TestCase):
     def setUpClass(cls):
         cls.app = QApplication.instance() or QApplication([])
 
+    def setUp(self):
+        # The page assertions below intentionally verify the English copy.
+        apply_language(self.app, 'en')
+
     def test_page_uses_the_default_template_and_existing_ai_studio_preferences(self):
         with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
             root = Path(temporary)
@@ -65,6 +70,8 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             self.assertEqual(page.run_button.text(), 'Start batch')
             self.assertEqual(page.batch_state.text(), 'No saved batch')
             self.assertEqual(page.prompt_path.name_label.text(), 'PROMPT(MCQ-MAKER).txt')
+            self.assertTrue(Path(page.prompt_path.text()).is_relative_to(repository.root / 'defaults'))
+            self.assertTrue(Path(page.reference_path.text()).is_relative_to(repository.root / 'defaults'))
             self.assertEqual(page.prompt_path.toolTip(), page.prompt_path.text())
             self.assertTrue(page.prompt_path.copy_button.isEnabled())
             visible_labels = [item.text() for item in page.findChildren(QLabel)]
@@ -217,6 +224,28 @@ class GoogleAIStudioPageTests(unittest.TestCase):
             self.assertEqual(page.job_table.topLevelItemCount(), 1)
             self.assertEqual(page.job_table.topLevelItem(0).text(1), 'Waiting to retry')
             self.assertIn('Next retry', page.job_table.topLevelItem(0).text(3))
+            page.close()
+
+    def test_missing_checkout_defaults_restore_as_seeded_defaults_without_rewriting_manifest(self):
+        with tempfile.TemporaryDirectory(dir=BASE / 'artifacts') as temporary:
+            root = Path(temporary)
+            repository = TemplateRepository(root / 'data')
+            repository.initialize()
+            page = GoogleAIStudioSemiAutomationPage(
+                repository, SettingsStore(repository.root).defaults(),
+                batch_store=BatchStateStore(root / 'batches'),
+            )
+            manifest = SimpleNamespace(
+                prompt_path=str(root / 'Pompts' / 'PROMPT(MCQ-MAKER).txt'),
+                reference_path=str(root / 'References' / 'refrence.txt'),
+                folder=str(root / 'lectures'), output_folder=str(root / 'output'),
+                model='Gemini 3.8 Flash', thinking='High', max_workers=1, template_id='',
+            )
+            page._restore_manifest_fields(manifest)
+            self.assertTrue(Path(page.prompt_path.text()).is_relative_to(repository.root / 'defaults'))
+            self.assertTrue(Path(page.reference_path.text()).is_relative_to(repository.root / 'defaults'))
+            self.assertEqual(manifest.prompt_path, str(root / 'Pompts' / 'PROMPT(MCQ-MAKER).txt'))
+            self.assertEqual(manifest.reference_path, str(root / 'References' / 'refrence.txt'))
             page.close()
 
     def test_paused_batch_controls_and_confirmed_discard_keep_exam_outputs(self):

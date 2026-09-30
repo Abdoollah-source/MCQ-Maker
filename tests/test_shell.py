@@ -3,6 +3,7 @@ import unittest
 from PySide6.QtCore import Qt
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication, QPushButton
+from mcq_maker.localization import apply_language
 from mcq_maker.shell import MainWindow
 from mcq_maker.theme import apply_theme
 
@@ -13,6 +14,8 @@ class ShellTests(unittest.TestCase):
         cls.app.setStyle('Fusion')
 
     def setUp(self):
+        # Shell interaction assertions in this class use the English copy.
+        apply_language(self.app, 'en')
         apply_theme(self.app)
         self.window = MainWindow()
         self.window.show()
